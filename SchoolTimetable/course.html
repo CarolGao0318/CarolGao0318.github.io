@@ -12,18 +12,19 @@
         }
         th{
             border: 1px solid black;
+            width: 80px;
         }
         td{
             border: 1px solid black;
+            width: 80px;
         }
     </style>
 </head>
 <body>
-    <div class="wrap">
     <table>
         <caption>宜蘭縣成功國民小學九十八學年度日課表</caption>
         <thead>
-            <!-- 第一列 13欄標題 -->
+            <!-- 第01列 13欄標題 -->
             <tr> 
                 <th>時段</th>
                 <th colspan="3">時間/科別/星期</th>
@@ -35,11 +36,12 @@
                 <th colspan="4">每周授課分鐘數及授課老師</th>
             </tr>
         </thead>
-        <tbody> <!-- 共20列 -->
-            <!-- 第二列 上午-->
+        <tbody> 
+            <!-- 上午 第02-12列 -->
+            <!-- 第02列 -->
             <tr>
                 <th rowspan="11">上午</th>
-                <td>  </td>
+                <td></td>
                 <td>10</td>
                 <td>7:50<br>8:00</td>
                 <td colspan="5">教職員朝會</td>
@@ -47,7 +49,7 @@
                 <td>分鐘</td>
                 <td>授課教師</td>
             </tr>
-            <!-- 第三列 -->
+            <!-- 第03列 -->
             <tr>
                 <td rowspan="3">  </td>
                 <td>20</td>
@@ -58,7 +60,7 @@
                 <td>240</td>
                 <td>劉晨華</td>
             </tr>
-            <!-- 第四列 -->
+            <!-- 第04列 -->
             <tr>
                 <td rowspan="2">10</td>
                 <td rowspan="2">8:20<br>8:30</td>
@@ -67,13 +69,13 @@
                 <td>40</td>
                 <td>陳美惠</td>
             </tr>
-            <!-- 第五列 -->
+            <!-- 第05列 -->
             <tr>
                 <td>英文</td>
                 <td>40</td>
                 <td>許淑柄</td>
             </tr>
-            <!-- 第六列 -->
+            <!-- 第06列 -->
             <tr>
                 <td rowspan="2">1</td>
                 <td rowspan="2">40</td>
@@ -87,13 +89,13 @@
                 <td>160</td>
                 <td>劉晨華</td>
             </tr>
-            <!-- 第七列 -->
+            <!-- 第07列 -->
             <tr>
                 <td colspan="2">社會</td>
                 <td>120</td>
                 <td>莊國彬</td>
             </tr>
-            <!-- 第八列 -->
+            <!-- 第08列 -->
             <tr>
                 <td>2</td>
                 <td>40</td>
@@ -107,7 +109,7 @@
                 <td>120</td>
                 <td>黃慶恩</td>
             </tr>
-            <!-- 第九列 -->
+            <!-- 第09列 -->
             <tr>
                 <td rowspan="2">3</td>
                 <td rowspan="2">40</td>
@@ -122,13 +124,13 @@
                 <td>40</td>
                 <td>萬巧如</td>
             </tr>
-            <!-- 第十列 -->
+            <!-- 第10列 -->
             <tr>
                 <td>美勞</td>
                 <td>80</td>
                 <td>簡昱文</td>
             </tr>
-            <!-- 第十一列 -->
+            <!-- 第11列 -->
             <tr>
                 <td rowspan="2">4</td>
                 <td rowspan="2">40</td>
@@ -143,20 +145,22 @@
                 <td>40</td>
                 <td>潘文欽</td>
             </tr>
-            <!-- 第十二列 -->
+            <!-- 第12列 -->
             <tr>
                 <td>體育</td>
                 <td>80</td>
                 <td>潘文欽</td>
             </tr>
-            <!-- 第13列 下午, 共8列 -->
+
+            <!-- 下午 第13-22列 -->
+            <!-- 第13列 -->
             <tr>
                 <th rowspan="9">下午</th>
                 <td rowspan="2">  </td>
                 <td rowspan="2">80</td>
                 <td>12:00<br>12:40</td>
                 <td colspan="5">午餐時間</td>
-                <td colspan="2" rowspan="3" height="125">綜合活動</td>
+                <td colspan="2" rowspan="3" height="120px">綜合活動</td>
                 <td rowspan="3">120</td>
                 <td rowspan="3">劉晨華</td>
             </tr>
@@ -165,8 +169,24 @@
                 <td>12:40<br>13:20</td>
                 <td colspan="5">午餐時間</td>
             </tr>
-            <!-- 第15-16列 -->
-            <tr
+
+            <!-- <tr> 切版錯誤
+                <td class="top-color">5</td>
+                <td class="top-color">40</td>
+                <td class="top-color">13:30<br>14:10</td>
+                <td class="top-color">美勞</td>
+                <td class="top-color">國語</td>
+                <td class="top-color" rowspan="5">教師<br>進修<br>時間</td>
+                <td class="top-color">綜合</td>
+                <td class="top-color">國語</td>
+                <td rowspan="2">彈性時間</td>
+                <td>彈性課程</td>
+                <td>160</td>
+                <td>劉晨華</td>
+            </tr> -->
+            
+            <!-- 第15列 -->
+            <tr>
                 <td rowspan="2">5</td>
                 <td rowspan="2">40</td>
                 <td rowspan="2">13:30<br>14:10</td>
@@ -175,10 +195,13 @@
                 <td rowspan="6">教師<br>進修<br>時間</td>
                 <td rowspan="2">綜合</td>
                 <td rowspan="2">國語</td>
-                <td rowspan="3">彈性時間</td>
-                <td rowspan="2">彈性課程</td>
-                <td rowspan="2">160</td>
-                <td rowspan="2">劉晨華</td>
+            </tr>
+            <!-- 第16列 -->
+            <tr>
+                <td rowspan="2">彈性時間</td>
+                <td>彈性課程</td>
+                <td>160</td>
+                <td>劉晨華</td>
             </tr>
             <!-- 第17列 -->
             <tr>
@@ -195,7 +218,7 @@
             </tr>
             <!-- 第18列 -->
             <tr>
-                <td>  </td>
+                <td></td>
                 <td>20</td>
                 <td>15:00<br>15:20</td>
                 <td colspan="2">整潔</td>
@@ -203,7 +226,7 @@
                 <td>合計</td>
                 <td colspan="3">1280</td>
             </tr>
-            <!-- 第18-19列 -->
+            <!-- 第19-20列 -->
             <tr>
                 <td rowspan="2">7</td>
                 <td rowspan="2">40</td>
@@ -214,20 +237,19 @@
                 <td rowspan="2">國語</td>
                 <td colspan="4">五年四班</td>
             </tr>
-            <!-- 第20列 -->
-            <tr>
-                <td colspan="4">級任導師</td>
-            </tr>
             <!-- 第21列 -->
             <tr>
-                <td>  </td>
+                <td colspan="4">級任導師</td> -->
+            </tr>
+            <!-- 第22列 -->
+            <tr>
+                <td></td>
                 <td>10</td>
                 <td>16:00<br>16:10</td>
                 <td colspan="5">收穫滿行囊滿心歡喜回家去</td>
                 <td colspan="4">劉晨華導師</td>
-            </tr>
+            </tr> 
         </tbody>
-</div>
-    
+    </table>
 </body>
 </html>
