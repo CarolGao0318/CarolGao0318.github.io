@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin:0;
+        padding:0;
+    }
+
+    /* 手機預設畫面 */
+    .group{
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        max-width: 1200px;
+    }
+    .item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: #ccc;
+        margin: 10px;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+    .pic{
+        width: 50%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    .pic img{
+        width: 100%;
+    }
+    .text{
+        width: 50%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    @media screen and (min-width:768px){
+        .item{
+            --col-count:3;
+            width: calc(100% / var(--col-count) - 30px);
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (min-width:1200px){
+        .item:nth-child(-n+2){
+            --col-count:2;
+            flex-direction: row;
+        }
+        .item:nth-child(-n+2) .pic,.text{
+            width: 50%;
+        }
+        .item:nth-child(n+3){
+            --col-count:4;
+            flex-direction: column;
+            position: relative;
+        }
+        .item:nth-child(n+3) .text{
+            opacity: 0;
+            position: absolute;
+        }
+        .item:nth-child(n+3) .text:hover{
+            opacity: 1;
+            color: #ccc;
+            background-color:rgba(0,0,0,.5);
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .item:nth-child(n+3) .pic{
+            box-sizing: border-box;
+            width: 100%;
+            padding:0;
+            vertical-align: middle;
+        }
+
+    }
+</style>
+<body>
+    <div class="group">
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=10">
+            </div>
+            <div class="text">
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, expedita. Corrupti quibusdam officiis magnam maxime esse odit inventore dolore itaque, unde perspiciatis vel, quia, nobis numquam iure aliquid aliquam hic provident commodi nisi soluta sint cumque dicta. Quis ducimus deleniti reiciendis aut deserunt nobis quo quibusdam eveniet ea, accusamus quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=20">
+            </div>
+            <div class="text">
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, expedita. Corrupti quibusdam officiis magnam maxime esse odit inventore dolore itaque, unde perspiciatis vel, quia, nobis numquam iure aliquid aliquam hic provident commodi nisi soluta sint cumque dicta. Quis ducimus deleniti reiciendis aut deserunt nobis quo quibusdam eveniet ea, accusamus quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=30">
+            </div>
+            <div class="text">
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, expedita. Corrupti quibusdam officiis magnam maxime esse odit inventore dolore itaque, unde perspiciatis vel, quia, nobis numquam iure aliquid aliquam hic provident commodi nisi soluta sint cumque dicta. Quis ducimus deleniti reiciendis aut deserunt nobis quo quibusdam eveniet ea, accusamus quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=40">
+            </div>
+            <div class="text">
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, expedita. Corrupti quibusdam officiis magnam maxime esse odit inventore dolore itaque, unde perspiciatis vel, quia, nobis numquam iure aliquid aliquam hic provident commodi nisi soluta sint cumque dicta. Quis ducimus deleniti reiciendis aut deserunt nobis quo quibusdam eveniet ea, accusamus quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=50">
+            </div>
+            <div class="text">
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, expedita. Corrupti quibusdam officiis magnam maxime esse odit inventore dolore itaque, unde perspiciatis vel, quia, nobis numquam iure aliquid aliquam hic provident commodi nisi soluta sint cumque dicta. Quis ducimus deleniti reiciendis aut deserunt nobis quo quibusdam eveniet ea, accusamus quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=60">
+            </div>
+            <div class="text">
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, expedita. Corrupti quibusdam officiis magnam maxime esse odit inventore dolore itaque, unde perspiciatis vel, quia, nobis numquam iure aliquid aliquam hic provident commodi nisi soluta sint cumque dicta. Quis ducimus deleniti reiciendis aut deserunt nobis quo quibusdam eveniet ea, accusamus quidem.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
