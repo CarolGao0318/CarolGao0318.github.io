@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            line-height: 2;
+            font-family: 'Noto Sans TC', 'sans-serif';
+            list-style: none;
+            text-decoration: none;
+            color: black;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #ccc;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #CFC3BC;
+            padding: 0 10px;
+        }
+
+        .logo img {
+            vertical-align: middle;
+        }
+
+        input {
+            display: none;
+        }
+
+        .second-menu li+li {
+            border-top: 2px solid #ccc;
+        }
+
+        nav a {
+            font-size: 20px;
+            font-weight: 600;
+            height: 100%;
+        }
+
+        /*------手機板------------------------------------------------------------------ */
+        @media screen and (max-width: 768px) {
+
+            .HB {
+                background-color: dimgrey;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+            }
+
+            .HB span {
+                background-color: #000;
+                width: 80%;
+                height: 2px;
+                display: inline-block;
+            }
+
+            .first-menu,
+            nav {
+                display: none;
+            }
+
+            /* 觸碰漢堡後 */
+            #menu-control:checked~.main-header nav,
+            #menu-control:checked~.main-header .first-menu {
+                display: block;
+            }
+
+            #menu-control:checked~.main-header .HB span:first-child,
+            #menu-control:checked~.main-header .HB span:last-child {
+                position: absolute;
+                bottom: 50%;
+            }
+
+            #menu-control:checked~.main-header .HB span:nth-child(2) {
+                display: none;
+            }
+
+            #menu-control:checked~.main-header .HB span:first-child {
+                transform: rotate(45deg);
+            }
+
+            #menu-control:checked~.main-header .HB span:last-child {
+                transform: rotate(-45deg);
+            }
+
+            /* ---手機第一層menu---------------------------------------- */
+            #menu-control:checked~.main-menu .first-menu {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                background-color: #CFC3BC;
+                right: 60%;
+                top: 65px;
+                width: 40%;
+            }
+
+            .main-menu .first-menu a {
+                display: inline-block;
+                color: #000;
+                font-weight: 600;
+                position: relative;
+            }
+
+            /* ---手機第二層menu-------------------------------------- */
+
+            .second-menu {
+                display: none;
+            }
+
+            label {
+                cursor: pointer;
+            }
+
+            span {
+                display: inline-block;
+                font-weight: bolder;
+                font-size: 20px;
+            }
+
+            #main-menu-new:checked~.second-menu,
+            #main-menu-product:checked~.second-menu,
+            #main-menu-event:checked~.second-menu,
+            #main-menu-about:checked~.second-menu {
+                position: relative;
+                left: 0;
+                display: block;
+                background-color: #fff;
+            }
+
+            #main-menu-new:checked~.first-menu span,
+            #main-menu-product:checked~.first-menu span,
+            #main-menu-event:checked~.first-menu span,
+            #main-menu-about:checked~.first-menu span {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* -----桌機版-------------------------------------------------------- */
+        @media screen and (min-width: 769px) {
+            .HB,
+            span {
+                display: none;
+            }
+
+            nav .nav {
+                display: flex;
+                position: relative;
+            }
+            nav .main-menu {
+                text-align: center;
+            }
+
+            .first-menu {
+                width: 200px;
+                padding: 10px 0;
+            }
+
+            .second-menu {
+                display: none;
+                position: absolute;
+                top: 60px;
+                background: #aaa;
+                width: 200px;
+            }
+
+            .main-menu .first-menu:hover {
+                background-color: #fff;
+            }
+
+            .main-menu:hover .second-menu {
+                position: absolute;
+                display: block;
+            }
+
+            .main-menu:hover .second-menu a {
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" name="" id="menu-control">
+    <header class="main-header">
+        <div class="logo">
+            <h1>
+                <a href="#"><img src="https://picsum.photos/80/40/?random=10"></a>
+            </h1>
+        </div>
+        <label for="menu-control" class="HB">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="nav">
+                <li class="main-menu">
+                    <input type="checkbox" name="" id="main-menu-new">
+                    <div class="first-menu">
+                        <a href="#">最新商品</a>
+                        <label for="main-menu-new">
+                            <span>></span>
+                        </label>
+                    </div>
+                    <ul class="second-menu">
+                        <li><a href="#">12月新品</a></li>
+                        <li><a href="#">11月新品</a></li>
+                        <li><a href="#">10月新品</a></li>
+                    </ul>
+                </li>
+                <li class="main-menu">
+                    <input type="checkbox" name="" id="main-menu-product">
+                    <div class="first-menu">
+                        <a href="#">全部商品</a>
+                        <label for="main-menu-product">
+                            <span>></span>
+                        </label>
+                    </div>
+                    <ul class="second-menu">
+                        <li><a href="#">上衣</a></li>
+                        <li><a href="#">下身</a></li>
+                        <li><a href="#">配件</a></li>
+                    </ul>
+                </li>
+                <li class="main-menu">
+                    <input type="checkbox" name="" id="main-menu-event">
+                    <div class="first-menu">
+                        <a href="#">優惠活動</a>
+                        <label for="main-menu-event">
+                            <span>></span>
+                        </label>
+                    </div>
+                    <ul class="second-menu">
+                        <li><a href="#">聖誕交換禮物</a></li>
+                        <li><a href="#">1212滿千免運</a></li>
+                        <li><a href="#">現貨88折</a></li>
+                    </ul>
+                </li>
+                <li class="main-menu">
+                    <input type="checkbox" name="" id="main-menu-about">
+                    <div class="first-menu">
+                        <a href="#">關於我們</a>
+                        <label for="main-menu-about">
+                            <span>></span>
+                        </label>
+                    </div>
+                    <ul class="second-menu">
+                        <li><a href="#">布料保養</a></li>
+                        <li><a href="#">銷售據點</a></li>
+                        <li><a href="#">售後服務</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+</body>
+
+</html>
