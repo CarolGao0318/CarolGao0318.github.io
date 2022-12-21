@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 70px;
+            font-weight: 900;
+            color: #484A55;
+            margin: 50px;
+        }
+        .main-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            width: 960px;
+        }
+        button {
+            background-color: white;
+            border: 0px;
+            padding: 20px;
+        }
+        .btnLeft i,
+        .btnRight i {
+            width: 100%;
+            color: #484A55;
+            font-size: 80px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script src="https://kit.fontawesome.com/83a2f59bcb.js" crossorigin="anonymous"></script>
+    <h1> Altis 360 </h1>
+    <div class="main-area">
+        <button class="btnLeft">
+            <i class="fa-sharp fa-solid fa-arrow-rotate-right"></i>
+        </button>
+        <div id="container">
+            <img class="pic" src="">
+        </div>
+        <button class="btnRight">
+            <i class="fa-sharp fa-solid fa-arrow-rotate-left"></i>
+        </button>
+    </div>
+    <div class="color-card">
+        <div class="redCar">
+            <img src="">
+        </div>
+        <div class="grayCar">
+            <img src="">
+        </div>
+    </div>
+
+    <!-- --------------------------------------------- -->
+
+    <script>
+        let carArray = [];
+        let container;
+        let index = 0;
+        let btnLeft = document.querySelector('.btnLeft');
+        let btnRight = document.querySelector('.btnRight');
+        let colorCard = document.querySelector('.color-card');
+        let redCar = document.querySelector('.redCar');
+        let grayCar = document.querySelector('.grayCar');
+        const img = document.querySelector('.pic');
+
+        window.onload = function () {
+            container = document.getElementById("container");
+
+            GenCarArray();
+            img.src = carArray[index];
+
+            // TODO: 新增'click'事件，點選替換車子圖片
+            btnLeft.addEventListener('click', function (event) {
+                if (index === 59) {
+                    index = 0;
+                }
+                else{
+                    index++;
+                }
+                // img.setAttribute("src", carArray[index]);
+                img.src = carArray[index];
+            })
+            btnRight.addEventListener('click', function (event) {
+                if (index === 0) {
+                    index = 59;
+                }
+                else{
+                    index--;
+                }
+                // img.setAttribute("src", carArray[index]);
+                img.src = carArray[index];
+            })
+        }
+
+        //抓到車子圖片的路徑 (共60張)
+        function GenCarArray() {
+            for (let i = 1; i <= 60; i++) {
+                let urlTemplate = `../Altis360/AltisImg/360EXT_1_18_${i}.png`;
+                carArray.push(urlTemplate);
+            }
+        }
+
+    
+    </script>
+
+</body>
+
+</html>
