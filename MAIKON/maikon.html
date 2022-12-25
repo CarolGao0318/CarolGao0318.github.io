@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../grid-system.css">
+    <style>
+        /* 寬度共同設定 */
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+        }
+        
+        img {
+            width: 100%;
+        }
+        .section-projects,
+        .section-sign-up,
+        .section-subscribe,
+        .footer {
+            width: 100%;
+        }
+
+        /* div */
+        .main-header .header-item,
+        .intro,
+        .serviceOne,
+        .serviceTwo,
+        .contact,
+        .why-us,
+        .steps-list,
+        .projects,
+        .sign-up,
+        .subscribe,
+        .footer-link,
+        .footer-copyright {
+            margin: auto;
+            max-width: 1200px;
+            padding: 50px;
+            font-family: Roboto, sans-serif;
+        }
+
+        /* bgc 共同設定--------------------------- */
+        .main-header,
+        .intro,
+        .contact,
+        .why-us,
+        .steps-list,
+        .footer {
+            background-color: #FFFFFF;
+        }
+        .service {
+            background-color: #FEFEFE;
+        }
+        .projects {
+            background-color: #F9FBFF;
+        }
+        .sign-up {
+            background-color: #FBFCFC;
+        }
+        .subscribe {
+            background-color: #F6F8FA;
+        }
+
+        /* h2文字共同設定-------------------------- */
+        .intro .text-area h2,
+        .contact .text-area h2,
+        .section-steps-list h2,
+        .sign-up .form .form-title h2,
+        .service h2,
+        .projects .projects-title h2,
+        .subscribe h2 {
+            color: #1D273B;
+            font-size: 42px;
+            font-weight: 300;
+            line-height: 1.35;
+            margin-bottom: 30px;
+        }
+        .intro .row:first-child .text-area h2 {
+            font-size: 55px;
+        }
+        .subscribe h2 {
+            text-align: center;
+        }
+        .intro .text-area p,
+        .contact .text-area p {
+            color: #7A8190;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+
+        /* button 共同設定 ----------------------*/
+        .intro .btn button:first-child,
+        .contact .btn button:first-child,
+        .projects .btn button,
+        .form-list button {
+            border: 1px solid #1FDE82;
+            background-color: #1FDE82;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 10px 10px 10px 10px;
+            margin-right: 10px;
+        }
+
+        .form .form-list button {
+            width: 100px;
+            padding: 8px 4px;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .projects .btn button {
+            margin-right: 0;
+        }
+
+        .intro .btn .video,
+        .intro .btn .contact-us,
+        .contact .btn button:last-child {
+            border: 1px solid #E6E8ED;
+            background-color: #FFFFFF;
+            color: #626B7D;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .intro .btn .video {
+            border: none;
+        }
+
+        .main-nav button {
+            border: 1px solid #E6E8ED;
+            background-color: #FFFFFF;
+            color: #626B7D;
+            font-size: 16px;
+            font-weight: 200;
+            padding: 10px;
+            border-radius: 10px 10px 10px 10px;
+            margin-left: 30px;
+        }
+
+        .subscribe-form button {
+            border: 1px solid #1FDE82;
+            background-color: #1FDE82;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        /* ---header-------------------------------------------- */
+
+        .main-header {
+            position: fixed;
+            left: 0;
+            right: 0;
+            width: 100%;
+            box-shadow: 1px 1px 1px #ccc;
+        }
+
+        .main-header .header-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header-item .logo {
+            width: 150px;
+        }
+
+        .header-item .logo img {
+            width: 100%;
+            vertical-align: baseline;
+        }
+
+        .main-nav {
+            align-self: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #6A7283;
+            font-size: 18px;
+            font-weight: 300;
+            justify-items: space-evenly;
+            padding: 0 8px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .main-nav a:hover {
+            border-bottom: 1px solid #6A7283;
+            width: 80%;
+            transition: 1s;
+        }
+
+        #menu-control {
+            display: none;
+        }
+
+        /* ------------------------------------------- */
+        @media screen and (max-width:768px) {
+            .main-nav {
+                display: none;
+                position: absolute;
+                background-color: #fff;
+                line-height: 2;
+                top: 100%;
+                right: 0;
+            }
+            #menu-control:checked~.main-header .main-nav {
+                display: block;
+                transition: 1s;
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+            }
+            .main-nav button {
+                display: none;
+            }
+            .HB {
+                width: 40px;
+                height: 40px;
+                background-color: #1FDE82;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .HB span {
+                width: 50%;
+                height: 4px;
+                background-color: #fff;
+            }
+        }
+        @media screen and (min-width:768px) {
+            .HB {
+                display: none;
+            }
+
+        }
+
+        /* ---intro & contact-------------------------------------------- */
+        .intro {
+            padding-top: 100px;
+        }
+
+        .intro .text-area,
+        .contact .text-area {
+            padding: 100px 0px;
+        }
+
+        .intro img,
+        .contact img,
+        .sign-up .col-12 img {
+            padding: 80px 0px;
+        }
+
+        .intro .row:last-child {
+            flex-direction: row-reverse;
+        }
+
+        /* service */
+        .service img{
+            width: 40%;
+        }
+        .service .card {
+            margin: 20px;
+            padding: 10px 10px 50px 10px;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0px 4px 44px 0px rgb(17 29 48 / 6%);
+        }
+
+        .service .card h3 {
+            font-size: 30px;
+            margin: 20px 0;
+        }
+
+        .service .card p {
+            font-size: 18px;
+            color: #626B7D;
+            line-height: 1.5;
+            font-weight: 300;
+            margin: 10px 0;
+        }
+
+        .service .card a {
+            text-decoration: none;
+            font-size: 15px;
+            color: #5D6678;
+            font-weight: 600;
+        }
+
+        .service .card img {
+            margin: 30px 0;
+            border-radius: 50% 50% 50% 50%;
+            box-shadow: 0px 8px 32px 0px rgb(31 222 130 / 46%);
+        }
+
+        /* ----------------------------------------------- */
+        /* blue: why-us */
+        .why-us {
+            background-color: #2570FF;
+        }
+
+        .why-us .col-12 {
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        /* blue左邊 */
+        .why-us .data {
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px 10px 10px 10px;
+            background-color: #3F81FF;
+            padding: 10px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .why-us .data span,
+        .why-us .data p {
+            color: #FFFFFF;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            padding-right: 50px;
+        }
+
+        .why-us .data p {
+            font-size: 12px;
+            font-weight: 300;
+        }
+
+        .why-us .data span {
+            font-weight: 700;
+            font-size: 60px;
+        }
+
+        /* blue右邊 */
+        .why-us .text-area {
+            line-height: 1.5;
+            font-weight: 300;
+            color: #FFFFFF;
+            padding: 50px 100px 0px 0px;
+        }
+
+        .why-us .text-area h2 {
+            margin-bottom: 20px;
+            font-size: 50px;
+        }
+
+        .why-us .text-area p {
+            padding: 0 80px 20px 0;
+            font-size: 13px;
+        }
+
+        .why-us button {
+            border: none;
+            background-color: #2570FF;
+            color: #FFFFFF;
+            outline: 1px solid #FFFFFF;
+            font-size: 13px;
+            font-weight: 300;
+            padding: 15px;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        /* --steps--------------------------------------- */
+        .steps-list-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .section-steps-list h2 {
+            padding: 50px;
+        }
+
+        .steps-list-item .text-area h3 {
+            color: #1D273B;
+            font-size: 22px;
+            line-height: 1.5;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .steps-list-item .text-area p {
+            color: #7A8190;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .steps-list-item .num-pic,
+        .steps-list-item .text-area {
+            margin: 50px 0;
+        }
+        .steps-list-item .num-pic{
+            max-width: 100px;
+        }
+
+        /* ---projects---------------------------------------- */
+
+        .projects .row:first-child {
+            justify-content: space-between;
+            margin: 0px 10px;
+        }
+
+        .projects-pic img {
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .projects .projects-item {
+            position: relative;
+            margin: 10px;
+        }
+
+        .projects .projects-item .text-area {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .projects .projects-item:hover .text-area {
+            top: 0;
+            opacity: 0.9;
+            width: 100%;
+            height: 100%;
+            background-color: #1FDE82;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .projects-item .text-area h4 {
+            color: #FFFFFF;
+            font-size: 40px;
+            font-weight: 300;
+            padding: 80px 30px;
+        }
+
+        .projects-item .text-area a {
+            text-decoration: none;
+            color: #FFFFFF;
+            padding: 200px 30px 30px 30px;
+            font-size: 12px;
+        }
+
+        /* --sign-up 表單-------------------------------------- */
+
+        .sign-up .form {
+            height: 70%;
+            padding: 50px 30px 20px 30px;
+            margin: 100px 50px 50px 50px;
+            background-color: #FFFFFF;
+            border: 10px 10px 10px 10px;
+        }
+
+        .sign-up img {
+            width: 100%;
+            padding: 100px 60px;
+            justify-self: center;
+        }
+
+        .sign-up .form-list {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            background-color: #fff;
+        }
+
+        .sign-up .form-list input {
+            height: 30px;
+            width: 100%;
+            margin: 10px 0;
+            border: none;
+            outline: #C9CED8 solid thin;
+            border-radius: 5px 5px 5px 5px;
+            padding: 4px;
+            background-color: #ffffff;
+        }
+
+        .sign-up .form-list .text-area textarea {
+            resize: vertical;
+            height: 80px;
+            width: 100%;
+            border: none;
+            outline: #C9CED8 solid thin;
+            border-radius: 5px 5px 5px 5px;
+            padding: 4px;
+        }
+
+        /* ----subcribe---------------------------------------- */
+        .subscribe {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .subscribe .subscribe-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .subscribe-form input {
+            height: 40px;
+            max-width: 800px;
+            border: none;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        /* ---footer------------------------------------ */
+        .footer h4 {
+            padding: 20px 0;
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .footer .address-info,
+        .footer-link .col-12 a,
+        .footer-link .col-12:last-child p {
+            text-decoration: none;
+            line-height: 2;
+            font-size: 14px;
+            color: #6C7585;
+            font-weight: 300;
+        }
+
+        .footer .address-info span {
+            color: #1FDE82;
+            font-weight: 500;
+        }
+
+        .footer .address img {
+            width: 60%;
+        }
+
+        .footer-link .col-12 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-icon {
+            flex-direction: row;
+        }
+
+        .footer .footer-link {
+            margin: 50px 0;
+        }
+
+        .footer .footer-copyright div {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .footer-copyright p,
+        .footer-copyright a {
+            font-size: 10px;
+            color: #6C7585;
+            font-weight: 300;
+        }
+
+        .footer-copyright a {
+            text-decoration: none;
+        }
+
+        .footer-copyright a:first-child {
+            padding-right: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <!-- nav -->
+        <input type="checkbox" name="" id="menu-control">
+        <header class="main-header">
+            <div class="header-item">
+                <div class="logo">
+                    <h1><img
+                            src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/logo-retina.png">
+                    </h1>
+                </div>
+                <label for="menu-control" class="HB">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <nav class="main-nav">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Team</a>
+                    <a href="#">Case Studio</a>
+                    <a href="#">Contacts</a>
+                    <button>SUBSCRIBE</button>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <!-- 介紹 -->
+            <section class="section-intro">
+                <div class="intro">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="text-area">
+                                <h2>Our creativity is your success</h2>
+                                <p>We break all boundaries if they happen on our way of project’s development!</p>
+                                <div class="btn">
+                                    <button>LEARN MORE</button>
+                                    <button class="video">WATCH VIDEO</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <img
+                                src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-1.svg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="text-area">
+                                <h2>Creative challenges are our passion</h2>
+                                <p>Our team of designers and developers work closely together to build a creative and
+                                    positive
+                                    working environment. Functionality is as important to us as aesthetics.</p>
+                                <div class="btn">
+                                    <button>ABOUT US</button>
+                                    <button class="contact-us">CONTACT US</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <img
+                                src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-2.png">
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+            <!-- 服務 -->
+            <section class="section-service">
+                <div class="service">
+                    <div class="serviceOne">
+                        <h2>We provide a wide range of creative services</h2>
+                        <div class="row">
+                            <div class="col-12 col-lg-4">
+                                <div class="card">
+                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-1.svg"
+                                        alt="icon">
+                                    <h3>Web Design & Brending</h3>
+                                    <p>A great brand combines design and conveys company’s value messaging to evoke
+                                        emotion
+                                        and
+                                        drive strategy.</p>
+                                    <a href="#">READ MORE</a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="card">
+                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-2.svg"
+                                        alt="icon">
+                                    <h3>Graphic Design</h3>
+                                    <p>Rich experience plus unlimited imagination create our successful service
+                                        discovered
+                                        by
+                                        clients.</p>
+                                    <a href="#">READ MORE</a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="card">
+                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-3.svg"
+                                        alt="icon">
+                                    <h3>Video Production</h3>
+                                    <p>Creating and handling professional video is our strong point. It plays major role
+                                        in
+                                        your
+                                        digital business strategy.</p>
+                                    <a href="#">READ MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serviceTwo">
+                        <div class="row">
+                            <div class="col-12 col-lg-4">
+                                <div class="card">
+                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-4.svg"
+                                        alt="icon">
+                                    <h3>SEO</h3>
+                                    <p>We provide everything your site needs to perform at it’s highest capabilities on
+                                        the
+                                        major
+                                        search engines.</p>
+                                    <a href="#">READ MORE</a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="card">
+                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-5.svg"
+                                        alt="icon">
+                                    <h3>Digital Marketing</h3>
+                                    <p>We do collateral design, interactive design, hoarding, signage, presentation
+                                        centres,
+                                        and
+                                        more.</p>
+                                    <a href="#">READ MORE</a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="card">
+                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-6.svg"
+                                        alt="icon">
+                                    <h3>Infographics</h3>
+                                    <p>Turn your data into captivating artwork that will keep your audience engaged. Our
+                                        team
+                                        can
+                                        help you with it.</p>
+                                    <a href="#">READ MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 聯絡我們 -->
+            <section class="section-contact">
+                <div class="contact">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="text-area">
+                                <h2>If you have any questions, please contact us</h2>
+                                <p>Our professional support team try to do their best to provide you with high-quality
+                                    consultations concerning any question about our services.</p>
+                                <div class="btn">
+                                    <button>CONTACT US</button>
+                                    <button>SUBSCRIBE</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <img
+                                src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-3.svg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 藍色區塊 -->
+            <section class="section-why-us">
+                <div class="why-us">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-6">
+                                <div class="data">
+                                    <span>1880+</span>
+                                    <p>Completed projects to the end by our specialists.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="data">
+                                    <span>56</span>
+                                    <p>A large team of the best specialists.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="data">
+                                    <span>2000+</span>
+                                    <p>Customers who were satisfied with our work.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="data">
+                                    <span>100%</span>
+                                    <p>Our values are good organization and result orientation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="text-area">
+                                <h2>Why choose our studio for your projects?</h2>
+                                <p>We are a command of professional and enthusiastic people, who like what they do and
+                                    are
+                                    always in
+                                    the process of growing and improving their skills.</p>
+                                <button>ORDER SERVICE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 地圖區 -->
+            <section class="section-steps-list">
+                <!-- no1 -->
+                <div class="steps-list">
+                    <h2>Steps of our work</h2>
+                    <div class="steps-list-item row">
+                        <div class="col-12 col-lg-4">
+                            <div class="steps-list-item-pic">
+                                <img
+                                    src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-4.svg">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <div class="row">
+                                <div class="col-12 col-lg-3">
+                                    <div class="num-pic">
+                                        <img
+                                            src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/number-01.svg">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-9">
+                                    <div class="text-area">
+                                        <h3>Meeting With The Customer</h3>
+                                        <p>The first meeting is very import to form contact and discuss the main ideas
+                                            of
+                                            the
+                                            project.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- no2 -->
+                    <div class="steps-list-item row">
+                        <div class="col-12 col-lg-4">
+                            <div class="steps-list-item-pic">
+                                <img
+                                    src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-5.svg">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <div class="row">
+                                <div class="col-12 col-lg-3">
+                                    <div class="num-pic">
+                                        <img
+                                            src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/number-02.svg">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-9">
+                                    <div class="text-area">
+                                        <h3>We Consider And Analyze The Work Plan</h3>
+                                        <p>When we understand the main eideas, we proceed to discussing the work plan
+                                            and
+                                            analyzing it.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- no3 -->
+                    <div class="steps-list-item row">
+                        <div class="col-12 col-lg-4">
+                            <div class="steps-list-item-pic">
+                                <img
+                                    src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-6.svg">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <div class="row">
+                                <div class="col-12 col-lg-3">
+                                    <div class="num-pic">
+                                        <img
+                                            src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/number-03.svg">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-9">
+                                    <div class="text-area">
+                                        <h3>Work Hard On The Project</h3>
+                                        <p>Our professional team start to handle with your project and embody the
+                                            conception
+                                            of
+                                            the project.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- no4 -->
+                    <div class="steps-list-item row">
+                        <div class="col-12 col-lg-4">
+                            <div class="steps-list-item-pic">
+                                <img
+                                    src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-7.svg">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <div class="row">
+                                <div class="col-12 col-lg-3">
+                                    <div class="num-pic">
+                                        <img
+                                            src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/number-04.svg">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-9">
+                                    <div class="text-area">
+                                        <h3>Once Again We Analyze And Check Everything</h3>
+                                        <p>We meet, analyze and check the done work and make needed corrections..</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- no5 -->
+                    <div class="steps-list-item row">
+                        <div class="col-12 col-lg-4">
+                            <div class="steps-list-item-pic">
+                                <img
+                                    src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-8.svg">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <div class="row">
+                                <div class="col-12 col-lg-3">
+                                    <div class="num-pic">
+                                        <img
+                                            src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/number-05.svg">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-9">
+                                    <div class="text-area">
+                                        <h3>We Finish The Work And Give It To The Customer</h3>
+                                        <p>The project is ready and we give it to the customer. Also we ask for the
+                                            feedback
+                                            from the customer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 螢光綠區塊 -->
+            <section class="section-projects">
+                <div class="projects">
+                    <div class="row">
+                        <div class="projects-title">
+                            <h2>Our team's work with Projects</h2>
+                        </div>
+                        <div class="btn">
+                            <button>ALL PROTECTS</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="projects-item">
+                                <div class="projects-pic">
+                                    <img src="./project-1.webp">
+                                </div>
+                                <div class="text-area">
+                                    <h4>Minimal Creative "Impuls"</h4>
+                                    <a href="#">VIEW SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="projects-item">
+                                <div class="projects-pic">
+                                    <img src="./project-2.webp">
+                                </div>
+                                <div class="text-area">
+                                    <h4>Travel Company "Tour Up"</h4>
+                                    <a href="#">VIEW SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="projects-item">
+                                <div class="projects-pic">
+                                    <img src="./project-3.webp">
+                                </div>
+                                <div class="text-area">
+                                    <h4>Restaurant Pizza "Little Italy"</h4>
+                                    <a href="#">VIEW SITE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 表單 -->
+            <section class="section-sign-up">
+                <div class="sign-up row">
+                    <div class="col-12 col-lg-6">
+                        <img
+                            src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/home-image-9.svg">
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="form">
+                            <div class="form-title">
+                                <h2>Sign up for our consultation</h2>
+                            </div>
+                            <div class="form-list">
+                                <input type="text" placeholder="Name">
+                                <input type="text" placeholder="Email">
+                                <div class="text-area">
+                                    <textarea name="message" id="message" cols="5" rows="5"></textarea>
+                                </div>
+                                <button>SEND</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 訂閱 -->
+            <section class="section-subscribe">
+                <div class="subscribe row">
+                    <div class="col-12 col-lg-12">
+                        <h2>Subscribe to our news and learn more</h2>
+                        <div class="subscribe-form">
+                            <input type="text" placeholder="Your email">
+                            <button>SUBSCRIBE</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer-link row">
+                <div class="col-12 col-lg-3">
+                    <address class="address">
+                        <img
+                            src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/logo-retina.png">
+                        <div class="address-info">
+                            <p><span>Phone: </span> + 1(045) - 224 - 12 - 67</p>
+                            <span>Mail: </span><a href="#">info@demolink.org</a>
+                        </div>
+                    </address>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <h4>Services</h4>
+                    <a href="#">Web design & brending</a>
+                    <a href="#">Web development</a>
+                    <a href="#">Full Optimization</a>
+                    <a href="#">Research & Strategy</a>
+                    <a href="#">Management & Marketing</a>
+                    <a href="#">Free support</a>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <h4>About Company</h4>
+                    <a href="#">About us</a>
+                    <a href="#">Team</a>
+                    <a href="#">Case Studio</a>
+                    <a href="#">Contacts</a>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <h4>Our Social Networks</h4>
+                    <p>Join us in the social networks and keep up on the latest news.</p>
+                    <div class="social-icon">
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                    <script src="https://kit.fontawesome.com/83a2f59bcb.js" crossorigin="anonymous"></script>
+                </div>
+            </div>
+            <div class="footer-copyright row">
+                <div class="col-12 col-lg-12">
+                    <div>
+                        <p>Copyright © 2018 Wordpress Maikon. All Rights Reserved. | Theme design by <a
+                                href="#">Zemez</a></p>
+                    </div>
+                    <div>
+                        <a href="#">Privacy & Policy</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    </div>
+
+</body>
+
+</html>
