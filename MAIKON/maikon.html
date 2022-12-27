@@ -16,13 +16,16 @@
             box-sizing: border-box;
         }
 
-        .container {
-            width: 100%;
-        }
-        
         img {
             width: 100%;
         }
+
+        .main-header,
+        .section-intro,
+        .section-service,
+        .section-contact,
+        .section-why-us,
+        .section-steps-list,
         .section-projects,
         .section-sign-up,
         .section-subscribe,
@@ -31,10 +34,15 @@
         }
 
         /* div */
-        .main-header .header-item,
+        .main-header .header-item {
+            margin: auto;
+            max-width: 1200px;
+            padding: 20px 50px;
+            font-family: Roboto, sans-serif;
+        }
+
         .intro,
-        .serviceOne,
-        .serviceTwo,
+        .service,
         .contact,
         .why-us,
         .steps-list,
@@ -51,23 +59,30 @@
 
         /* bgc 共同設定--------------------------- */
         .main-header,
-        .intro,
-        .contact,
-        .why-us,
-        .steps-list,
+        .section-intro,
+        .section-contact,
+        .section-steps-list,
         .footer {
             background-color: #FFFFFF;
         }
-        .service {
+
+        .section-why-us {
+            background-color: #2570FF;
+        }
+
+        .section-service {
             background-color: #FEFEFE;
         }
-        .projects {
+
+        .section-projects {
             background-color: #F9FBFF;
         }
-        .sign-up {
+
+        .section-sign-up {
             background-color: #FBFCFC;
         }
-        .subscribe {
+
+        .section-subscribe {
             background-color: #F6F8FA;
         }
 
@@ -85,12 +100,15 @@
             line-height: 1.35;
             margin-bottom: 30px;
         }
+
         .intro .row:first-child .text-area h2 {
             font-size: 55px;
         }
+
         .subscribe h2 {
             text-align: center;
         }
+
         .intro .text-area p,
         .contact .text-area p {
             color: #7A8190;
@@ -161,6 +179,25 @@
             border-radius: 10px 10px 10px 10px;
         }
 
+        /* hover------------------------------------ */
+        .intro .btn button:first-child:hover,
+        .contact .btn button:first-child:hover,
+        .projects .btn button:hover,
+        .form-list button:hover,
+        .subscribe-form button:hover {
+            border: 1px solid #626B7D;
+            background-color: #626B7D;
+            color: #FFFFFF;
+        }
+
+        .main-nav button:hover,
+        .intro .btn .contact-us:hover,
+        .contact .btn button:last-child:hover {
+            border: 1px solid #1FDE82;
+            background-color: #1FDE82;
+            color: white;
+        }
+
         /* ---header-------------------------------------------- */
 
         .main-header {
@@ -169,6 +206,7 @@
             right: 0;
             width: 100%;
             box-shadow: 1px 1px 1px #ccc;
+            z-index: 1;
         }
 
         .main-header .header-item {
@@ -219,16 +257,20 @@
                 top: 100%;
                 right: 0;
             }
+
             #menu-control:checked~.main-header .main-nav {
                 display: block;
                 transition: 1s;
                 width: 80%;
                 display: flex;
                 flex-direction: column;
+                height: 100vh;
             }
+
             .main-nav button {
                 display: none;
             }
+
             .HB {
                 width: 40px;
                 height: 40px;
@@ -238,12 +280,14 @@
                 justify-content: space-evenly;
                 align-items: center;
             }
+
             .HB span {
                 width: 50%;
                 height: 4px;
                 background-color: #fff;
             }
         }
+
         @media screen and (min-width:768px) {
             .HB {
                 display: none;
@@ -272,27 +316,28 @@
         }
 
         /* service */
-        .service img{
-            width: 40%;
-        }
         .service .card {
-            margin: 20px;
-            padding: 10px 10px 50px 10px;
+            margin: 10px;
+            padding: 20px 15px;
             border-radius: 10px 10px 10px 10px;
             box-shadow: 0px 4px 44px 0px rgb(17 29 48 / 6%);
         }
 
+        .service .text-area {
+            margin: 30px 0;
+        }
+
         .service .card h3 {
-            font-size: 30px;
-            margin: 20px 0;
+            font-size: 25px;
+            margin: 20px 5px;
         }
 
         .service .card p {
-            font-size: 18px;
+            font-size: 16px;
             color: #626B7D;
             line-height: 1.5;
             font-weight: 300;
-            margin: 10px 0;
+            margin: 10px 5px;
         }
 
         .service .card a {
@@ -300,16 +345,20 @@
             font-size: 15px;
             color: #5D6678;
             font-weight: 600;
+            margin: 20px 5px 0 5px;
+        }
+
+        .service .card a:hover {
+            color: #1FDE82;
         }
 
         .service .card img {
-            margin: 30px 0;
+            width: 35%;
             border-radius: 50% 50% 50% 50%;
             box-shadow: 0px 8px 32px 0px rgb(31 222 130 / 46%);
         }
 
-        /* ----------------------------------------------- */
-        /* blue: why-us */
+        /* --blue: why-us--------------------------------------- */
         .why-us {
             background-color: #2570FF;
         }
@@ -355,7 +404,7 @@
             line-height: 1.5;
             font-weight: 300;
             color: #FFFFFF;
-            padding: 50px 100px 0px 0px;
+            padding: 50px 50px 0px 50px;
         }
 
         .why-us .text-area h2 {
@@ -407,7 +456,8 @@
         .steps-list-item .text-area {
             margin: 50px 0;
         }
-        .steps-list-item .num-pic{
+
+        .steps-list-item .num-pic {
             max-width: 100px;
         }
 
@@ -545,6 +595,7 @@
 
         .footer .address img {
             width: 60%;
+            padding-bottom: 10px;
         }
 
         .footer-link .col-12 {
@@ -552,12 +603,25 @@
             flex-direction: column;
         }
 
-        .social-icon {
+        .footer-link .col-12:last-child p{
+            padding-bottom: 20px;
+        }
+        .footer-link .social-icon a{
             flex-direction: row;
+            font-size: 16px;
+            padding: 8px;
+            margin: 10px 5px;
+            color:#C0C7D2;
+            border: 1px solid #C0C7D2; 
+            border-radius: 50%;
+        }
+        .footer-link .social-icon a:hover{
+            color:#FFFFFF;
+            background-color: #1FDE82;
         }
 
         .footer .footer-link {
-            margin: 50px 0;
+            margin-top: 50px ;
         }
 
         .footer .footer-copyright div {
@@ -581,6 +645,17 @@
             padding-right: 30px;
         }
 
+        .footer-copyright p a {
+            color: #1FDE82;
+        }
+
+        .footer-copyright p a:hover {
+            color: #5D6678;
+        }
+
+        .footer-copyright a:hover {
+            color: #1FDE82;
+        }
     </style>
 
 </head>
@@ -659,13 +734,14 @@
             <!-- 服務 -->
             <section class="section-service">
                 <div class="service">
-                    <div class="serviceOne">
-                        <h2>We provide a wide range of creative services</h2>
-                        <div class="row">
-                            <div class="col-12 col-lg-4">
-                                <div class="card">
-                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-1.svg"
-                                        alt="icon">
+
+                    <h2>We provide a wide range of creative services</h2>
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-1.svg"
+                                    alt="icon">
+                                <div class="text-area">
                                     <h3>Web Design & Brending</h3>
                                     <p>A great brand combines design and conveys company’s value messaging to evoke
                                         emotion
@@ -674,10 +750,12 @@
                                     <a href="#">READ MORE</a>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="card">
-                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-2.svg"
-                                        alt="icon">
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-2.svg"
+                                    alt="icon">
+                                <div class="text-area">
                                     <h3>Graphic Design</h3>
                                     <p>Rich experience plus unlimited imagination create our successful service
                                         discovered
@@ -686,10 +764,12 @@
                                     <a href="#">READ MORE</a>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="card">
-                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-3.svg"
-                                        alt="icon">
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-3.svg"
+                                    alt="icon">
+                                <div class="text-area">
                                     <h3>Video Production</h3>
                                     <p>Creating and handling professional video is our strong point. It plays major role
                                         in
@@ -700,12 +780,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="serviceTwo">
-                        <div class="row">
-                            <div class="col-12 col-lg-4">
-                                <div class="card">
-                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-4.svg"
-                                        alt="icon">
+
+
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-4.svg"
+                                    alt="icon">
+                                <div class="text-area">
                                     <h3>SEO</h3>
                                     <p>We provide everything your site needs to perform at it’s highest capabilities on
                                         the
@@ -714,10 +796,12 @@
                                     <a href="#">READ MORE</a>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="card">
-                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-5.svg"
-                                        alt="icon">
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-5.svg"
+                                    alt="icon">
+                                <div class="text-area">
                                     <h3>Digital Marketing</h3>
                                     <p>We do collateral design, interactive design, hoarding, signage, presentation
                                         centres,
@@ -726,10 +810,12 @@
                                     <a href="#">READ MORE</a>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="card">
-                                    <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-6.svg"
-                                        alt="icon">
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <img src="https://ld-wp73.template-help.com/monstroid2/skins/maikon/wp-content/uploads/2018/11/icon-6.svg"
+                                    alt="icon">
+                                <div class="text-area">
                                     <h3>Infographics</h3>
                                     <p>Turn your data into captivating artwork that will keep your audience engaged. Our
                                         team
@@ -740,6 +826,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
             <!-- 聯絡我們 -->
