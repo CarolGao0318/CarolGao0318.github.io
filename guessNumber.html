@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        .wrap {
+            background-color: #DDD0C8;
+        }
+
+        .container {
+            max-width: 1200px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-group {
+            width: 80%;
+            margin-top: 12px;
+        }
+
+        .btn-group .btn {
+            background-color: #8C736F;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .btn-group .btn:hover {
+            background-color: #A08887;
+            color: white;
+        }
+
+        .display-box {
+            width: 80%;
+            height: 80%;
+            border: 5px solid #8C736F;
+            margin: 20px;
+        }
+
+        .input-group {
+            width: 80%;
+            margin-bottom: 12px;
+        }
+
+        .input-group .btn {
+            background-color: #53565C;
+            color: white;
+        }
+
+        .input-group .btn:hover {
+            background-color: #7A848D;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="btn-group row" role="group" aria-label="Basic example">
+                <button id="startBtn" type="button" class="btn col-4 col-md-4">開始</button>
+                <button id="resetBtn" type="button" class="btn col-4 col-md-4">放棄重來</button>
+                <button id="ansBtn" type="button" class="btn col-4 col-md-4">看答案</button>
+            </div>
+            <div class="display-box row">
+                <!-- 塞資料 -->
+            </div>
+            <div class="input-group row mb-3">
+                <button class="btn btn-outline-secondary col-3 col-md-3" type="button">猜答案</button>
+                <input id="input" type="text" class="form-control col-6 col-md-6" placeholder=""
+                    aria-label="Example text with two button addons">
+                <button id="guessBtn" class="btn btn-outline-secondary col-3 col-md-3" type="button">猜 ! </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //取得各功能DOM節點
+        const _startBtn = document.querySelector('#startBtn');
+        const _resetBtn = document.querySelector('#resetBtn');
+        const _ansBtn = document.querySelector('#ansBtn');
+        const _displayBox = document.querySelector('.display-box');
+        const _input = document.querySelector('#input');
+        const _guessBtn = document.querySelector('#guessBtn');
+
+        //遊戲開始前，按鈕初始化設定
+        _startBtn.disabled = false;
+        _resetBtn.disabled = true;
+        _ansBtn.disabled = true;
+        _guessBtn.disabled = true;
+
+        //正則表達式: 判定輸入的每個字元是否為0-9之間
+        const regex = /\d/;
+        //變數宣告
+        let ansNum;
+        let answerStr; // SweetAlert
+        let ansArr = [];
+        let intersect;
+        let a, b;
+        let min = 0;
+        let max = 9;
+        let guessArr = [];
+        let getGuessStr0, getGuessStr1, getGuessStr2, getGuessStr3;
+        let distinct;
+        let isNotRepeat;
+        let isNotNumber;
+        let _history;
+        let _button;
+        let _p;
+
+        //方法: 產生隨機數字(0-9)
+        function getRandom(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        //方法: 產生4位不重複的數字(0-9)
+        //當ansArr中不包含前次產生的數字時、就把數字推進ansArr裡
+        //當ansArr長度為4位數字時，迴圈會停止
+        function setGame() {
+            do {
+                let number = getRandom(min, max).toString();
+                if (!ansArr.includes(number)) {
+                    ansArr.push(number);
+                }
+            }
+            while (ansArr.length != 4)
+
+            return ansArr;
+        }
+
+        //方法: 將每次輸入的數字放入guessArr
+        function createGuessArr() {
+            guess = _input.value;
+            getGuessStr0 = guess.charAt(0)
+            getGuessStr1 = guess.charAt(1)
+            getGuessStr2 = guess.charAt(2)
+            getGuessStr3 = guess.charAt(3)
+            guessArr.push(getGuessStr0, getGuessStr1, getGuessStr2, getGuessStr3);
+        }
+
+        //方法: 取得 ansArr & guessArr 的交集
+        function getIntersect() {
+            intersect = ansArr.filter(x => guessArr.includes(x));
+            a = intersect.filter(y => answerArr.indexOf(y) == guessArr.indexOf(y));
+            b = intersect.length - a.length;
+        }
+
+        //方法: 顯示猜對樣式方法 (綠按鈕)
+        function setWinMsg() {
+            _history = document.createElement('div');
+            _button = document.createElement('button');
+            _p = document.createElement('p');
+            _history.setAttribute('class', 'history');
+            _button.setAttribute('class', 'btn', 'btn-success');
+        }
+        //方法: 顯示猜錯樣式方法 (紅按鈕)
+        function setHistoryMsg() {
+            _history = document.createElement('div');
+            _button = document.createElement('button');
+            _p = document.createElement('p');
+            _history.setAttribute('class', 'history');
+            _button.setAttribute('class', 'btn', 'btn-danger');
+        }
+        //方法: 判斷遊戲勝利方法 (顯示幾A幾B)
+        function checkIsWin() {
+            if (a.length == 4) {
+                setWinMsg();
+                _button.innerText = `${a.length}A${b}B`;
+                _p.innerText = _input.value;
+                _history.append(_button, _p);
+                _displayBox.append(_history);
+                WinAlert(answerStr);
+                _input.value = '';
+                _guessBtn.disabled = true;
+                _startBtn.disabled = false;
+
+            } else {
+                setHistoryMsg();
+                _button.innerText = `${a.length}A${b}B`;
+                _p.innerText = _input.value;
+                _history.append(_button, _p);
+                _displayBox.append(_history);
+                _input.value = '';
+            }
+        }
+
+        //SweetAlert - 公布解答
+        function showAnswerAlert() {
+            swal({
+                title: "答案在這邊~",
+                text: `${answerStr}`,
+                icon: "info",
+                showCancelButton: true
+            });
+        };
+        //SweetAlert - 請先按'開始'
+        function initialAlert() {
+            swal({
+                title: "要先按'開始'才可以玩遊戲唷~",
+                text: "請按'開始'",
+                icon: "info",
+                showCancelButton: true
+            });
+        };
+        //SweetAlert - 請輸入四位數字
+        function notNumAlert() {
+            swal({
+                title: "請輸入四位'數字'唷~",
+                text: "請重新輸入",
+                icon: "error",
+                showCancelButton: true
+            });
+        };
+        //SweetAlert - 重複數字
+        function repeatNumAlert() {
+            swal({
+                title: "不可以有重複的數字唷~",
+                text: "請重新輸入",
+                icon: "error",
+                showCancelButton: true
+            });
+        };
+        //SweetAlert - win 遊戲結束
+        function winAlert() {
+            swal({
+                title: "你贏了 !!!!",
+                text: `正確答案是${answerStr}`,
+                icon: "success",
+                showCancelButton: true
+            });
+        };
+
+
+        //事件: 按 startBtn 取得1~9之間的隨機亂數(字串)
+        //遊戲開始
+        _startBtn.addEventListener('click', () => {
+            // ansNum = getRandom(1, 9).toString();
+            // ansArr = `${ansNum[0]}${ansNum[1]}${ansNum[2]}${ansNum[3]}`;
+            guessArr = [];
+            ansArr = [];
+            debugger;
+            setGame();
+            
+
+            _startBtn.disabled = true;
+            _guessBtn.disabled = false;
+            _resetBtn.disabled = false;
+            _ansBtn.disabled = false;
+            _input.value = '';  //清空輸入的數字
+        })
+
+        //事件: ansBtn 看答案
+        _ansBtn.addEventListener('click', () => {
+            answerStr = '';
+            ansArr.forEach(num => {
+                answerStr += num;
+            })
+            showAnswerAlert(answerStr);
+            _input.value = '';
+        })
+
+        //事件: resetBtn 重新開始
+        _resetBtn.addEventListener('click', () => {
+            guessArr = [];
+            ansArr = [];
+            _startBtn.disabled = false;
+            _displayBox.innerHTML = '';
+            _input.value = '';
+        })
+
+        //事件: guessBtn 猜
+        _guessBtn.addEventListener('click', () => {
+
+            createGuessArr();
+            distinct = [...new Set(guessArr)].length;
+            isNotNumber = regex.test(guess);
+            isNotRepeat = distinct === 4 && guessArr.length === 4;
+
+            if (ansArr.length === 0) {
+                initialAlert();
+                _input.value = '';
+                return;
+            }
+            else if (!isNotNumber) {
+                notNumAlert();
+                guessArr = [];
+                _input.value = '';
+                return;
+            }
+            else if (isNotRepeat) {
+                repeatNumAlert();
+                guessArr = [];
+                _input.value = '';
+                return;
+            }
+            else {
+                getIntersect();
+                guessArr = [];
+                checkIsWin();
+            }
+        });
+
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>
