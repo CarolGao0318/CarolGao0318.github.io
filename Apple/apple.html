@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="./grid-system.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {
+      width: 100%;
+      margin: auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      height: 100vh;
+    }
+
+    .btn-group {
+      margin: 10px 0;
+    }
+
+    .product-pic{
+      max-width: 550px;
+    }
+
+    .product-pic img {
+      width: 100%;
+      vertical-align: bottom;
+      border-radius: 10px 10px 10px 10px;
+      margin: 10px;
+    }
+    .colorBtns button,
+    .specBtns button {
+      width: 90px;
+      height: 90px;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .colorBtns button:hover,
+    .specBtns button:hover {
+      opacity: 0.25;
+      transition: .1s;
+    }
+
+    .colorBtns button:active,
+    .specBtns button:active {
+      transform: scale(1);
+      box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .2);
+    }
+
+    .colorBtns,
+    .specBtns,
+    .priceArea {
+      padding: 0;
+      margin: 0;
+    }
+
+    .priceArea {
+      font-weight: 600;
+      font-size: 55px;
+      padding:5px;
+    }
+
+    .color-rgb {
+      width: 30px;
+      height: 30px;
+      box-sizing: border-box;
+      margin: auto;
+    }
+    .color-name{
+      padding: 3px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 35px;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="container-fluid justify-content-center">
+      <div class="row d-flex justify-content-center">
+        <nav class="navbar justify-content-center bg-light col-12 col-md-12">
+          <div class="container-fluid col-2 col-md-7">
+            <a class="navbar-brand" href="#">
+              <img src="../Apple/appleImg/Apple_logo_grey.svg" alt="Logo" width="35" height="35"
+                class="d-inline-block align-text-top">
+            </a>
+          </div>
+          <div class="btn-group col-10 col-md-5" role="group" aria-label="Basic outlined example">
+            <button id="ipad" type="button" class="pageBtn btn btn-outline-secondary">iPad 9th </button>
+            <button id="ipadmini" type="button" class="pageBtn btn btn-outline-secondary">iPad mini</button>
+            <button id="macbook" type="button" class="pageBtn btn btn-outline-secondary">MacBook Pro</button>
+          </div>
+        </nav>
+      </div>
+      <div class="row d-flex justify-content-evenly">
+        <div class="product-pic col-12 col-md-8">
+          <!-- 動態插入圖片 -->
+          <img src="../Apple/appleImg/ipad-family.jpg" id="mainPic">
+        </div>
+        <div class="product-info col-12 col-md-4">
+          <div class="color col-12 col-md-12">
+            <!-- <h2>顏色</h2> -->
+            <div class="colorBtns">
+              <!-- <button type="button" class="col-6 col-md-6 btn btn-outline-dark">Dark</button> -->
+            </div>
+          </div>
+          <div class="spec col-12 col-md-12">
+            <!-- <h2>規格</h2> -->
+            <div class="specBtns">
+              <!-- <button type="button" class="col-6 col-md-6 btn btn-outline-dark">Dark</button> -->
+            </div>
+          </div>
+          <div class="price col-12 col-md-12">
+            <!-- <h2>試算價格</h2> -->
+            <div class="priceArea">
+              <!-- <p>插入價格</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let productArray = [
+      {
+        name: 'iPad 9th',
+        baseImgUrl: '../Apple/appleImg/ipad-family.jpg',
+        color: [
+          { colorName: "太空灰色", img: "../Apple/appleImg/ipad-space-gray.jpg", rgb: "rgb(115, 114, 118)" },
+          { colorName: "銀色", img: "../Apple/appleImg/ipad-silver.jpg", rgb: "rgb(230, 231, 232)" },
+        ],
+        spec: {
+          storge: [
+            { size: '64GB', price: 10900 },
+            { size: '256GB', price: 15900 },
+          ]
+        }
+      },
+      {
+        name: 'iPad mini',
+        baseImgUrl: '../Apple/appleImg/ipad-mini-family.jpg',
+        color: [
+          { colorName: "太空灰色", img: "../Apple/appleImg/ipad-mini-space-gray.jpg", rgb: "rgb(115, 114, 118)" },
+          { colorName: "粉色", img: "../Apple/appleImg/ipad-mini-pink.jpg", rgb: "rgb(232, 209, 207)" },
+          { colorName: "紫色", img: "../Apple/appleImg/ipad-mini-purple.jpg", rgb: "rgb(196, 194, 216)" },
+          { colorName: "星光色", img: "../Apple/appleImg/ipad-mini-starlight.jpg", rgb: "rgb(229, 223, 213)" },
+        ],
+        spec: {
+          storge: [
+            { size: '64GB', price: 10900 },
+            { size: '256GB', price: 15900 },
+          ]
+        }
+      },
+      {
+        name: 'MacBook Pro',
+        baseImgUrl: '../Apple/appleImg/mac-family.webp',
+        color: [
+          { colorName: "太空灰色", img: "../Apple/appleImg/mbp14-spacegray.jpg", rgb: "rgb(115, 114, 118)" },
+          { colorName: "銀色", img: "../Apple/appleImg/mbp14-silver.jpg", rgb: "rgb(230, 231, 232)" }
+        ],
+        spec: {
+          storge: [
+            { size: '256GB', price: 51300 },
+            { size: '512GB', price: 57300 },
+            { size: '1TB', price: 63300 },
+            { size: '2TB', price: 75300 },
+          ]
+        }
+      }
+    ]
+
+    let productNameArray = [];
+    let productBtns = document.querySelectorAll('.pageBtn');
+    let specArea = document.querySelector('.spec .specBtns')
+    let specTitle = document.querySelector('.spec')
+    let priceTitle = document.querySelector('.price')
+    let priceArea = document.querySelector('.priceArea')
+    let priceP = document.querySelector('.priceArea')
+
+    productBtns.forEach((productBtn) => {
+
+      productBtn.addEventListener('click', function (event) {
+        // console.log(event.target);
+        let product = productArray.find(x => x.name == event.target.innerText);
+
+        // 產品總圖
+        let familyImg = document.querySelector('.product-pic img');
+        console.log(familyImg)
+        familyImg.src = product['baseImgUrl'];
+
+        //設定color區域 h2 title + div
+        let colorTitle = document.querySelector('.color')
+        colorTitle = document.createElement('h2')
+        colorTitle.innerText = 'Color'
+
+        let colorArea = document.querySelector('.color .colorBtns')
+        colorArea.classList.add('col-12', 'col-md-12')
+
+        colorArea.innerHTML = "";
+        colorArea.append(colorTitle)
+
+
+
+        // 用color裡的資料做foreach
+        // foreach 裡面要 createElement
+        // 設置 element的屬性
+        // 長進去
+        product.color.forEach((colorInfo) => {
+
+          let colorBtn = document.createElement('button')
+          // colorBtn.setAttribute('class', 'button')
+          colorBtn.classList.add('btn', 'btn-outline-secondary')
+
+          let colorRgb = colorInfo['rgb'];
+          colorRgb = document.createElement('div');
+          colorRgb.setAttribute('class', 'color-rgb');
+          // colorRgb.setAttribute('style',`background-color: ${colorInfo.rgb}`)
+          colorRgb.style.backgroundColor = colorInfo.rgb;
+          colorRgb.classList.add('rounded-circle');
+
+          let colorName = document.createElement('div');
+          colorName.setAttribute('class', 'color-name');
+          let colorItem = colorInfo['colorName'];
+          colorName.innerText = `${colorItem}`;
+
+          colorBtn.append(colorName, colorRgb)
+          colorArea.append(colorBtn)
+
+          //事件: color按鈕換產品圖
+          colorBtn.addEventListener('click', function () {
+            ChangePic()
+          })
+
+        })
+
+        function ChangePic() {
+          let productImg = document.querySelector('.product-pic img');
+          productImg.src = product['img'];
+        }
+
+        //規格 & 價格區域
+        //設定 h2 title + div
+        specTitle = document.createElement('h2')
+        specTitle.innerText = 'Storage'
+        specArea.innerHTML = "";
+        specArea.append(specTitle)
+
+        //Object.keys(product.spec) //動態獲得key => 拿到裡面資料
+        //console.log( Object.keys(product.spec))
+        Object.keys(product.spec).forEach(specKey => {
+          console.log(product.spec[specKey])
+
+          product.spec[specKey].forEach(storageSize => {
+            let specBtn = document.createElement('button')
+            specBtn.classList.add('btn', 'btn-outline-secondary')
+            specBtn.innerText = `${storageSize.size}`
+
+            let priceTitle = document.createElement('h2')
+            priceTitle.innerText = 'Price'
+            priceArea.innerHTML = ""
+            priceArea.append(priceTitle)
+
+            //事件: 規格按鈕顯示價格 
+            specBtn.addEventListener('click', function () {
+              priceP = document.createElement('p')
+              priceP.innerText = `NT$ ${storageSize.price}`
+              priceArea.innerHTML = ""
+              priceArea.append(priceP)
+            })
+
+            specArea.append(specBtn)
+
+          })
+
+        })
+
+      })
+    })
+  </script>
+
+  <script src="../Apple/apple_ data.json"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
