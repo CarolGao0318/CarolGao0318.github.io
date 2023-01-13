@@ -10,6 +10,9 @@
         width: 100%;
         opacity: 0.9;
     }
+    .row{
+        max-width: 1200px;
+    }
 
     [box-id]{
         height: 130px;
@@ -23,14 +26,14 @@
     }
 
     [box-id].active{
-        height: 132px;
+        height: 133px;
         border: solid 5px RGB(239, 222, 103);
         box-shadow: 0 0 80px RGB(239, 222, 103);
         transition: 0s;
     }
     .ramenMaterial{
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     .ramenMaterial img{
         width: 100%;
@@ -40,7 +43,7 @@
         font-size: 15px;
         font-weight: 900;
         text-align: center;
-        padding: 5px 0;
+        padding: 5px;
     }
 
     #msgBox {
@@ -48,11 +51,11 @@
         align-items: center;
     }
     #msgBox h2{
-        font-size: 50px;
+        font-size: 40px;
         font-weight: 900;
         /* color: RGB(195, 62, 17); */
         color: RGB(240, 196, 25);
-        margin: 20px 0;
+        margin: 10px 0;
     }
     .btn{
         background-color:RGB(240, 196, 25);
@@ -60,8 +63,8 @@
         border: none;
         font-weight: 900;
         font-size: 30px;
-        border-radius: 50px;
-        margin-top: 50px;
+        border-radius: 20px;
+        margin: 10px;
     }
     .btn:hover{
         background-color:RGB(195, 62, 17);
@@ -73,57 +76,57 @@
   
   <body>
     <div class="container">
-        <div class="row mt-5 d-flex justify-content-evenly">
-            <div box-id="1" class="col-1"></div>
-            <div box-id="2" class="col-1"></div>
-            <div box-id="3" class="col-1"></div>
-            <div box-id="4" class="col-1"></div>
-            <div box-id="5" class="col-1"></div>
-            <div box-id="6" class="col-1"></div>
-            <div box-id="7" class="col-1"></div>
-            <div box-id="8" class="col-1"></div>
+        <div class="row mt-3 d-flex justify-content-evenly">
+            <div box-id="1" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="2" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="3" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="4" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="5" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="6" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="7" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="8" class="col-1 col-md-1 col-sm-1"></div>
         </div>
-        <div class="row mt-5 d-flex justify-content-evenly">
-            <div box-id="20" class="col-1"></div>
-            <div box-id="21" class="col-1"></div>
-            <div box-id="22" class="col-1"></div>
-            <div box-id="23" class="col-1"></div>
-            <div box-id="24" class="col-1"></div>
-            <div box-id="25" class="col-1"></div>
-            <div box-id="26" class="col-1"></div>
-            <div box-id="9" class="col-1"></div>
+        <div class="row mt-3 d-flex justify-content-evenly">
+            <div box-id="20" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="21" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="22" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="23" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="24" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="25" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="26" class="col-1 col-md-1 col-sm-1"></div>
+            <div box-id="9" class="col-1 col-md-1 col-sm-1"></div>
         </div>
         <!-- 訊息動態顯示 -->
         <div class="row d-flex justify-content-evenly">
-            <div class="col-6" id="msgBox">
+            <div class="col-12 col-sm-12" id="msgBox">
               <!-- <h2 id="msgText"></h2> -->
             </div>
         </div>
         <!-- 訊息動態顯示 -->
-        <div class="row mt-5 d-flex justify-content-evenly">
-            <div  box-id="19" class="col-1"></div>
-            <div  box-id="32" class="col-1"></div>
-            <div  box-id="31" class="col-1"></div>
-            <div  box-id="30" class="col-1"></div>
-            <div  box-id="29" class="col-1"></div>
-            <div  box-id="28" class="col-1"></div>
-            <div  box-id="27" class="col-1"></div>
-            <div  box-id="10" class="col-1"></div>
+        <div class="row mt-3 d-flex justify-content-evenly">
+            <div  box-id="19" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="32" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="31" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="30" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="29" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="28" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="27" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="10" class="col-1 col-md-1 col-sm-1"></div>
         </div>
             
-        <div class="row mt-5 d-flex justify-content-evenly">
-            <div  box-id="18" class="col-1"></div>
-            <div  box-id="17" class="col-1"></div>
-            <div  box-id="16" class="col-1"></div>
-            <div  box-id="15" class="col-1"></div>
-            <div  box-id="14" class="col-1"></div>
-            <div  box-id="13" class="col-1"></div>
-            <div  box-id="12" class="col-1"></div>
-            <div  box-id="11" class="col-1"></div>
+        <div class="row mt-3 d-flex justify-content-evenly">
+            <div  box-id="18" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="17" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="16" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="15" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="14" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="13" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="12" class="col-1 col-md-1 col-sm-1"></div>
+            <div  box-id="11" class="col-1 col-md-1 col-sm-1"></div>
         </div>
         <!-- button -->
-        <div class="row mt-5 d-flex justify-content-evenly">
-            <div class="col-6">
+        <div class="row mt-3 d-flex justify-content-evenly">
+            <div class="col-8 col-md-8 col-sm-8">
                 <button class="btn btn-secondary w-100">今晚要吃哪一道 ?</button>
             </div>
         </div>
@@ -151,26 +154,26 @@
             },
             {
                 id: '3',
-                ramenName: '凪Nagi',
+                ramenName: '凪',
                 iconSrc: '../Ramen/ramen03.png',
                 target: function(){
-                    return ' 今晚就吃『凪Nagi』吧 ! '
+                    return ' 今晚就吃『凪』吧 ! '
                 }
             },
             {
                 id: '4',
-                ramenName: '柑橘Shinn',
+                ramenName: '柑橘',
                 iconSrc: '../Ramen/ramen01.png',
                 target: function(){
-                    return ' 今晚就吃『柑橘Shinn』吧 ! '
+                    return ' 今晚就吃『柑橘』吧 ! '
                 }
             },
             {
                 id: '5',
-                ramenName: '崇灯拉麵',
+                ramenName: '崇灯',
                 iconSrc: '../Ramen/ramen02.png',
                 target: function(){
-                    return ' 今晚就吃『崇灯拉麵』吧 ! '
+                    return ' 今晚就吃『崇灯』吧 ! '
                 }
             },
             {
@@ -287,10 +290,10 @@
             },
             {
                 id: '20',
-                ramenName: '道樂',
+                ramenName: '鷹流',
                 iconSrc: '../Ramen/ramen02.png',
                 target: function(){
-                    return ' 今晚就吃『道樂』吧 ! '
+                    return ' 今晚就吃『鷹流』吧 ! '
                 }
             },
             {
@@ -351,10 +354,10 @@
             },
             {
                 id: '28',
-                ramenName: "Hiro's",
+                ramenName: "象子麵",
                 iconSrc: '../Ramen/ramen02.png',
                 target: function(){
-                    return " 今晚就吃『Hiro's』吧 ! "
+                    return " 今晚就吃『象子麵』吧 ! "
                 }
             },
             {
