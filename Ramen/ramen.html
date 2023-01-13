@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+    .container{
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    [box-id]{
+        height: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        transition: 0.3s;
+        background-image: url('./bgimg.jfif');
+        border-radius: 10px;
+    }
+
+    [box-id].active{
+        height: 132px;
+        border: solid 5px RGB(239, 222, 103);
+        box-shadow: 0 0 80px RGB(239, 222, 103);
+        transition: 0s;
+    }
+    .ramenMaterial{
+        width: 100px;
+        height: 100px;
+    }
+    .ramenMaterial img{
+        width: 100%;
+    }
+
+    .ramenMaterial p {
+        font-size: 15px;
+        font-weight: 900;
+        text-align: center;
+        padding: 5px 0;
+    }
+
+    #msgBox {
+        text-align: center;
+        align-items: center;
+    }
+    #msgBox h2{
+        font-size: 50px;
+        font-weight: 900;
+        /* color: RGB(195, 62, 17); */
+        color: RGB(240, 196, 25);
+        margin: 20px 0;
+    }
+    .btn{
+        background-color:RGB(240, 196, 25);
+        color:#fff;
+        border: none;
+        font-weight: 900;
+        font-size: 30px;
+        border-radius: 50px;
+        margin-top: 50px;
+    }
+    .btn:hover{
+        background-color:RGB(195, 62, 17);
+        transition: 0.3s;
+    }
+    </style>  
+
+</head>
+  
+  <body>
+    <div class="container">
+        <div class="row mt-5 d-flex justify-content-evenly">
+            <div box-id="1" class="col-1"></div>
+            <div box-id="2" class="col-1"></div>
+            <div box-id="3" class="col-1"></div>
+            <div box-id="4" class="col-1"></div>
+            <div box-id="5" class="col-1"></div>
+            <div box-id="6" class="col-1"></div>
+            <div box-id="7" class="col-1"></div>
+            <div box-id="8" class="col-1"></div>
+        </div>
+        <div class="row mt-5 d-flex justify-content-evenly">
+            <div box-id="20" class="col-1"></div>
+            <div box-id="21" class="col-1"></div>
+            <div box-id="22" class="col-1"></div>
+            <div box-id="23" class="col-1"></div>
+            <div box-id="24" class="col-1"></div>
+            <div box-id="25" class="col-1"></div>
+            <div box-id="26" class="col-1"></div>
+            <div box-id="9" class="col-1"></div>
+        </div>
+        <!-- 訊息動態顯示 -->
+        <div class="row d-flex justify-content-evenly">
+            <div class="col-6" id="msgBox">
+              <!-- <h2 id="msgText"></h2> -->
+            </div>
+        </div>
+        <!-- 訊息動態顯示 -->
+        <div class="row mt-5 d-flex justify-content-evenly">
+            <div  box-id="19" class="col-1"></div>
+            <div  box-id="32" class="col-1"></div>
+            <div  box-id="31" class="col-1"></div>
+            <div  box-id="30" class="col-1"></div>
+            <div  box-id="29" class="col-1"></div>
+            <div  box-id="28" class="col-1"></div>
+            <div  box-id="27" class="col-1"></div>
+            <div  box-id="10" class="col-1"></div>
+        </div>
+            
+        <div class="row mt-5 d-flex justify-content-evenly">
+            <div  box-id="18" class="col-1"></div>
+            <div  box-id="17" class="col-1"></div>
+            <div  box-id="16" class="col-1"></div>
+            <div  box-id="15" class="col-1"></div>
+            <div  box-id="14" class="col-1"></div>
+            <div  box-id="13" class="col-1"></div>
+            <div  box-id="12" class="col-1"></div>
+            <div  box-id="11" class="col-1"></div>
+        </div>
+        <!-- button -->
+        <div class="row mt-5 d-flex justify-content-evenly">
+            <div class="col-6">
+                <button class="btn btn-secondary w-100">今晚要吃哪一道 ?</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //宣告
+        //格子資料
+        let brickData = [
+            {
+                id: '1',
+                ramenName: '雞吉君',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『雞吉君』吧 ! '
+                }
+            },
+            {
+                id: '2',
+                ramenName: '屯京',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『屯京』吧 ! '
+                }
+            },
+            {
+                id: '3',
+                ramenName: '凪Nagi',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『凪Nagi』吧 ! '
+                }
+            },
+            {
+                id: '4',
+                ramenName: '柑橘Shinn',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『柑橘Shinn』吧 ! '
+                }
+            },
+            {
+                id: '5',
+                ramenName: '崇灯拉麵',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『崇灯拉麵』吧 ! '
+                }
+            },
+            {
+                id: '6',
+                ramenName: 'お帰り',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『お帰り』吧 ! '
+                }
+            },
+            {
+                id: '7',
+                ramenName: '隱家',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『隱家』吧 ! '
+                }
+            },
+            {
+                id: '8',
+                ramenName: '道樂',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『道樂』吧 ! '
+                }
+            },
+            {
+                id: '9',
+                ramenName: '吉天元',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『吉天元』吧 ! '
+                }
+            },
+            {
+                id: '10',
+                ramenName: '麵屋武藏',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『麵屋武藏』吧 ! '
+                }
+            },
+            {
+                id: '11',
+                ramenName: '麵屋一燈',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『麵屋一燈』吧 ! '
+                }
+            },
+            {
+                id: '12',
+                ramenName: '黑田屋',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『黑田屋』吧 ! '
+                }
+            },
+            {
+                id: '13',
+                ramenName: '特濃屋',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『特濃屋』吧 ! '
+                }
+            },
+            {
+                id: '14',
+                ramenName: '勝王',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『勝王』吧 ! '
+                }
+            },
+            {
+                id: '15',
+                ramenName: '烹星',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『烹星』吧 ! '
+                }
+            },
+            {
+                id: '16',
+                ramenName: '一幻',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『一幻』吧 ! '
+                }
+            },
+            {
+                id: '17',
+                ramenName: '一蘭',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『一蘭』吧 ! '
+                }
+            },
+            {
+                id: '18',
+                ramenName: '一風堂',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『一風堂』吧 ! '
+                }
+            },
+            {
+                id: '19',
+                ramenName: '一真亭',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『一真亭』吧 ! '
+                }
+            },
+            {
+                id: '20',
+                ramenName: '道樂',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『道樂』吧 ! '
+                }
+            },
+            {
+                id: '21',
+                ramenName: '荷麵亭',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『荷麵亭』吧 ! '
+                }
+            },
+            {
+                id: '22',
+                ramenName: '東京油組',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『東京油組』吧 ! '
+                }
+            },
+            {
+                id: '23',
+                ramenName: '辰拉麵',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『辰拉麵』吧 ! '
+                }
+            },
+            {
+                id: '24',
+                ramenName: '藏味',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『藏味』吧 ! '
+                }
+            },
+            {
+                id: '25',
+                ramenName: '小高',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『小高』吧 ! '
+                }
+            },
+            {
+                id: '26',
+                ramenName: '山嵐',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『山嵐』吧 ! '
+                }
+            },
+            {
+                id: '27',
+                ramenName: '初原麵場',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『初原麵場』吧 ! '
+                }
+            },
+            {
+                id: '28',
+                ramenName: "Hiro's",
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return " 今晚就吃『Hiro's』吧 ! "
+                }
+            },
+            {
+                id: '29',
+                ramenName: '真劍',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return ' 今晚就吃『真劍』吧 ! '
+                }
+            },
+            {
+                id: '30',
+                ramenName: '墨洋',
+                iconSrc: '../Ramen/ramen01.png',
+                target: function(){
+                    return ' 今晚就吃『墨洋』吧 ! '
+                }
+            },
+            {
+                id: '31',
+                ramenName: '極匠',
+                iconSrc: '../Ramen/ramen02.png',
+                target: function(){
+                    return ' 今晚就吃『極匠』吧 ! '
+                }
+            },
+            {
+                id: '32',                
+                ramenName: '雞二',
+                iconSrc: '../Ramen/ramen03.png',
+                target: function(){
+                    return '雞二'
+                }
+            }
+        ]
+
+        let steps = 0 //剩餘要走幾步
+        let allSteps = 0 //全部的步數
+        let current = 0 //目前走到哪一格
+        let speed //速率 (越大代表走越慢)
+
+        let ramenMaterial
+        let ramenText
+        
+
+        //DOM
+        const startBtn = document.querySelector('button')
+        let bricks;
+        const msgBox = document.querySelector('#msgBox')
+        let msgText;
+
+        //function
+        function renderBrick(){
+            bricks = document.querySelectorAll('[box-id]')
+            //調整順序 (原本依照 html 排序 > 按照 box-id 排序)
+            //要先把 nodelist 轉成 array 才能.sort()
+            bricks = Array.from(bricks).sort((a,b) => {
+                return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
+            })
+            //console.log(bricks)
+
+            bricks.forEach((x,index) => {
+                let id = x.getAttributeNode('box-id').value
+                let data = brickData.find(x => x.id == id)
+                ramenMaterial = document.createElement('div')
+                ramenMaterial.setAttribute('class', 'ramenMaterial')
+                ramenImg = document.createElement('img')
+                ramenText = document.createElement('p')
+
+                ramenImg.setAttribute('class', data.iconSrc)
+                ramenImg.src = brickData[index].iconSrc
+                ramenText.innerText = brickData[index].ramenName
+
+                ramenMaterial.appendChild(ramenImg)
+                ramenMaterial.appendChild(ramenText)
+                x.appendChild(ramenMaterial)
+            })
+           
+        }
+
+        function go(){
+            speed = 55 //毫秒
+
+
+            let random = Math.floor(Math.random() * brickData.length) + 1 //無條件捨去後可能是0 所以 +1
+            //console.log(random)
+
+            //steps = random // v1.  ex.抽到16步 = 總共16步
+            steps = random + (2 * bricks.length) //v2. 多跑幾圈
+            
+            allSteps = steps 
+            turnAround()
+
+        }
+
+        function turnAround(){
+            bricks[current].classList.remove('active') //每走新的一步 要把上一步清空
+            current++ //目前步數++
+
+            if(current >= bricks.length) current = 0 //跑完一圈歸0
+            bricks[current].classList.add('active')
+            steps--
+
+            if(steps > 0){
+                //還沒走完
+                setTimeout(turnAround,speed)
+
+                //當剩餘步數剩下1/3的時候, 減速
+                if (steps < Math.floor((allSteps / 3))) speed += 7
+            }else{
+                //走完了
+                msgText = document.createElement('h2')
+                msgText.innerText = brickData[current].target()
+                msgBox.appendChild(msgText)
+            }
+        }
+
+
+        //window.onload
+        window.onload = function(){
+            renderBrick()
+
+            startBtn.onclick = function(){
+                go()
+                msgBox.innerHTML = ""
+            }
+        }
+    </script>
+
+
+    <script src="https://kit.fontawesome.com/83a2f59bcb.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
