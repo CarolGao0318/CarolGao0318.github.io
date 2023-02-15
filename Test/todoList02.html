@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>todoList</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- 新增功能 -->
+            <div class="col-12">
+                <div class="input-group mb-3 my-3">
+                    <input id="addTodo" type="text" class="form-control" placeholder="todo..."
+                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <button id="add-btn" type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+        </div>
+        <!-- 編輯功能 -->
+        <div class="row editContainer">
+            <!-- <div class="col-12 d-flex mb-3 my-3">
+                <div class="col-9">
+                    <div class="form-check mx-2">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <input id="editTodo" type="text" readonly class="form-control" placeholder="todo..."
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        </label>
+                    </div>
+                </div>
+                <div class="editArea col-3 d-flex">
+                    <button type="button" id="edit-btn" class="btn btn-warning mx-2">編輯</button>
+                    <button style="display:none" type="button" id="save-btn" class="btn btn-success mx-2">保存</button>
+                    <button type="button" id="delete-btn" class="btn btn-danger">刪除</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+
+    <script>
+
+        // input 新增欄
+        const addValue = document.querySelector('#addTodo');
+
+        // btn
+        const addButton = document.querySelector('#add-btn');
+
+        window.onload = function () {
+            renderList()
+        }
+
+        //一載入畫面就先撈資料
+        // let todoList = [];
+        // function load() {
+        //     if (!localStorage.getItem("todoList")) return
+        //     todoList = [...JSON.parse(localStorage.getItem("todoList"))]
+        // }
+
+        //渲染清單
+        function renderList() {
+
+            if (localStorage.getItem("todoList") != null) {
+
+                let todoList = JSON.parse(localStorage.getItem("todoList"));
+
+                //畫面清空
+                const row = document.querySelector('.editContainer');
+                row.innerHTML = '';
+
+                todoList.forEach((item, index) => {
+
+                    //1.渲染畫面
+                    const newTodo = document.createElement('div');
+                    newTodo.classList.add('col-12', 'd-flex', 'mb-3', 'my-3');
+
+                    const todoInputContainer = document.createElement('div');
+                    todoInputContainer.classList.add('col-9');
+
+                    const formCheck = document.createElement('div');
+                    formCheck.classList.add('form-check', 'mx-2');
+
+                    const input = document.createElement('input');
+                    input.classList.add('form-check-input');
+                    input.type = 'checkbox';
+                    input.value = '';
+                    input.id = 'flexCheckDefault';
+
+                    const label = document.createElement('label');
+                    label.classList.add('form-check-label');
+                    label.setAttribute('for', 'flexCheckDefault');
+
+                    const todoInput = document.createElement('input');
+                    todoInput.id = 'editTodo';
+                    todoInput.type = 'text';
+                    todoInput.value = item.text
+                    todoInput.readOnly = true;
+                    todoInput.classList.add('form-control');
+                    todoInput.placeholder = 'todo...';
+                    todoInput.setAttribute('aria-label', "Recipient's username");
+                    todoInput.setAttribute('aria-describedby', 'basic-addon2');
+
+                    label.appendChild(todoInput);
+                    formCheck.appendChild(input);
+                    formCheck.appendChild(label);
+                    todoInputContainer.appendChild(formCheck);
+                    newTodo.appendChild(todoInputContainer);
+
+                    const actionContainer = document.createElement('div');
+                    actionContainer.classList.add('editArea', 'col-3', 'd-flex');
+
+                    const editButton = document.createElement('button');
+                    editButton.type = 'button';
+                    editButton.id = 'edit-btn';
+                    editButton.classList.add('btn', 'btn-warning', 'mx-2');
+                    editButton.textContent = '編輯';
+
+                    const saveButton = document.createElement('button');
+                    saveButton.style.display = 'none';
+                    saveButton.type = 'button';
+                    saveButton.id = 'save-btn';
+                    saveButton.classList.add('btn', 'btn-success', 'mx-2');
+                    saveButton.textContent = '保存';
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.type = 'button';
+                    deleteButton.id = 'delete-btn';
+                    deleteButton.classList.add('btn', 'btn-danger');
+                    deleteButton.textContent = '刪除';
+
+                    actionContainer.appendChild(editButton);
+                    actionContainer.appendChild(saveButton);
+                    actionContainer.appendChild(deleteButton);
+                    newTodo.appendChild(actionContainer);
+                    row.appendChild(newTodo);
+
+
+                    //2. 按鈕區
+                    //按下saveButton後更新待辦事項
+                    //editButton消失,出現saveButton,輸入框變成可編輯
+                    editButton.addEventListener('click', function () {
+                        editButton.style.display = "none";
+                        saveButton.style.display = "block";
+                        todoInput.removeAttribute("readonly");
+                    })
+
+                    //輸入更新後的待辦事項
+                    //saveButton消失,出現editButton,輸入框則變回不可編輯狀態
+                    //按下saveButton更新至localStorage
+                    saveButton.addEventListener('click', function () {
+                        editButton.style.display = "block";
+                        saveButton.style.display = "none";
+                        //input變回不可編輯
+                        todoInput.setAttribute("readonly", true);
+                        editItem(todoInput.value, item.id, index);
+                    })
+
+                    deleteButton.addEventListener('click', function () {
+                        deleteItem(index)
+                        renderList()
+                    })
+
+
+                    //checkBox 打勾代表完成
+                    input.addEventListener('change', function () {
+                        let todoList = JSON.parse(localStorage.getItem("todoList"))
+
+                        let todoItem = todoList[index].text;
+                        let id = todoList[index].id;
+                        let isChecked = false;
+
+                        if (event.target.checked) {
+                            // 打勾 - 變更欄位為禁用
+                            isChecked = true;
+                            todoInput.disabled = true;
+                        } else {
+                            // 變更欄位為可用
+                            isChecked = false;
+                            todoInput.disabled = false;
+                            todoInput.setAttribute("readonly", true)
+                        }
+
+                        let todoObj = {
+                            text: todoItem,
+                            done: isChecked,
+                            id: id
+                        }
+
+                        todoList[index] = todoObj;
+                        localStorage.setItem("todoList", JSON.stringify(todoList));
+                    })
+
+                    //每次重啟畫面,input欄都要保持鎖住的狀態
+                    let checkArr = JSON.parse(localStorage.getItem("todoList"));
+
+                    if (checkArr[index].done == true) {
+                        input.checked = true;
+                        todoInput.disabled = true;
+                        todoInput.setAttribute("readonly", true)
+                    }
+
+                })
+            }
+        }
+
+
+        let id = 0; //todoObj 要用
+
+        //1. 新增行程 - 儲存到localStorage
+        function addItem() {
+
+            //addValue--input的新增欄, 是空值就跳出方法
+            if (addValue.value == '') return
+
+            let key = "todoList";
+            let todoItem = addValue.value;
+            let todoList = [];
+
+            //從localStorage取資料, 給新的資料id值
+            if (localStorage.getItem("todoList") == null) {
+                id = 0;
+            } else {
+                todoList = JSON.parse(localStorage.getItem("todoList"));
+                id = todoList[todoList.length - 1].id + 1 //新資料的id = 最後一筆資料的id+1
+            }
+
+            let todoObj = {
+                text: todoItem,
+                done: false,
+                id: id
+            };
+
+            //把新增的資料存到localStorage
+            if (localStorage.getItem("todoList") == null) {
+                todoList.push(todoObj);
+            } else {
+                todoList = JSON.parse(localStorage.getItem("todoList"));
+                todoList.push(todoObj);
+            }
+            localStorage.setItem("todoList", JSON.stringify(todoList));
+
+            addValue.value = '';
+        }
+
+        //2. 編輯行程 - 更新覆蓋到localStorage
+        //todoInput -- 下面的input編輯欄
+        function editItem(todoInput, id, index) {
+            let todoItem = todoInput;
+            let key = "todoList";
+            let todoObj = {
+                text: todoItem,
+                done: false,
+                id: id
+            };
+
+            let todoList = JSON.parse(localStorage.getItem("todoList"));
+            todoList[index] = todoObj; //用foreach的index判斷是第幾筆資料
+
+            localStorage.setItem("todoList", JSON.stringify(todoList));
+        }
+
+        //3. 刪除行程 - 儲存到localStorage, 取自forEach的index
+        function deleteItem(index) {
+            let todoList = JSON.parse(localStorage.getItem("todoList"));
+            todoList.splice(index, 1);
+            localStorage.setItem("todoList", JSON.stringify(todoList));
+        }
+
+        //新增按鈕
+        addButton.addEventListener('click', function () {
+            addItem()
+            renderList()
+        })
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

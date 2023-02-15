@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商品頁</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="reset.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/83a2f59bcb.js" crossorigin="anonymous"></script>
+    <style>
+        /* 最底下- 其他相似產品
+        .product-others-list {
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product-others-card {
+            margin-bottom: 15px;
+        }
+
+        .product-others-pic {
+            position: relative;
+        }
+
+        .product-others-pic img {
+            width: 100%;
+            vertical-align: top;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .product-others-text {
+            text-align: left;
+        }
+
+        .product-others-text .name a {
+            color: var(--dark-gray);
+            font-weight: 900;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .product-others-text .brand a {
+            color: var(--light-gray);
+            line-height: 1.6;
+            font-size: 10px;
+        }
+
+        .product-others-text .price {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            font-size: 10px;
+        } */
+
+
+        /* swiper styles */
+        /* html,
+        body {
+            position: relative;
+            height: 100%;
+        } */
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mySwiper2 {
+            height: 80%;
+            width: 100%;
+        }
+
+        .mySwiper {
+            height: 20%;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .mySwiper .swiper-slide {
+            width: 25%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .mySwiper .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 共同設定 */
+        :root {
+            --main-pink: #A27F82;
+            --dark-gray: #56565E;
+            --light-gray: #D3C9C9;
+            --peach-pink: #E3A4A4;
+            --light-pink: #FEF4F6;
+        }
+
+        .container a {
+            text-decoration: none;
+        }
+
+        .row {
+            margin: 10px;
+        }
+
+        .btn {
+            background-color: var(--dark-gray);
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--peach-pink);
+        }
+
+        /* 按鈕點擊後 */
+        /* .btn:visited {
+            background-color: var(--peach-pink);
+            
+        } */
+
+        h1 {
+            font-size: 25px;
+            line-height: 1.2;
+            font-weight: 900;
+        }
+
+        h2 {
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 10px 0;
+            font-weight: 600;
+            box-shadow: 0 1px var(--light-gray);
+            padding-bottom: 5px;
+        }
+
+        a,
+        p,
+        li {
+            font-size: 10px;
+            line-height: 1.6;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* main - cart */
+        .product-price {
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+
+        /* 產品資訊 */
+        .product-info-list {}
+
+        /* 產品介紹 */
+        .product-intro-title {
+            font-size: 15px;
+            line-height: 1.2;
+        }
+
+        .product-tag {
+            background-color: var(--peach-pink);
+            color: #fff;
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            font-size: 10px;
+            padding: 8px;
+            font-weight: 900;
+            border-radius: 3px;
+        }
+
+        /* 品牌card */
+
+        /* .product-brand .box-title h2 {
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 10px 0;
+            font-weight: 600;
+        } */
+        /* .product-brand .box-title {
+            box-shadow: 0 1px var(--light-gray);
+            padding-bottom: 5px;
+        } */
+        
+        .product-brand .brand-card{
+            border: 1px solid var(--light-gray);
+            margin-bottom: 10px;
+        }
+
+        .product-brand .brand-banner{}
+
+        .product-brand .brand-main{
+            padding: 10px;
+        }
+
+        .product-brand .brand-name a {
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 10px 0;
+            font-weight: 900;
+            color: var(--dark-gray);
+        }
+
+        .product-brand .brand-list{
+            /* box-sizing: border-box;
+            width: 100%; */
+            margin: 20px 0;
+            /* display: flex;
+            flex-wrap: wrap; */
+            justify-content: center;
+        }
+
+        .product-brand .brand-list-item{
+            /* box-sizing: border-box;
+            width: 32%; */
+            /* border-radius: 2px; */
+            margin: 5px;
+            display: flex;
+        }
+        .product-brand .box-title-line{
+            border-top: 1px solid var(--light-gray);
+            padding-bottom: 10px;
+        }
+
+        .brand-list-item .brand-list-title,
+        .brand-list-item .brand-list-content{
+            font-size: 12px;
+            line-height: 1.2;
+            color: var(--dark-gray);
+        }
+        
+        .brand-list-item .brand-actions .contact .btn {
+            background-color: var(--light-gray);
+        }
+
+        .brand-list-item .brand-actions .contact .btn:hover {
+            background-color: var(--dark-gray);
+        }
+
+        .brand-actions .brand-follow{
+
+        }
+
+
+        /* 評論區平台logo */
+        .product-review-list{
+            
+        }
+        .product-review-item {
+            box-shadow: 0 0.5px var(--light-gray);
+            padding: 5px 0;
+        }
+        .product-review-item .config{
+            background-color: var(--light-gray);
+            border-radius: 50px;
+            opacity: 0.8;
+            width: 120px;
+            padding: 3px 1px;
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .product-review-item .user-name {
+           
+        }
+        .product-review-item .user-name img {
+            width: 30px;
+        }
+        .product-review-item .user-name p {
+            align-self: center;
+            font-size: 10px;
+            margin: 5px;
+        }
+
+        .brand-review .review-star .fa-star{
+            color: var(--peach-pink);
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        /* 品牌card評論: 星星+分數+總數 */
+        .brand-review .review-score,
+        .brand-review .review-amount{
+            align-self: center;
+            font-size: 10px;
+            margin: 5px;
+            color: var(--light-gray);
+        }
+
+        /* 產品card評論: 星星 */
+        .product-body .review-star {
+            color: var(--peach-pink);
+            align-items: center;
+            margin: 5px 0;
+        }
+
+
+        /* 產品底下評論: 星星+時間 */
+        .product-review-item .review-star{
+            color: var(--peach-pink);
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .product-review-item .review-time{
+            color: var(--light-gray);
+            margin: 0 10px;
+        }
+
+        .product-review-item text {
+           /* 評論內容 */
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <!-- 產品card -->
+    <div class="container">
+        <div class="row">
+            <!-- js 渲染產品圖 -->
+            <div class="col-12 col-md-6">
+                <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div thumbsSlider="" class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="product-body">
+                    <!-- 價格 -->
+                    <h1 class="card-title my-2">日本保溫隨行杯(栓蓋版) 240ml / 360ml</h1>
+                    <!-- 評論 (星星數 render) -->
+                    <p class="review-star my-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </p>
+                    <p class="product-sales-amount my-1">設計品牌共售出 24500 件商品</p>
+                    <!-- 優惠券折數 render -->
+                    <div class="product-tag">85折</div>
+                    <p class="product-price my-1">NT$ 1,148 起</p>
+                    <!-- 選商品規格 render -->
+                    <div class="product-config">
+                        <select class="form-select my-2" aria-label="Default select example">
+                            <option selected>請選擇商品規格</option>
+                            <option value="1">240ml / 黑</option>
+                            <option value="2">360ml / 銀河灰</option>
+                        </select>
+                    </div>
+                    <!-- 數量 render? -->
+                    <div class="product-quntity">
+                        <label>數量</label>
+                        <select class="form-select my-2" aria-label="Default select example">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <!-- 購物車 -->
+                    <div class="product-cart my-1">
+                        <a href="#" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> 放入購物車</a>
+                    </div>
+                    <!-- 收藏商品 JS-->
+                    <div class="product-collect my-1">
+                        <a href="#" class="btn btn-primary"><i class="fa-regular fa-heart"></i> 收藏商品</a>
+                        <!-- <a href="#" class="btn btn-primary"><i class="fa-solid fa-heart"></i> 已收藏商品</a> -->
+                    </div>
+                    <p class="card-text my-3">
+                        付款後，從備貨到寄出商品為 3 個工作天。（不包含假日）<br>
+                        設計館提供統一發票或免用統一發票收據</p>
+                    <div class="product-info-list">
+                        <div class="box-title">
+                            <h2>商品資訊</h2>
+                        </div>
+                        <div class="box-body">
+                            <div class="product-info-item d-flex">
+                                <div class="product-info-title col-3">
+                                    <p>商品熱門度</p>
+                                </div>
+                                <div class="product-info-content col-9">
+                                    <p>被欣賞 16,761 次</p>
+                                    <p>已賣出 64 件商品</p>
+                                    <p>共 532 人收藏</p>
+                                </div>
+                            </div>
+                            <div class="product-info-item  d-flex">
+                                <div class="product-info-title col-3">
+                                    <p>商品材質</p>
+                                </div>
+                                <div class="product-info-content col-9">
+                                    <a href="">不鏽鋼</a>
+                                </div>
+                            </div>
+                            <div class="product-info-item d-flex">
+                                <div class="product-info-title col-3">
+                                    <p>商品產地</p>
+                                </div>
+                                <div class="product-info-content col-9">
+                                    <p>中國大陸</p>
+                                </div>
+                            </div>
+                            <div class="product-info-item d-flex">
+                                <div class="product-info-title col-3">
+                                    <p>庫存</p>
+                                </div>
+                                <div class="product-info-content col-9">
+                                    <p>10 件以上</p>
+                                </div>
+                            </div>
+                            <div class="product-info-item d-flex">
+                                <div class="product-info-title col-3">
+                                    <p>商品摘要</p>
+                                </div>
+                                <div class="product-info-content col-9">
+                                    <p>TO GO TUMBLER 保溫隨行杯2.0，最適合早上習慣外帶一杯咖啡飲用的你！真空設計防燙手，杯內無死角的圓弧形杯底易於清潔</p>
+                                </div>
+                            </div>
+                            <div class="product-info-item d-flex">
+                                <div class="product-info-title col-3">
+                                    <p>授權經銷品牌</p>
+                                </div>
+                                <div class="product-info-content col-9">
+                                    <p>KINTO Taiwan</p>
+                                </div>
+                            </div>
+                            <div class="product-info-item d-flex">
+                                <div class="product-info-title col-3">
+                                    <p>商品分類</p>
+                                </div>
+                                <div class="product-info-content col-9">
+                                    <a href="">廚房餐桌</a>
+                                    >
+                                    <a href="">杯 / 壺具</a>
+                                    >
+                                    <a href="">杯子</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="product-intro-list">
+                    <div class="box-title">
+                        <h2>商品介紹</h2>
+                    </div>
+                    <div class="box-body">
+                        <div class="product-intro-item">
+                            <div class="product-intro-content">
+                                <p>改版再上市！TO GO TUMBLER 保溫隨行杯 2.0-栓蓋版</p>
+                                <p>杯蓋的選轉栓蓋設計防飲品行走時潑濺</p>
+                                <p>18/8雙層不鏽鋼製，真空設計防燙手，保溫保冷</p>
+                                <p>透明防塵蓋，斜口飲嘴設計</p>
+                            </div>
+                            <div class="product-intro-pic">
+                                <img src="./img/intro01.jpg" alt="">
+                            </div>
+                            <div class="product-intro-content">
+                                <p class="product-intro-title">多様で柔軟なライフスタイルに</p>
+                                <p>TO GO TUMBLER保溫隨行杯，由日本設計師─安積 伸SHIN
+                                    AZUMI所設計的隨手杯系列，最適合早上習慣外帶一杯咖啡飲用的你！</p>
+                            </div>
+                            <div class="product-intro-pic">
+                                <img src="./img/intro02.jpg" alt="">
+                            </div>
+                            <div class="product-intro-content">
+                                <p>高品質不鏽鋼, 瓶身內側以電解研磨成平滑表面, 不易沾染茶漬等. 瓶身表面以粉體烤漆, 不易刮傷</p>
+                                <p>可拆解配件, 方便清潔</p>
+                            </div>
+                            <div class="product-intro-pic">
+                                <img src="./img/intro03.jpg" alt="">
+                            </div>
+                            <div class="product-intro-content">
+                                <p>採用透明的防塵蓋，不僅免開蓋就可以透視杯內水量，亦可目視拉花藝術，貼心的斜口飲嘴設計，
+                                    降低飲用時灑出的困擾，而取下杯蓋後也可以直接飲用，好就口的安全薄款杯緣，做為戶外活動使用更加出色！</p>
+                            </div>
+                            <div class="product-intro-pic">
+                                <img src="./img/intro04.jpg" alt="">
+                            </div>
+                            <div class="product-intro-config">
+                                <p>【商品規格】</p>
+                                <p>材質: 18-8不鏽鋼(粉底烤漆)、PCT樹脂、矽膠</p>
+                                <p>尺寸: φ87xH9.5cm／φ87xH13cm</p>
+                                <p>容量: 240ml／360ml</p>
+                                <p>注意事項</p>
+                                <p>*耐熱溫度100℃</p>
+                                <p>*使用前可先加入少量熱水(冷水)先行預熱(冷)1-2分鐘,可增加保溫(保冷)效果</p>
+                                <p>*用於洗碗機時請置於上層</p>
+                                <p>*不適用於微波爐/烤箱</p>
+                                <p>*本商品為隨行杯, 非完全密封</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <!-- 優惠活動 -->
+                <div class="product-promo-list">
+                    <div class="box-title">
+                        <h2>優惠活動</h2>
+                    </div>
+                    <div class="box-body">
+                        <ul class="product-promo-messages">
+                            <li class="product-promo-msg">1/19 - 2/14 精選品牌單館滿 NT$1,000 免運 ！
+                            </li>
+                            <li class="product-promo-msg">全館滿額免運（臺灣地區）：至
+                                2023/3/1 為止，不限運送方式寄往台灣，滿 NT$799 享免運
+                            </li>
+                            <li class="product-promo-msg">全館85折：至 2023/3/1
+                                為止，購買指定商品，享每件 85 折</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 關於品牌 -->
+                <div class="product-brand">
+                    <div class="box-title d-flex justify-content-between align-items-center">
+                        <h2>關於品牌</h2>
+                        <a href="">前往旗艦館</a>
+                    </div>
+                    <div class="box-title-line"></div>
+                    <div class="box-body">
+                        <div class="brand-card">
+                            <div class="brand-banner">
+                                <img src="./img/brand-banner.png" alt="">
+                            </div>
+                            <div class="brand-main d-flex align-items-center">
+                                <div class="brand-icon col-3">
+                                    <img src="./logo/hatsukoi_icon.png" alt="">
+                                </div>
+                                <div class="brand-info col-9">
+                                    <div class="brand-name">
+                                        <a href="">hatsukoi</a>
+                                    </div>
+                                    <div class="brand-detail">
+                                        <div class="brand-country d-flex">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <p>台灣</p>
+                                        </div>
+                                        <!-- 品牌評論 render -->
+                                        <div class="brand-review d-flex">
+                                            <div class="review-star d-flex">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <p class="review-score">4.9</p>
+                                                <p class="review-amount">(3,885)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="brand-actions d-flex">
+                        <!-- JS 加到收藏店家的頁面 -->
+                        <div class="brand-follow col-6 px-1">
+                            <button type="button" class="btn btn-secondary"><i class="fa-solid fa-plus"></i>
+                                加入關注</button>
+                            <!-- <button type="button" class="btn btn-secondary"><i class="fa-solid fa-check"></i> 已關注</button> -->
+                        </div>
+                        <!-- JS 跳轉tom聊天室 -->
+                        <div class="brand-contact col-6 px-1">
+                            <button type="button" class="btn btn-secondary"><i class="fa-regular fa-message"></i>
+                                聯絡設計師
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 品牌資訊 -->
+                    <div class="brand-list">
+                        <div class="brand-list-item">
+                            <div class="brand-list-title col-3">出貨速度</div>
+                            <div class="brand-list-content col-9">一週內</div>
+                        </div>
+                        <div class="brand-list-item">
+                            <div class="brand-list-title col-3">關注人數</div>
+                            <div class="brand-list-content col-9">21,752</div>
+                        </div>
+                        <div class="brand-list-item">
+                            <div class="brand-list-title col-3">回應率</div>
+                            <div class="brand-list-content col-9">94%</div>
+                        </div>
+                        <div class="brand-list-item">
+                            <div class="brand-list-title col-3">上次上線</div>
+                            <div class="brand-list-content col-9">1 天內</div>
+                        </div>
+                        <div class="brand-list-item">
+                            <div class="brand-list-title col-3">營業人名稱</div>
+                            <div class="brand-list-content col-9">初戀有限公司</div>
+                        </div>
+                        <div class="brand-list-item">
+                            <div class="brand-list-title col-3">統一編號</div>
+                            <div class="brand-list-content col-9">08000000</div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 購買評價 -->
+                <div class="product-review-list">
+                    <div class="box-title">
+                        <h2>購買評價</h2>
+                    </div>
+                    <div class="product-review-item">
+                        <ul class="other">
+                            <li class="user-name d-flex">
+                                <img src="./logo/hatsukoi_icon.png" alt="">
+                                <p>J*******u</p>
+                            </li>
+                            <li class="review-star d-flex">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p class="review-time"> 1 個月前</p>
+                            </li>
+                            <li class="text">非常耐用方便，也好清洗！</li>
+                            <li class="config">規格：360ml／灰綠</li>
+                        </ul>
+                    </div>
+                    <div class="product-review-item">
+                        <ul class="other">
+                            <li class="user-name d-flex">
+                                <img src="./logo/hatsukoi_icon.png" alt="">
+                                <p>J*******u</p>
+                            </li>
+                            <li class="review-star d-flex">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p class="review-time"> 1 個月前</p>
+                            </li>
+                            <li class="text">非常耐用方便，也好清洗！期待未來有更大容量的版本!非常耐用方便，也好清洗！期待未來有更大容量的版本!</li>
+                            <li class="config">規格：360ml／灰綠</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 與此商品相似 card, 用蕭的-->
+    <!-- <div class="container">
+            <div class="row">
+                <div class="product-others-list">
+                    <div class="box-title">
+                        <h2>與此商品相似</h2>
+                    </div>
+                    <div class="product-others-card">
+                        <div class="product-others-pic">
+                            <div class="tag">85 折</div>
+                            <img src="https://picsum.photos/id/666/300/200">
+                        </div>
+                        <div class="product-others-text">
+                            <ul class="other">
+                                <li class="name">
+                                    <a href="">保溫杯</a>
+                                </li>
+                                <li class="brand">
+                                    <a href="">hatsukoi</a>
+                                </li>
+                                <li class="price">NT$498</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-others-card">
+                        <div class="product-others-pic">
+                            <div class="tag">85 折</div>
+                            <img src="https://picsum.photos/id/666/300/200">
+                        </div>
+                        <div class="product-others-text">
+                            <ul class="other">
+                                <li class="name">
+                                    <a href="">保溫杯</a>
+                                </li>
+                                <li class="brand">
+                                    <a href="">hatsukoi</a>
+                                </li>
+                                <li class="price">NT$498</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-others-card">
+                        <div class="product-others-pic">
+                            <div class="tag">85 折</div>
+                            <img src="https://picsum.photos/id/666/300/200">
+                        </div>
+                        <div class="product-others-text">
+                            <ul class="other">
+                                <li class="name">
+                                    <a href="">保溫杯</a>
+                                </li>
+                                <li class="brand">
+                                    <a href="">hatsukoi</a>
+                                </li>
+                                <li class="price">NT$498</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-others-card">
+                        <div class="product-others-pic">
+                            <div class="tag">85 折</div>
+                            <img src="https://picsum.photos/id/666/300/200">
+                        </div>
+                        <div class="product-others-text">
+                            <ul class="other">
+                                <li class="name">
+                                    <a href="">保溫杯</a>
+                                </li>
+                                <li class="brand">
+                                    <a href="">hatsukoi</a>
+                                </li>
+                                <li class="price">NT$498</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-others-card">
+                        <div class="product-others-pic">
+                            <div class="tag">85 折</div>
+                            <img src="https://picsum.photos/id/666/300/200">
+                        </div>
+                        <div class="product-others-text">
+                            <ul class="other">
+                                <li class="name">
+                                    <a href="">保溫杯</a>
+                                </li>
+                                <li class="brand">
+                                    <a href="">hatsukoi</a>
+                                </li>
+                                <li class="price">NT$498</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-others-card">
+                        <div class="product-others-pic">
+                            <div class="tag">85 折</div>
+                            <img src="https://picsum.photos/id/666/300/200">
+                        </div>
+                        <div class="product-others-text">
+                            <ul class="other">
+                                <li class="name">
+                                    <a href="">保溫杯</a>
+                                </li>
+                                <li class="brand">
+                                    <a href="">hatsukoi</a>
+                                </li>
+                                <li class="price">NT$498</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+        var swiper2 = new Swiper(".mySwiper2", {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiper,
+            },
+        });
+    </script>
+</body>
+
+</html>
