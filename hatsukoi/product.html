@@ -12,59 +12,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/83a2f59bcb.js" crossorigin="anonymous"></script>
     <style>
-        /* 最底下- 其他相似產品
-        .product-others-list {
-            box-sizing: border-box;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .product-others-card {
-            margin-bottom: 15px;
-        }
-
-        .product-others-pic {
-            position: relative;
-        }
-
-        .product-others-pic img {
-            width: 100%;
-            vertical-align: top;
-            overflow: hidden;
-            margin-bottom: 5px;
-        }
-
-        .product-others-text {
-            text-align: left;
-        }
-
-        .product-others-text .name a {
-            color: var(--dark-gray);
-            font-weight: 900;
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        .product-others-text .brand a {
-            color: var(--light-gray);
-            line-height: 1.6;
-            font-size: 10px;
-        }
-
-        .product-others-text .price {
-            color: var(--dark-gray);
-            line-height: 1.6;
-            font-size: 10px;
-        } */
-
-
-        /* swiper styles */
-        /* html,
-        body {
-            position: relative;
-            height: 100%;
-        } */
-
         .swiper {
             width: 100%;
             height: 100%;
@@ -106,7 +53,7 @@
         .mySwiper {
             height: 20%;
             box-sizing: border-box;
-            padding: 10px 0;
+            padding: 15px 0;
         }
 
         .mySwiper .swiper-slide {
@@ -140,25 +87,19 @@
         }
 
         .row {
-            margin: 10px;
+            margin: 20px;
         }
 
         .btn {
-            background-color: var(--dark-gray);
+            background-color: var(--peach-pink);
             border: none;
             width: 100%;
             height: 100%;
         }
 
         .btn:hover {
-            background-color: var(--peach-pink);
+            background-color: var(--dark-gray);
         }
-
-        /* 按鈕點擊後 */
-        /* .btn:visited {
-            background-color: var(--peach-pink);
-            
-        } */
 
         h1 {
             font-size: 25px;
@@ -171,14 +112,17 @@
             line-height: 1.6;
             margin: 10px 0;
             font-weight: 600;
-            box-shadow: 0 1px var(--light-gray);
-            padding-bottom: 5px;
+        }
+
+        .box-title-line{
+            border-top: 1px solid var(--light-gray);
+            padding-bottom: 10px;
         }
 
         a,
         p,
         li {
-            font-size: 10px;
+            font-size: 12px;
             line-height: 1.6;
         }
 
@@ -187,23 +131,39 @@
             height: 100%;
         }
 
-        /* main - cart */
+        /* 各col間距 ---------------------------------------------*/
+        .product-body,
+        .product-promo-list,
+        .product-store,
+        .product-review-list {
+            padding-left: 15px;
+        }
+
+        .product-intro-list {
+            padding-right: 15px;
+        }
+
+        /* 產品資訊 */
         .product-price {
             font-size: 30px;
             font-weight: 900;
         }
 
-
-        /* 產品資訊 */
-        .product-info-list {}
-
         /* 產品介紹 */
         .product-intro-title {
             font-size: 15px;
-            line-height: 1.2;
+            padding:10px 0;
         }
 
-        .product-tag {
+        .product-intro-item .product-intro-content{
+            padding:10px 0;
+        }
+
+        .product-intro-config{
+            padding: 10px 0;
+        }
+
+        .product-badge {
             background-color: var(--peach-pink);
             color: #fff;
             width: 50px;
@@ -216,30 +176,19 @@
         }
 
         /* 品牌card */
-
-        /* .product-brand .box-title h2 {
-            font-size: 20px;
-            line-height: 1.6;
-            margin: 10px 0;
-            font-weight: 600;
-        } */
-        /* .product-brand .box-title {
-            box-shadow: 0 1px var(--light-gray);
-            padding-bottom: 5px;
-        } */
         
-        .product-brand .brand-card{
+        .product-store .store-card{
             border: 1px solid var(--light-gray);
             margin-bottom: 10px;
         }
 
-        .product-brand .brand-banner{}
+        .product-store .store-banner{}
 
-        .product-brand .brand-main{
+        .product-store .store-main{
             padding: 10px;
         }
 
-        .product-brand .brand-name a {
+        .product-store .store-name a {
             font-size: 20px;
             line-height: 1.6;
             margin: 10px 0;
@@ -247,44 +196,36 @@
             color: var(--dark-gray);
         }
 
-        .product-brand .brand-list{
-            /* box-sizing: border-box;
-            width: 100%; */
+        .product-store .store-list{
             margin: 20px 0;
-            /* display: flex;
-            flex-wrap: wrap; */
             justify-content: center;
         }
 
-        .product-brand .brand-list-item{
-            /* box-sizing: border-box;
-            width: 32%; */
-            /* border-radius: 2px; */
+        .product-store .store-list-item{
             margin: 5px;
             display: flex;
         }
-        .product-brand .box-title-line{
-            border-top: 1px solid var(--light-gray);
-            padding-bottom: 10px;
-        }
+        
 
-        .brand-list-item .brand-list-title,
-        .brand-list-item .brand-list-content{
+        .store-list-item .store-list-title,
+        .store-list-item .store-list-content{
             font-size: 12px;
             line-height: 1.2;
             color: var(--dark-gray);
         }
         
-        .brand-list-item .brand-actions .contact .btn {
-            background-color: var(--light-gray);
+        .product-collect .btn,
+        .product-store .store-actions .store-contact .btn {
+            background-color: #fff;
+            border: 1px solid var(--light-gray);
+            color: var(--dark-gray);
         }
 
-        .brand-list-item .brand-actions .contact .btn:hover {
-            background-color: var(--dark-gray);
-        }
-
-        .brand-actions .brand-follow{
-
+        .product-collect .btn:hover,
+        .product-store .store-actions .store-contact .btn:hover {
+            background-color: var(--peach-pink);
+            border: none;
+            color: #fff;
         }
 
 
@@ -306,9 +247,7 @@
             text-align: center;
         }
 
-        .product-review-item .user-name {
-           
-        }
+        
         .product-review-item .user-name img {
             width: 30px;
         }
@@ -318,15 +257,15 @@
             margin: 5px;
         }
 
-        .brand-review .review-star .fa-star{
+        .store-review .review-star .fa-star{
             color: var(--peach-pink);
             align-items: center;
             margin: 5px 0;
         }
 
         /* 品牌card評論: 星星+分數+總數 */
-        .brand-review .review-score,
-        .brand-review .review-amount{
+        .store-review .review-score,
+        .store-review .review-amount{
             align-self: center;
             font-size: 10px;
             margin: 5px;
@@ -353,10 +292,6 @@
             margin: 0 10px;
         }
 
-        .product-review-item text {
-           /* 評論內容 */
-        }
-        
 
     </style>
 </head>
@@ -442,17 +377,9 @@
                 <div class="product-body">
                     <!-- 價格 -->
                     <h1 class="card-title my-2">日本保溫隨行杯(栓蓋版) 240ml / 360ml</h1>
-                    <!-- 評論 (星星數 render) -->
-                    <p class="review-star my-1">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </p>
                     <p class="product-sales-amount my-1">設計品牌共售出 24500 件商品</p>
                     <!-- 優惠券折數 render -->
-                    <div class="product-tag">85折</div>
+                    <div class="product-badge">85折</div>
                     <p class="product-price my-1">NT$ 1,148 起</p>
                     <!-- 選商品規格 render -->
                     <div class="product-config">
@@ -462,7 +389,7 @@
                             <option value="2">360ml / 銀河灰</option>
                         </select>
                     </div>
-                    <!-- 數量 render? -->
+                    <!-- 數量 render -->
                     <div class="product-quntity">
                         <label>數量</label>
                         <select class="form-select my-2" aria-label="Default select example">
@@ -486,6 +413,7 @@
                         <div class="box-title">
                             <h2>商品資訊</h2>
                         </div>
+                        <div class="box-title-line"></div>
                         <div class="box-body">
                             <div class="product-info-item d-flex">
                                 <div class="product-info-title col-3">
@@ -495,14 +423,6 @@
                                     <p>被欣賞 16,761 次</p>
                                     <p>已賣出 64 件商品</p>
                                     <p>共 532 人收藏</p>
-                                </div>
-                            </div>
-                            <div class="product-info-item  d-flex">
-                                <div class="product-info-title col-3">
-                                    <p>商品材質</p>
-                                </div>
-                                <div class="product-info-content col-9">
-                                    <a href="">不鏽鋼</a>
                                 </div>
                             </div>
                             <div class="product-info-item d-flex">
@@ -545,8 +465,6 @@
                                     <a href="">廚房餐桌</a>
                                     >
                                     <a href="">杯 / 壺具</a>
-                                    >
-                                    <a href="">杯子</a>
                                 </div>
                             </div>
                         </div>
@@ -563,6 +481,7 @@
                     <div class="box-title">
                         <h2>商品介紹</h2>
                     </div>
+                    <div class="box-title-line"></div>
                     <div class="box-body">
                         <div class="product-intro-item">
                             <div class="product-intro-content">
@@ -618,6 +537,7 @@
                     <div class="box-title">
                         <h2>優惠活動</h2>
                     </div>
+                    <div class="box-title-line"></div>
                     <div class="box-body">
                         <ul class="product-promo-messages">
                             <li class="product-promo-msg">1/19 - 2/14 精選品牌單館滿 NT$1,000 免運 ！
@@ -631,32 +551,32 @@
                     </div>
                 </div>
                 <!-- 關於品牌 -->
-                <div class="product-brand">
+                <div class="product-store">
                     <div class="box-title d-flex justify-content-between align-items-center">
                         <h2>關於品牌</h2>
                         <a href="">前往旗艦館</a>
                     </div>
                     <div class="box-title-line"></div>
                     <div class="box-body">
-                        <div class="brand-card">
-                            <div class="brand-banner">
-                                <img src="./img/brand-banner.png" alt="">
+                        <div class="store-card">
+                            <div class="store-banner">
+                                <img src="./img/store-banner.png" alt="">
                             </div>
-                            <div class="brand-main d-flex align-items-center">
-                                <div class="brand-icon col-3">
+                            <div class="store-main d-flex align-items-center">
+                                <div class="store-icon col-3">
                                     <img src="./logo/hatsukoi_icon.png" alt="">
                                 </div>
-                                <div class="brand-info col-9">
-                                    <div class="brand-name">
+                                <div class="store-info col-9">
+                                    <div class="store-name">
                                         <a href="">hatsukoi</a>
                                     </div>
-                                    <div class="brand-detail">
-                                        <div class="brand-country d-flex">
+                                    <div class="store-detail">
+                                        <div class="store-country d-flex">
                                             <i class="fa-solid fa-location-dot"></i>
                                             <p>台灣</p>
                                         </div>
                                         <!-- 品牌評論 render -->
-                                        <div class="brand-review d-flex">
+                                        <div class="store-review d-flex">
                                             <div class="review-star d-flex">
                                                 <i class="fa-solid fa-star"></i>
                                                 <i class="fa-solid fa-star"></i>
@@ -672,45 +592,45 @@
                             </div>
                         </div>
                     </div>
-                    <div class="brand-actions d-flex">
+                    <div class="store-actions d-flex">
                         <!-- JS 加到收藏店家的頁面 -->
-                        <div class="brand-follow col-6 px-1">
+                        <div class="store-follow col-6 px-1">
                             <button type="button" class="btn btn-secondary"><i class="fa-solid fa-plus"></i>
                                 加入關注</button>
                             <!-- <button type="button" class="btn btn-secondary"><i class="fa-solid fa-check"></i> 已關注</button> -->
                         </div>
                         <!-- JS 跳轉tom聊天室 -->
-                        <div class="brand-contact col-6 px-1">
+                        <div class="store-contact col-6 px-1">
                             <button type="button" class="btn btn-secondary"><i class="fa-regular fa-message"></i>
                                 聯絡設計師
                             </button>
                         </div>
                     </div>
                     <!-- 品牌資訊 -->
-                    <div class="brand-list">
-                        <div class="brand-list-item">
-                            <div class="brand-list-title col-3">出貨速度</div>
-                            <div class="brand-list-content col-9">一週內</div>
+                    <div class="store-list">
+                        <div class="store-list-item">
+                            <div class="store-list-title col-3">出貨速度</div>
+                            <div class="store-list-content col-9">一週內</div>
                         </div>
-                        <div class="brand-list-item">
-                            <div class="brand-list-title col-3">關注人數</div>
-                            <div class="brand-list-content col-9">21,752</div>
+                        <div class="store-list-item">
+                            <div class="store-list-title col-3">關注人數</div>
+                            <div class="store-list-content col-9">21,752</div>
                         </div>
-                        <div class="brand-list-item">
-                            <div class="brand-list-title col-3">回應率</div>
-                            <div class="brand-list-content col-9">94%</div>
+                        <div class="store-list-item">
+                            <div class="store-list-title col-3">回應率</div>
+                            <div class="store-list-content col-9">94%</div>
                         </div>
-                        <div class="brand-list-item">
-                            <div class="brand-list-title col-3">上次上線</div>
-                            <div class="brand-list-content col-9">1 天內</div>
+                        <div class="store-list-item">
+                            <div class="store-list-title col-3">上次上線</div>
+                            <div class="store-list-content col-9">1 天內</div>
                         </div>
-                        <div class="brand-list-item">
-                            <div class="brand-list-title col-3">營業人名稱</div>
-                            <div class="brand-list-content col-9">初戀有限公司</div>
+                        <div class="store-list-item">
+                            <div class="store-list-title col-3">營業人名稱</div>
+                            <div class="store-list-content col-9">初戀有限公司</div>
                         </div>
-                        <div class="brand-list-item">
-                            <div class="brand-list-title col-3">統一編號</div>
-                            <div class="brand-list-content col-9">08000000</div>
+                        <div class="store-list-item">
+                            <div class="store-list-title col-3">統一編號</div>
+                            <div class="store-list-content col-9">08000000</div>
                         </div>
                     </div>
 
@@ -720,6 +640,7 @@
                     <div class="box-title">
                         <h2>購買評價</h2>
                     </div>
+                    <div class="box-title-line"></div>
                     <div class="product-review-item">
                         <ul class="other">
                             <li class="user-name d-flex">
@@ -756,6 +677,60 @@
                             <li class="config">規格：360ml／灰綠</li>
                         </ul>
                     </div>
+                    <div class="product-review-item">
+                        <ul class="other">
+                            <li class="user-name d-flex">
+                                <img src="./logo/hatsukoi_icon.png" alt="">
+                                <p>J*******u</p>
+                            </li>
+                            <li class="review-star d-flex">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p class="review-time"> 1 個月前</p>
+                            </li>
+                            <li class="text">非常耐用方便，也好清洗！期待未來有更大容量的版本!非常耐用方便，也好清洗！期待未來有更大容量的版本!</li>
+                            <li class="config">規格：360ml／灰綠</li>
+                        </ul>
+                    </div>
+                    <div class="product-review-item">
+                        <ul class="other">
+                            <li class="user-name d-flex">
+                                <img src="./logo/hatsukoi_icon.png" alt="">
+                                <p>J*******u</p>
+                            </li>
+                            <li class="review-star d-flex">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p class="review-time"> 1 個月前</p>
+                            </li>
+                            <li class="text">非常耐用方便，也好清洗！期待未來有更大容量的版本!非常耐用方便，也好清洗！期待未來有更大容量的版本!</li>
+                            <li class="config">規格：360ml／灰綠</li>
+                        </ul>
+                    </div>
+                    <div class="product-review-item">
+                        <ul class="other">
+                            <li class="user-name d-flex">
+                                <img src="./logo/hatsukoi_icon.png" alt="">
+                                <p>J*******u</p>
+                            </li>
+                            <li class="review-star d-flex">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p class="review-time"> 1 個月前</p>
+                            </li>
+                            <li class="text">非常耐用方便，也好清洗！期待未來有更大容量的版本!非常耐用方便，也好清洗！期待未來有更大容量的版本!</li>
+                            <li class="config">規格：360ml／灰綠</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -768,9 +743,10 @@
                     <div class="box-title">
                         <h2>與此商品相似</h2>
                     </div>
+                    <div class="box-title-line"></div>
                     <div class="product-others-card">
                         <div class="product-others-pic">
-                            <div class="tag">85 折</div>
+                            <div class="badge">85 折</div>
                             <img src="https://picsum.photos/id/666/300/200">
                         </div>
                         <div class="product-others-text">
@@ -778,7 +754,7 @@
                                 <li class="name">
                                     <a href="">保溫杯</a>
                                 </li>
-                                <li class="brand">
+                                <li class="store">
                                     <a href="">hatsukoi</a>
                                 </li>
                                 <li class="price">NT$498</li>
@@ -787,7 +763,7 @@
                     </div>
                     <div class="product-others-card">
                         <div class="product-others-pic">
-                            <div class="tag">85 折</div>
+                            <div class="badge">85 折</div>
                             <img src="https://picsum.photos/id/666/300/200">
                         </div>
                         <div class="product-others-text">
@@ -795,7 +771,7 @@
                                 <li class="name">
                                     <a href="">保溫杯</a>
                                 </li>
-                                <li class="brand">
+                                <li class="store">
                                     <a href="">hatsukoi</a>
                                 </li>
                                 <li class="price">NT$498</li>
@@ -804,7 +780,7 @@
                     </div>
                     <div class="product-others-card">
                         <div class="product-others-pic">
-                            <div class="tag">85 折</div>
+                            <div class="badge">85 折</div>
                             <img src="https://picsum.photos/id/666/300/200">
                         </div>
                         <div class="product-others-text">
@@ -812,7 +788,7 @@
                                 <li class="name">
                                     <a href="">保溫杯</a>
                                 </li>
-                                <li class="brand">
+                                <li class="store">
                                     <a href="">hatsukoi</a>
                                 </li>
                                 <li class="price">NT$498</li>
@@ -821,7 +797,7 @@
                     </div>
                     <div class="product-others-card">
                         <div class="product-others-pic">
-                            <div class="tag">85 折</div>
+                            <div class="badge">85 折</div>
                             <img src="https://picsum.photos/id/666/300/200">
                         </div>
                         <div class="product-others-text">
@@ -829,7 +805,7 @@
                                 <li class="name">
                                     <a href="">保溫杯</a>
                                 </li>
-                                <li class="brand">
+                                <li class="store">
                                     <a href="">hatsukoi</a>
                                 </li>
                                 <li class="price">NT$498</li>
@@ -838,7 +814,7 @@
                     </div>
                     <div class="product-others-card">
                         <div class="product-others-pic">
-                            <div class="tag">85 折</div>
+                            <div class="badge">85 折</div>
                             <img src="https://picsum.photos/id/666/300/200">
                         </div>
                         <div class="product-others-text">
@@ -846,7 +822,7 @@
                                 <li class="name">
                                     <a href="">保溫杯</a>
                                 </li>
-                                <li class="brand">
+                                <li class="store">
                                     <a href="">hatsukoi</a>
                                 </li>
                                 <li class="price">NT$498</li>
@@ -855,7 +831,7 @@
                     </div>
                     <div class="product-others-card">
                         <div class="product-others-pic">
-                            <div class="tag">85 折</div>
+                            <div class="badge">85 折</div>
                             <img src="https://picsum.photos/id/666/300/200">
                         </div>
                         <div class="product-others-text">
@@ -863,7 +839,7 @@
                                 <li class="name">
                                     <a href="">保溫杯</a>
                                 </li>
-                                <li class="brand">
+                                <li class="store">
                                     <a href="">hatsukoi</a>
                                 </li>
                                 <li class="price">NT$498</li>

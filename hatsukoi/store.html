@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>品牌首頁</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="reset.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <script src="https://kit.fontawesome.com/83a2f59bcb.js" crossorigin="anonymous"></script>
+    <style>
+        /* 共同設定 */
+        :root {
+            --main-pink: #A27F82;
+            --dark-gray: #56565E;
+            --light-gray: #D3C9C9;
+            --peach-pink: #E3A4A4;
+            --light-pink: #FEF4F6;
+        }
+
+        .container a {
+            text-decoration: none;
+        }
+
+        .row {
+            margin: 20px;
+        }
+
+        .btn {
+            background-color: var(--peach-pink);
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-gray);
+        }
+
+        img {
+            width: 100%;
+        }
+
+        /* 商店資訊--------------------------------------- */
+
+        .store-banner{
+            width: 100%;
+        }
+
+        .store-info-list {
+            align-self: center;
+        }
+
+        .store-info-list .store-info {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            padding-left: 30px;
+            margin-top: 10px;
+        }
+
+        .store-info-list .store-info .fa-location-dot {
+            color: var(--peach-pink);
+            align-items: center;
+            padding-right: 10px;
+        }
+
+        .store-info-list .store-info .fa-calendar {
+            color: var(--peach-pink);
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .store-info-list .review-star{
+            align-items: center;
+            padding-left: 30px;
+            margin-top: 10px;
+        }
+
+        .store-info-list .review-star .fa-star {
+            color: var(--peach-pink);
+            margin: 5px 0;
+            font-size: 13px;
+        }
+
+        /* 品牌評論: 星星+分數+總數 */
+        .store-info-list .review-score,
+        .store-info-list .review-amount {
+            align-self: center;
+            font-size: 13px;
+            margin: 5px;
+            color: var(--light-gray);
+        }
+
+        /* table-------------------------------------------------------------- */
+        .store-table {
+            text-align: center;
+            color: var(--dark-gray);
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 50px 0;
+        }
+
+        .store-list-item {
+            border-radius: 2px;
+            border: 1px solid var(--light-gray);
+            opacity: 0.7;
+            width: 90px;
+            padding: 10px;
+            margin: 0 0 5px 5px;
+        }
+
+        .store-list-item .store-list-title {
+            padding-bottom: 8px;
+            font-size: 12px;
+        }
+
+        .store-list-item .store-list-number {
+            font-size: 14px;
+            color: #000;
+        }
+
+
+        /* social-icon----------------------------------------------------- */
+        .store-actions-list .store-actions-item {
+            text-align: right;
+        }
+
+        .store-actions-item .store-follow .btn{
+            width: 140px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .store-actions-item .store-contact .btn {
+            background-color: var(--light-gray);
+            width: 140px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .store-actions-item .store-contact .btn:hover {
+            background-color: var(--dark-gray);
+        }
+
+        .store-actions-list .store-share {
+            justify-content: end;
+        }
+        
+        .store-share p {
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 15px 10px 0 0;
+        }
+
+        .store-share .store-social-icon {
+            display: flex;
+            padding-top: 10px;
+            justify-content: center;
+        }
+
+        .store-share .store-social-icon .store-icon-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--dark-gray);
+            border: .5px solid var(--dark-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 5px;
+        }
+
+        .store-share .store-social-icon .store-icon-box:hover {
+            background-color: var(--peach-pink);
+            border: .5px solid var(--peach-pink);
+        }
+
+        .store-share .store-social-icon .store-icon-box a {
+            color: #FFFFFF;
+        }
+
+        .store-share .store-social-icon li a {
+            padding: 5px;
+        }
+
+        /* tab style ----------------------------------------------------------*/
+        
+        .store-tab .nav-tabs {
+            margin: 30px 0 20px 0;
+            padding: 0 12px;
+            box-sizing: border-box;
+            border-bottom: 4px solid transparent;
+        }
+
+        .store-tab .nav-item .nav-link {
+            cursor: pointer;
+            color: var(--dark-gray);
+            font-weight: 600;
+            line-height: 1.6;
+            border-style: none;
+            /* border-bottom: 4px solid transparent; */
+        }
+
+        .store-tab .nav-item .nav-link:hover {
+            transition: .2s;
+            border-bottom: 4px solid var(--main-pink);
+        }
+
+        .store-tab .nav-item .nav-link.active {
+            background-color: transparent;
+            border-bottom: 4px solid var(--main-pink);
+        }
+
+        /* tab - 商店優惠--------------------------------------- */
+        .badge {
+            background-color: var(--peach-pink) !important;
+            font-size: 9px;
+        }
+
+        .promo-list {
+            padding: 10px 0;
+            color: var(--peach-pink);
+            font-size: 15px;
+        }
+
+        .promo-title {
+            font-weight: 600;
+            padding-right: 20px;
+        }
+
+        .story-text {
+            line-height: 1.8;
+            font-size: 15px;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+
+        /* tab - 退貨政策--------------------------------------- */
+
+        .return-policy{
+            box-sizing: border-box;
+        }
+
+        .return-policy ul {
+            font-weight: 600;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .return-policy ul li {
+            font-size: 15px;
+            font-weight: normal;
+            list-style-type: disc;
+            list-style-position: inside;
+        }
+
+        .return-policy .space {
+            padding-bottom: 20px;
+        }
+
+        /* 設計師推薦商品------------------------------------------ */
+        .store-hot h2{
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        .store-hot-line{
+            border-top: .5px solid var(--light-gray);
+        }
+
+        .store-hot-item{
+            box-sizing: border-box;
+            margin-bottom: 12px;
+        }
+
+        .store-hot .product-pic {
+            position: relative;
+        }
+
+        .store-hot .product-badge {
+            background-color: var(--peach-pink);
+            color: #fff;
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            font-size: 12px;
+            padding: 8px;
+            font-weight: 900;
+            position: absolute;
+        }
+
+        .product-info {
+            padding: 5px;
+        }
+
+        .product-info .product-title{
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .product-info .product-price{
+            font-size: 15px;
+            padding: 10px 0;
+            color: var(--main-pink);
+            flex-wrap: nowrap;
+        }
+
+        .product-info .product-price .org-price{
+            color: var(--light-gray);
+            text-decoration:line-through;
+            /* margin-left: auto; */
+            padding-left: 8px;
+        }
+        
+        .product-info .cart-icon{
+            width: 50px;
+            height: 30px;
+            border-radius: 3px;
+            background-color: var(--main-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+        }
+        .product-info .cart-icon .fa-cart-shopping{
+            color: #fff;
+        }
+
+        .product-info .cart-icon:hover{
+            background-color: var(--light-gray);
+        }
+        
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="store-banner">
+                <img src="https://picsum.photos/1200/245/?random=10">
+            </div>
+            <div class="col-12 col-md-9">
+                <div class="row">
+                    <div class="col-12 col-md-6 store-logo">
+                        <img src="./logo/hatsukoi_logo.png" alt="">
+                    </div>
+                    <div class="col-12 col-md-6 store-info-list">
+                        <div class="store-info d-flex">
+                            <p><i class="fa-solid fa-location-dot"></i>台灣</p>
+                            <p><i class="fa-regular fa-calendar"></i>2015 開館</p>
+                        </div>
+                        <div class="review-star d-flex">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <p class="review-score">4.9</p>
+                            <p class="review-amount">(3,885)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 商店資訊 --------------------------------------------------------------------------------------------->
+                <div class="store-table d-flex">
+                    <div class="store-list-item">
+                        <div class="store-list-title">商品數量</div>
+                        <div class="store-list-number">162</div>
+                    </div>
+                    <div class="store-list-item">
+                        <div class="store-list-title">賣出件數</div>
+                        <div class="store-list-number">8,000</div>
+                    </div>
+                    <div class="store-list-item">
+                        <div class="store-list-title">關注人數</div>
+                        <div class="store-list-number">12,000</div>
+                    </div>
+                    <div class="store-list-item">
+                        <div class="store-list-title">回應率</div>
+                        <div class="store-list-number">99 %</div>
+                    </div>
+                    <div class="store-list-item">
+                        <div class="store-list-title">回應速度</div>
+                        <div class="store-list-number">1 日內</div>
+                    </div>
+                    <div class="store-list-item">
+                        <div class="store-list-title">上次上線</div>
+                        <div class="store-list-number">1 日內</div>
+                    </div>
+                    <div class="store-list-item">
+                        <div class="store-list-title">出貨速度</div>
+                        <div class="store-list-number">1 ~ 3 日</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右側按鈕區 --------------------------------------------------------------------------------------------->
+            <div class="col-12 col-md-3 store-actions-list">
+                <div class="row">
+                    <div class="store-actions-item align-items-center">
+                        <!-- JS 加到收藏店家的頁面 -->
+                        <div class="store-follow">
+                            <button type="button" class="btn btn-secondary btn-sm"><i class="fa-solid fa-plus"></i>
+                                加入關注</button>
+                            <!-- <button type="button" class="btn btn-secondary btn-sm"><i class="fa-solid fa-check"></i> 已關注</button> -->
+                        </div>
+                        <!-- JS 跳轉tom聊天室 -->
+                        <div class="store-contact">
+                            <button type="button" class="btn btn-secondary btn-sm"><i class="fa-regular fa-message"></i>
+                                聯絡設計師
+                            </button>
+                        </div>
+                    </div>
+                    <div class="store-share d-flex align-items-center">
+                        <p>分享</p>
+                        <ul class="store-social-icon d-flex">
+                            <div class="store-icon-box">
+                                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            </div>
+                            <div class="store-icon-box">
+                                <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+                            </div>
+                            <div class="store-icon-box">
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            </div>
+                            <div class="store-icon-box">
+                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 商品館 tab --------------------------------------------------------------------------------------------->
+        <div class="row store-tab">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">商店&ensp;<span
+                            class="badge text-bg-secondary">2</span></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">設計館故事</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                        type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">退換貨政策</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                    tabindex="0">
+                    <div class="promo-list d-flex">
+                        <div class="promo-title">新品上架</div>
+                        <div class="promo-text">購買指定商品 享優惠券</div>
+                    </div>
+                    <div class="promo-list d-flex">
+                        <div class="promo-title">新品上架</div>
+                        <div class="promo-text">購買指定商品 享優惠券</div>
+                    </div>
+                    <div class="promo-list d-flex">
+                        <div class="promo-title">新品上架</div>
+                        <div class="promo-text">購買指定商品 享優惠券</div>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------- -->
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                    tabindex="0">
+                    <div class="story-text justify-content-center">
+                        <p>ADOLE-始於對皮件的熱愛(adore)忠於對皮革(leather)的渴望。
+                            <br>
+                            <br>
+                            設計從經典中去尋找靈感，去發現更多材質與結構上的可能性，我們面對生活，
+                            有時需要一些優雅且帶點趣味的想像，我們希望與不同的你，一起從容的享受當下，將皮件包包融入各個生活情境中。
+                            <br>
+                            <br>
+                            ADOLE的出生來自於在台灣深耕20年的皮件工廠，我們保留了專業的技術與傳承師傅的職人精神，
+                            導入設計美學創立品牌，希望做出既實用又有風格的經典包款，我們開發了新的帆布包系列-Aday，讓皮革產品可以與帆布結合，
+                            更貼近日常，也打造DIY手作皮革材料包，透過影片的教學，讓初學者也能輕鬆體驗手縫皮件的樂趣與魅力，
+                            也繼續致力於皮包的設計與製作，在手提包、公事包、水桶包……等經典的包款中，發展出經典優雅的獨特風格。
+                            <br>
+                            <br>
+                            我們也提供有趣且精緻的客製化服務，讓刺繡、刻印與你的包包結合，打造專屬你的訂製包款。</p>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------- -->
+                <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                    tabindex="0">
+                    <div class="return-policy justify-content-center">
+                        <ul class="list-inline">退款換貨須知
+                            <div class="space"></div>
+                            <li>若對商品有疑問，請在購買前向設計師提出。購買前詳盡地溝通，可省下退款/換貨所耗費的心力、金錢與時間。</li>
+                            <li>退款申請須於收到商品後隔日起算 7 日內提出</li>
+                            <li>若申請逾時或不符合 Pinkoi 退貨政策條件範圍，設計師有權拒絕退貨，請在提交申請前與設計師溝通。</li>
+                        </ul>
+                        <ul>以下商品類型設計師不接受客人因個人因素申請退款
+                            <div class="space"></div>
+                            <li>客製化商品</li>
+                            <li>已拆封個人衛生商品</li>
+                            <li>保存期限短的商品</li>
+                            <li>已拆封的影音商品</li>
+                        </ul>
+                        <ul>退款流程
+                            <div class="space"></div>
+                            <li>設計師會在收到申請後的 3 個工作天內聯繫客人</li>
+                            <li>設計師同意寄回後，請在 3 個工作天內，將完整的商品寄出，
+                                並以站內訊息告知設計師（請將使用物流單位及寄件編號一併附上，避免增加來回溝通的時間）</li>
+                            <li>設計師在收到商品後的 3 個工作天內會確認商品狀態並完成退款程序</li>
+                        </ul>
+                        <ul>設計館提供換貨服務
+                            <div class="space"></div>
+                            <li>如欲換貨請在收到商品後隔日起算 7 日內以站內訊息聯繫設計師</li>
+                            <li>設計師會依據商品種類或庫存評估是否有換貨服務，請務必先以站內訊息詢問設計師</li>
+                            <li>當設計師同意換貨，請在 3 個工作天內，將完整的商品寄出</li>
+                            <li>設計師在收到商品、確認商品狀態後，將於 3 個工作天將指定更換商品寄出</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row store-hot">
+            <div class="store-hot-title">
+                <div class="store-hot-line"></div>
+                <h2>設計師主打設計</h2>
+            </div>
+            <div class="col-6 col-md-2 store-hot-item">
+                <div class="product-pic">
+                    <div class="product-badge">9 折</div>
+                    <img src="https://picsum.photos/seed/picsum/300/300">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">
+                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+                    </div>
+                    <div class="product-price d-flex">
+                        <p>NT$ 5,000</p>
+                        <p class="org-price">NT$ 5,555</p>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 store-hot-item">
+                <div class="product-pic">
+                    <div class="product-badge">9 折</div>
+                    <img src="https://picsum.photos/seed/picsum/300/300">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">
+                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+                    </div>
+                    <div class="product-price">
+                        <p>NT$ 5,380</p>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 store-hot-item">
+                <div class="product-pic">
+                    <div class="product-badge">9 折</div>
+                    <img src="https://picsum.photos/seed/picsum/300/300">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">
+                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+                    </div>
+                    <div class="product-price">
+                        <p>NT$ 5,380</p>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 store-hot-item">
+                <div class="product-pic">
+                    <div class="product-badge">9 折</div>
+                    <img src="https://picsum.photos/seed/picsum/300/300">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">
+                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+                    </div>
+                    <div class="product-price">
+                        <p>NT$ 5,380</p>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 store-hot-item">
+                <div class="product-pic">
+                    <div class="product-badge">9 折</div>
+                    <img src="https://picsum.photos/seed/picsum/300/300">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">
+                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+                    </div>
+                    <div class="product-price">
+                        <p>NT$ 5,380</p>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 store-hot-item">
+                <div class="product-pic">
+                    <div class="product-badge">9 折</div>
+                    <img src="https://picsum.photos/seed/picsum/300/300">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">
+                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+                    </div>
+                    <div class="product-price">
+                        <p>NT$ 5,380</p>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 按tab - 隱藏底下商品列
+        let firstTab = document.querySelector('.nav-item:nth-child(1)');
+        let secondTab = document.querySelector('.nav-item:nth-child(2)');
+        let thridTab = document.querySelector('.nav-item:nth-child(3)');
+        let storeHot = document.querySelector('.store-hot');
+
+        firstTab.addEventListener('click',() => {
+            storeHot.style.display="flex";
+        })
+
+        secondTab.addEventListener('click',() => {
+            storeHot.style.display="none";
+        })
+
+        thridTab.addEventListener('click',() => {
+            storeHot.style.display="none";
+        })
+
+    
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
