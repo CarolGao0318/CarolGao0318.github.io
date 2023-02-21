@@ -7,12 +7,12 @@
     <title>品牌首頁</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="reset.css">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="reset.css">
     <script src="https://kit.fontawesome.com/83a2f59bcb.js" crossorigin="anonymous"></script>
     <style>
-        /* 共同設定 */
+        /* 共同設定 ------------------------------------------*/
         :root {
             --main-pink: #A27F82;
             --dark-gray: #56565E;
@@ -25,29 +25,21 @@
             text-decoration: none;
         }
 
-        .row {
+        .row:first-child {
             margin: 20px;
         }
 
-        .btn {
-            background-color: var(--peach-pink);
-            border: none;
-            width: 100%;
-            height: 100%;
-        }
-
-        .btn:hover {
-            background-color: var(--dark-gray);
-        }
-
-        img {
-            width: 100%;
-        }
-
+        
         /* 商店資訊--------------------------------------- */
 
-        .store-banner{
+        .store-logo img{
             width: 100%;
+            vertical-align: middle;
+        }
+
+        .store-banner img{
+            width: 100%;
+            vertical-align: middle;
         }
 
         .store-info-list {
@@ -74,7 +66,7 @@
             padding: 0 10px;
         }
 
-        .store-info-list .review-star{
+        .store-info-list .review-star {
             align-items: center;
             padding-left: 30px;
             margin-top: 10px;
@@ -129,28 +121,39 @@
         .store-actions-list .store-actions-item {
             text-align: right;
         }
-
-        .store-actions-item .store-follow .btn{
-            width: 140px;
-            height: 40px;
+ 
+        .store-actions-item .store-follow .btn {
+            width: 100%;
+            height: 100%;
             margin-bottom: 10px;
+            border: 2px solid var(--peach-pink);
+            background-color: var(--peach-pink);
+        }
+
+        .store-actions-item .store-follow .btn:hover{
+            border: 2px solid var(--dark-gray);
+            background-color: var(--dark-gray);
         }
 
         .store-actions-item .store-contact .btn {
-            background-color: var(--light-gray);
-            width: 140px;
-            height: 40px;
+            border: 2px solid var(--dark-gray);
+            background-color: #fff;
+            color: var(--dark-gray);
+            width: 100%;
+            height: 100%;
             margin-bottom: 10px;
         }
 
         .store-actions-item .store-contact .btn:hover {
+            border:2px solid var(--dark-gray);
             background-color: var(--dark-gray);
+            color:#fff;
         }
 
         .store-actions-list .store-share {
             justify-content: end;
         }
-        
+
         .store-share p {
             color: var(--dark-gray);
             font-weight: 600;
@@ -190,7 +193,7 @@
         }
 
         /* tab style ----------------------------------------------------------*/
-        
+
         .store-tab .nav-tabs {
             margin: 30px 0 20px 0;
             padding: 0 12px;
@@ -244,7 +247,7 @@
 
         /* tab - 退貨政策--------------------------------------- */
 
-        .return-policy{
+        .return-policy {
             box-sizing: border-box;
         }
 
@@ -265,27 +268,19 @@
             padding-bottom: 20px;
         }
 
-        /* 設計師推薦商品------------------------------------------ */
-        .store-hot h2{
+        h2 {
             font-size: 20px;
             line-height: 1.6;
             margin: 10px 0;
             font-weight: 600;
         }
-        .store-hot-line{
+
+        /* 設計師推薦商品------------------------------------------ */
+        .title-line {
             border-top: .5px solid var(--light-gray);
         }
 
-        .store-hot-item{
-            box-sizing: border-box;
-            margin-bottom: 12px;
-        }
-
-        .store-hot .product-pic {
-            position: relative;
-        }
-
-        .store-hot .product-badge {
+        .products-pic .product-badge {
             background-color: var(--peach-pink);
             color: #fff;
             width: 50px;
@@ -294,33 +289,31 @@
             font-size: 12px;
             padding: 8px;
             font-weight: 900;
+            /* position: absolute;
+            left: 0; */
+        }
+
+        /* .fa-heart::before{
             position: absolute;
-        }
+            z-index: 1;
+            display: inline-block;
+        } */
 
-        .product-info {
-            padding: 5px;
-        }
-
-        .product-info .product-title{
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .product-info .product-price{
+        .product-price {
             font-size: 15px;
             padding: 10px 0;
             color: var(--main-pink);
+            display: flex;
             flex-wrap: nowrap;
         }
 
-        .product-info .product-price .org-price{
+        .product-price .org-price {
             color: var(--light-gray);
-            text-decoration:line-through;
-            /* margin-left: auto; */
-            padding-left: 8px;
+            text-decoration: line-through;
+            padding-left: 10px;
         }
-        
-        .product-info .cart-icon{
+
+        .cart-icon {
             width: 50px;
             height: 30px;
             border-radius: 3px;
@@ -329,17 +322,1165 @@
             align-items: center;
             justify-content: center;
             margin-left: auto;
+            margin-bottom: 2px;
         }
-        .product-info .cart-icon .fa-cart-shopping{
+
+        .cart-icon .fa-cart-shopping {
             color: #fff;
         }
 
-        .product-info .cart-icon:hover{
+        .cart-icon:hover {
             background-color: var(--light-gray);
         }
-        
 
 
+
+        /* 蕭CSS --------------------------------------------------------------*/
+        .pf-container {
+            list-style: none;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: auto;
+            padding-top: 40px;
+        }
+
+        :root {
+            --main-pink: #A27F82;
+            --dark-gray: #56565E;
+            --light-gray: #D3C9C9;
+            --peach-pink: #E3A4A4;
+            --light-pink: #FEF4F6;
+        }
+
+        /* 麵包屑 */
+        .pf-breadcrumb .breadcrumb li,
+        a {
+            color: var(--light-gray);
+        }
+
+        .pf-breadcrumb a {
+            text-decoration: none;
+        }
+
+        .pf-breadcrumb a:hover {
+            color: var(--peach-pink);
+        }
+
+        /* 篩選商品處 */
+        .pf-similar-btn,
+        .btn-filter {
+            font-size: 14px;
+            border: 2px solid var(--light-gray);
+            background-color: var(--light-pink);
+            color: var(--light-gray);
+            padding: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        .pf-product .pf-similar-btn:hover {
+            border: 2px solid var(--main-pink);
+            color: var(--main-pink);
+        }
+
+        .pf-product-filter {
+            display: none;
+        }
+
+        .btn-filter {
+            width: 100px;
+            height: 40px;
+            margin-left: 10px;
+        }
+
+        .pf-product-filter,
+        .offcanvas h1,
+        h2 {
+            font-weight: bold;
+            padding: 10px 0;
+        }
+
+        .pf-product-filter h1,
+        .offcanvas-body h1 {
+            font-size: 18px;
+            color: var(--main-pink);
+
+        }
+
+        .pf-product-filter h2,
+        .offcanvas-body h2,
+        .pf-product-filter label,
+        .offcanvas-body label {
+            color: var(--dark-gray);
+        }
+
+        .pf-product-filter,
+        .offcanvas-body a {
+            text-decoration: none;
+            margin: auto;
+        }
+
+        .pf-product-filter,
+        .offcanvas-body a:hover {
+            color: var(--peach-pink);
+        }
+
+        .pf-category {
+            padding-bottom: 20px;
+        }
+
+        .pf-filter .pf-filter-selections {
+            padding-bottom: 10px;
+        }
+
+        .pf-filter .form-check {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .pf-filter .form-check input {
+            margin-right: 10px;
+        }
+
+        /* 商品顯示處 */
+        .pf-display-product .pf-filter-text {
+            color: var(--light-gray);
+            font-size: 16px;
+        }
+
+        .pf-filter-info {
+            padding: 20px 0;
+        }
+
+        .pf-products-qty span {
+            color: var(--dark-gray);
+        }
+
+        .pf-product-sub-filter span {
+            font-size: 10px;
+        }
+
+        .pf-filter-tags {
+            padding: 10px 0;
+        }
+
+        .pf-filter-tags button {
+            border: .5px solid var(--light-gray);
+            font-weight: normal;
+            font-size: 13.5px;
+            background-color: var(--light-pink);
+            color: var(--light-gray);
+            padding: 5px;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        .pf-product .pf-find-similar {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 10px;
+        }
+
+        .pf-product .pf-similar-btn {
+            width: 70%;
+            font-size: 14px;
+            border: 2px solid var(--light-gray);
+            background-color: var(--light-pink);
+            color: var(--light-gray);
+            padding: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        .pf-products .pf-similar-btn:hover {
+            border: 2px solid var(--main-pink);
+            color: var(--main-pink);
+        }
+
+        /* 手機以上 */
+        /* @media screen and (min-width:768px) {
+        } */
+
+        /* 桌機以下 */
+        @media screen and (max-width: 1200px) {
+            .btn-filter {
+                display: block;
+            }
+
+            .pf-product-filter {
+                display: none;
+            }
+
+        }
+
+        /* 桌機 */
+        @media screen and (min-width:1200px) {
+            .btn-filter {
+                display: none;
+            }
+
+            .pf-product-filter {
+                display: block;
+            }
+
+            .offcanvas {
+                display: none;
+            }
+        }
+
+        /* homepage CSS------------------------------------------------- */
+        .homepage-container {
+            list-style: none;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: auto;
+            padding-top: 160px;
+        }
+
+        :root {
+            --main-pink: #A27F82;
+            --dark-gray: #56565E;
+            --light-gray: #D3C9C9;
+            --peach-pink: #E3A4A4;
+            --light-pink: #FEF4F6;
+        }
+
+        .homepage-text-title {
+            width: 40%;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.5em;
+            color: var(--dark-gray);
+        }
+
+        .carousel-control-next,
+        .carousel-control-prev {
+            padding: 0 10px;
+            width: 3%;
+        }
+
+        #modal-btn {
+            height: 40px;
+            font-size: 14px;
+            border: 1px solid var(--light-gray);
+            color: var(--light-gray);
+        }
+
+        #modal-btn:hover {
+            background-color: var(--peach-pink);
+            color: var(--light-pink);
+            border: 1px solid var(--peach-pink);
+        }
+
+        /* ------共用商品卡片------- */
+        .products-col {
+            padding: 5px;
+        }
+
+        .products-card {
+            height: 95%;
+            margin: auto;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 15px;
+            box-shadow: 0px 3px 20px 0px rgb(17 29 48 / 5%);
+        }
+
+        .products-pic {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 10px;
+            z-index: 1;
+        }
+
+        .products-pic img {
+            width: 100%;
+            vertical-align: middle;
+            
+        }
+
+
+        .products-pic .btn i {
+            color: var(--light-gray);
+
+        }
+
+        .products-pic .btn:focus {
+            border: none;
+        }
+
+        .products-pic .btn:hover i {
+            color: var(--peach-pink);
+        }
+
+        .products-pic .homepage-hatsukoi-iconbox {
+            width: 30px;
+            height: 30px;
+        }
+
+        .products-pic .homepage-hatsukoi-iconbox img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .products-text a {
+            padding: 5px 0;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--dark-gray);
+        }
+
+        .products-text a:hover {
+            color: var(--peach-pink);
+        }
+
+        .products-text h2 {
+            padding: 5px 0;
+
+        }
+
+        .products-text h2 a {
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .products-price {
+            padding: 10px 0;
+        }
+
+        .products-price span {
+            color: var(--peach-pink);
+            font-size: 14px;
+            line-height: 1.5em;
+        }
+
+        /* -----------header----------------- */
+        .homepage-main-header {
+            justify-content: center;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            right: 0;
+            left: 0;
+            background-color: #FFF;
+        }
+
+        .homepage-main-header .homepage-navbar {
+            margin: auto;
+            width: 100%;
+            /* position: relative; */
+        }
+
+        .homepage-main-header .homepage-navlogo img {
+            width: 120px;
+            height: 30px;
+        }
+
+        .homepage-main-header .homepage-login-cart a {
+            color: var(--main-pink);
+            font-size: 20px;
+        }
+
+        .homepage-main-header #search-pc {
+            display: none;
+        }
+
+        .homepage-main-header .homepage-nav-search {
+            margin: auto;
+            padding: 10px 0;
+            width: 80%;
+        }
+
+        .homepage-main-header .homepage-nav-search form {
+            width: 100%;
+            height: 30px;
+
+        }
+
+        .homepage-main-header .homepage-nav-search form input {
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        .homepage-main-header .homepage-nav-search form button {
+            width: 20%;
+            font-size: 12px;
+            background-color: var(--main-pink);
+            color: var(--light-pink);
+            font-weight: bold;
+            border: none;
+        }
+
+        .homepage-main-header .homepage-search-keyword {
+            margin-top: 5px;
+        }
+
+        .homepage-main-header .homepage-nav-search .homepage-search-keyword ul {
+            display: flex;
+            font-size: 9px;
+            justify-content: center;
+        }
+
+        .homepage-main-header .homepage-nav-search .homepage-search-keyword ul a {
+            text-decoration: none;
+            color: var(--light-gray);
+            padding-right: 5px;
+        }
+
+        /* 漢堡 */
+        .homepage-nav-checkbox {
+            display: none;
+        }
+
+        .homepage-HB {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .homepage-HB span {
+            width: 50%;
+            height: 2px;
+            background-color: var(--main-pink);
+        }
+
+        .homepage-nav-memberpic {
+            width: 45px;
+            height: 45px;
+            border-radius: 50% 50% 50% 50%;
+            border: none;
+            background-color: #fff;
+
+        }
+
+        .homepage-nav-memberpic img {
+            width: 100%;
+            border-radius: 50% 50% 50% 50%;
+        }
+
+        .homepage-nav-member-block .nav-link i {
+            font-size: 18px;
+        }
+
+        .homepage-nav-member-block .nav-link span {
+            font-size: 8px;
+        }
+
+        .homepage-category-nav {
+            position: absolute;
+            background-color: var(--light-pink);
+            width: 70%;
+            top: 0%;
+            right: -100%;
+            opacity: 0;
+            transition: 1s;
+            height: 100vh;
+            overflow: scroll;
+        }
+
+        #menu-control:checked~.homepage-mainnav .homepage-category-nav {
+            right: 0;
+            opacity: 1;
+        }
+
+        #menu-control:checked~.homepage-mainnav .homepage-HB span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-control:checked~.homepage-mainnav .homepage-HB span:first-child {
+            transform: rotate(45deg);
+            position: relative;
+            top: 11px;
+            transition: .5s;
+        }
+
+        #menu-control:checked~.homepage-mainnav .homepage-HB span:last-child {
+            transform: rotate(135deg);
+            position: relative;
+            bottom: 10px;
+            transition: .5s;
+        }
+
+        /* -------漢堡打開後 手機產品分類nav------- */
+        .homepage-category-nav a {
+            font-size: 14px;
+            text-decoration: none;
+            padding: 5px 15px;
+            color: var(--main-pink);
+            font-weight: bold;
+            display: block;
+        }
+
+        .homepage-category-nav a:hover {
+            color: var(--dark-gray);
+        }
+
+        .homepage-category-nav .homepage-login {
+            padding: 20px 0 10px 0;
+            justify-content: end;
+        }
+
+        .homepage-category-nav .homepage-login a {
+            color: var(--light-gray);
+        }
+
+        /* 會員帳號 */
+        .homepage-member-block .homepage-member-account {
+            height: 100px;
+            background-color: #FFF;
+            padding: 10px;
+            border-bottom: .5px solid #EAEDEF;
+        }
+
+        .homepage-member-block .homepage-member-account .homepage-member-picbox {
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+        }
+
+        .homepage-member-block .homepage-member-account .homepage-member-picbox img {
+            width: 100%;
+            vertical-align: middle;
+            border-radius: 50% 50% 50% 50%;
+        }
+
+        .homepage-member-block .homepage-member-account .homepage-member-name #membername {
+            font-size: 16px;
+            color: var(--dark-gray);
+        }
+
+        .homepage-member-block .homepage-member-account .homepage-member-name #membername:hover {
+            color: var(--peach-pink);
+        }
+
+        .homepage-member-block .homepage-member-account .homepage-member-name a {
+            font-size: 12px;
+        }
+
+        .homepage-member-block .homepage-member-list-group {
+            border-radius: 0%;
+        }
+
+        .homepage-member-block .homepage-member-list-group .list-group-item {
+            border: none;
+            border-bottom: .5px solid #EAEDEF;
+        }
+
+        .homepage-member-block .homepage-member-list-group .list-group-item:last-child {
+            border-bottom: none;
+        }
+
+        .homepage-member-block .homepage-member-list-group .homepage-member-iconbox {
+            width: 40px;
+            height: 40px;
+        }
+
+        .homepage-member-block .homepage-member-list-group .homepage-member-iconbox i {
+            width: 100%;
+
+        }
+
+        /* 產品分類 */
+        .homepage-category-nav .homepage-category-list,
+        .homepage-member-block {
+            box-shadow: 0 2px 10px var(--light-pink);
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0;
+            margin: auto;
+        }
+
+        .homepage-category-nav .homepage-list-title {
+            background-color: var(--main-pink);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .homepage-category-nav .homepage-list-title h1 {
+            font-weight: bold;
+            color: #FFFFFF;
+            font-size: 14px;
+        }
+
+        .homepage-category-nav .homepage-second-list {
+            box-shadow: var(--light-pink) 0px 0px 0.25em, var(--light-pink) 0px 0.25em 1em;
+        }
+
+        .homepage-category-nav .homepage-second-list a {
+            color: var(--main-pink);
+        }
+
+        .homepage-category-nav .homepage-second-list a:hover {
+            color: var(--peach-pink);
+        }
+
+
+        .homepage-category-nav .homepage-category-list li+li {
+            border-top: 2px solid var(--light-pink);
+        }
+
+        .homepage-second-list li:first-child {
+            border-top: none;
+        }
+
+
+        .homepage-category-nav-pc {
+            display: none;
+        }
+
+
+        /* 桌機 header*/
+        .homepage-nav-items {
+            display: none;
+        }
+
+        .homepage-nav-member-block {
+            display: none;
+        }
+
+
+        /* -------section-recommended 編輯嚴選--------- */
+        .homepage-recommended-container {
+            margin: auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* -------section-recommended 探索品牌--------- */
+        .homepage-shops-container {
+            margin: auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .homepage-shops-container .homepage-shops-col {
+            padding: 5px;
+        }
+
+        .homepage-shops-container .homepage-shops-card {
+            height: 95%;
+            margin: auto;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 15px;
+            border: 5px solid var(--light-pink);
+            /* box-shadow: 0px 4px 30px 0px rgb(17 29 48 / 6%); */
+        }
+
+        .homepage-shops-container .homepage-shops-pic {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .homepage-shops-container .homepage-shops-pic img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .homepage-shops-container .homepage-shop-info-row {
+            padding: 0 5px;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .homepage-shops-container .homepage-shops-logo {
+            margin-bottom: 10px;
+        }
+
+        .homepage-shops-container .homepage-shops-logo img {
+            width: 100%;
+            vertical-align: middle;
+            border-radius: 50% 50% 50% 50%;
+            overflow: hidden;
+        }
+
+        .homepage-shops-container .homepage-shops-name h2 {
+            padding: 5px 0;
+        }
+
+        .homepage-shops-container .homepage-shops-name h2 a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .homepage-shops-container .homepage-shops-performance {
+            padding: 3px 0;
+            display: flex;
+            flex-direction: column;
+            color: var(--light-gray);
+        }
+
+        .homepage-shops-container .homepage-shops-performance span {
+            padding: 2px 0;
+            font-size: 13px;
+        }
+
+        .homepage-shops-container .homepage-shops-btns {
+            display: flex;
+            padding: 10px 0;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .homepage-shops-container .homepage-shops-btns .btn {
+            height: 40px;
+            font-size: 14px;
+            border: 1px solid var(--light-gray);
+            color: var(--light-gray);
+        }
+
+        .homepage-shops-container .homepage-shops-btns .btn:hover {
+            background-color: var(--peach-pink);
+            color: var(--light-pink);
+            border: 1px solid var(--peach-pink);
+        }
+
+        .homepage-shops-container .homepage-shops-btns .btn-explore {
+            margin-right: 5px;
+        }
+
+        /* footer */
+        .homepage-footer {
+            width: 100%;
+            background-color: var(--light-pink);
+        }
+
+        .homepage-footer-container {
+            margin: auto;
+            max-width: 1200px;
+            background-color: var(--light-pink);
+            padding: 40px 40px 20px 40px;
+        }
+
+        .homepage-footer-container a {
+            text-decoration: none;
+            color: var(--dark-gray);
+        }
+
+        .homepage-footer-container li:hover a {
+            color: var(--peach-pink);
+        }
+
+        .homepage-footer-maininfo {
+            padding-bottom: 20px;
+        }
+
+        .homepage-footer-maininfo .row .homepage-footer-title {
+            padding: 10px 0;
+            color: var(--main-pink);
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .homepage-footer-maininfo .homepage-footer-wrap:last-child {
+            padding-top: 20px;
+        }
+
+        .homepage-footer-maininfo address a,
+        li {
+            padding: 5px 0;
+            font-size: 14px;
+        }
+
+        .homepage-footer-maininfo .homepage-social-icon {
+            display: flex;
+            padding-top: 10px;
+        }
+
+        .homepage-footer-maininfo .homepage-social-icon .homepage-icon-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: .5px solid var(--dark-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+        }
+
+        .homepage-footer-maininfo .homepage-social-icon .homepage-icon-box:hover {
+            background-color: var(--peach-pink);
+            border: .5px solid var(--peach-pink);
+        }
+
+        .homepage-footer-maininfo .homepage-social-icon .homepage-icon-box:hover a {
+            color: #FFFFFF;
+        }
+
+        .homepage-footer-maininfo .homepage-social-icon li a {
+            padding: 5px;
+        }
+
+        .homepage-footer-maininfo .homepage-app {
+            padding-top: 10px;
+        }
+
+        .homepage-footer-maininfo .homepage-qrcode button {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .homepage-footer-maininfo .homepage-qrcode .homepage-brand-iconbox {
+            width: 25px;
+            height: 25px;
+        }
+
+        .homepage-footer-maininfo .homepage-qrcode .homepage-brand-iconbox img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .homepage-footer-maininfo .homepage-qrcode button p {
+            padding-left: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .homepage-footer-maininfo .homepage-qrcode .homepage-qrcode-box {
+            width: 40px;
+            height: 40px;
+        }
+
+        .homepage-footer-maininfo .homepage-qrcode .homepage-qrcode-box img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .homepage-footer-container .homepage-footer-line {
+            border-top: .5px solid var(--light-gray);
+        }
+
+        .homepage-footer-container .homepage-copyright {
+            margin: 20px 0 10px 0;
+            font-size: 12px;
+            color: var(--dark-gray);
+        }
+
+        .homepage-footer-container .homepage-copyright .row {
+            justify-content: space-between;
+        }
+
+        .homepage-footer-container .homepage-copyright-slogan {
+            display: flex;
+            align-items: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .homepage-footer-container .homepage-copyright-logo {
+            width: 30%;
+        }
+
+        .homepage-footer-container .homepage-copyright-logo img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .homepage-footer-container .homepage-copyright-slogan p {
+            font-size: 16px;
+            padding-left: 5px;
+        }
+
+        .homepage-footer-container .homepage-copyright-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .homepage-copyright-text .homepage-lang {
+            margin: 20px 0 20px 28px;
+        }
+
+        .homepage-copyright-text #lang-select {
+            color: var(--dark-gray);
+            background-color: var(--light-pink);
+            border: none;
+            font-weight: 600;
+        }
+
+        /* 手機以上 */
+        @media screen and (min-width:768px) {
+            .homepage-main-header #search-phone {
+                display: none;
+            }
+
+            .homepage-main-header #search-pc {
+                display: block;
+            }
+
+
+            /* -------section-shops 品牌探索--------- */
+            .homepage-shops-container .shops-btns {
+                padding: 20px 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            .homepage-shops-container .shops-btns .btn {
+                width: 80%;
+                height: 40px;
+                font-size: 14px;
+                border: 1px solid var(--light-gray);
+                color: var(--light-gray);
+            }
+
+            .homepage-shops-container .homepage-shops-btns {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+
+        }
+
+        /* 桌機以下 */
+        @media screen and (max-width: 1200px) {
+            .homepage-main-header #search-pc {
+                display: none;
+            }
+
+            .homepage-main-header #search-phone {
+                display: block;
+            }
+
+            .homepage-nav-items {
+                display: none;
+            }
+
+            .navbar-expand-lg .navbar-collapse {
+                display: none !important;
+                /* flex-basis: auto; */
+            }
+
+            .homepage-footer-container .homepage-copyright-text {
+                justify-content: right;
+            }
+
+        }
+
+        /* 桌機 */
+        @media screen and (min-width:1200px) {
+            .homepage-HB {
+                display: none;
+            }
+
+            .homepage-category-nav {
+                display: none;
+            }
+
+            .homepage-main-header .homepage-navlogo img {
+                width: 180px;
+                height: 45px;
+            }
+
+            .homepage-main-header #search-phone {
+                display: none;
+            }
+
+            .homepage-main-header #search-pc {
+                display: block;
+                width: 30%;
+            }
+
+            .homepage-main-header .homepage-login-cart {
+                display: none;
+            }
+
+            .homepage-main-header .homepage-nav-search form {
+                height: 35px;
+
+            }
+
+            .homepage-main-header .homepage-nav-search .homepage-search-keyword ul {
+                display: flex;
+                font-size: 9px;
+                justify-content: left;
+            }
+
+
+
+            .homepage-nav-items .homepage-nav-apply {
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .homepage-nav-items .homepage-nav-apply:hover {
+                color: var(--peach-pink);
+            }
+
+            .homepage-nav-items .nav-coupon {
+                border: 1px solid var(--dark-gray);
+                color: var(--dark-gray);
+                font-size: 14px;
+                font-weight: bold;
+                height: 35px;
+            }
+
+            .homepage-nav-items .nav-coupon:hover {
+                border: 1px solid var(--main-pink);
+                background-color: var(--main-pink);
+                color: var(--light-pink);
+            }
+
+            .homepage-nav-memberpic:hover .homepage-member-block {
+                display: block;
+            }
+
+            .homepage-member-block {
+                display: none;
+                width: 250px;
+                margin-top: 5px;
+            }
+
+            .homepage-member-block a {
+                color: var(--light-gray);
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .homepage-member-block a:hover {
+                color: var(--main-pink);
+            }
+
+            .homepage-member-block .homepage-member-account {
+                height: 60px;
+                padding: 20px;
+            }
+
+            .homepage-member-block .homepage-member-account #membername {
+                margin-right: 10px;
+                color: var(--light-pink);
+            }
+
+            .homepage-member-block .homepage-member-account.homepage-member-name {
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* 電腦版分類畫面 */
+            .homepage-category-nav-pc {
+                display: block;
+            }
+
+            .homepage-category-nav-pc .homepage-category-navlist-pc {
+                display: flex;
+                position: relative;
+                justify-content: center;
+                padding: 0 10px;
+                flex-wrap: wrap;
+                box-shadow: 0px 3px 20px 0px var(--light-pink);
+                /* border: 2px solid var(--light-pink); */
+
+            }
+
+            .homepage-category-nav-pc a {
+                font-size: 16px;
+                text-decoration: none;
+                padding: 10px;
+                color: var(--main-pink);
+                display: block;
+                font-weight: bold;
+            }
+
+            .homepage-category-navlist-pc li {
+                display: flex;
+            }
+
+            .homepage-category-navlist-pc li span {
+                display: none;
+            }
+
+            .category-title-pc {
+                display: flex;
+                align-items: center;
+                padding: 10px 5px;
+            }
+
+            #menu-control {
+                display: none;
+            }
+
+            .homepage-category-navlist-pc li:hover #main-title-pc {
+                color: var(--dark-gray);
+                font-weight: bold;
+            }
+
+            .homepage-category-nav-pc .category-second-list-pc {
+                display: none;
+                background-color: var(--light-pink);
+                position: absolute;
+                top: 100%;
+                /* width: 10%; */
+                box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+            }
+
+            .homepage-category-nav-pc .category-second-list-pc a {
+                color: var(--main-pink);
+            }
+
+            .homepage-category-nav-pc .category-second-list-pc a:hover {
+                color: var(--peach-pink);
+            }
+
+            .homepage-category-navlist-pc li:hover .category-second-list-pc {
+                display: block;
+            }
+
+            .category-second-list-pc li {
+                border-top: 2px solid var(--main-pink);
+            }
+
+            .category-second-list-pc li:first-child {
+                border-top: none;
+            }
+
+
+
+            /* -------section-shops 品牌探索--------- */
+            .homepage-shops-container .homepage-shops-performance span {
+                font-size: 15px;
+            }
+
+            .homepage-shops-container .homepage-shops-btns {
+                padding: 20px 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            .homepage-shops-container .homepage-shops-btns .btn {
+                width: 80%;
+                height: 40px;
+                font-size: 14px;
+                border: 1px solid var(--light-gray);
+                color: var(--light-gray);
+            }
+
+            /* footer */
+            .homepage-footer-container .homepage-copyright-text {
+                justify-content: right;
+            }
+
+            .homepage-footer-maininfo .homepage-footer-wrap:last-child {
+                display: flex;
+                flex-direction: column;
+                align-items: last baseline;
+                padding-top: 0;
+            }
+
+
+
+        }
     </style>
 </head>
 
@@ -350,12 +1491,12 @@
             <div class="store-banner">
                 <img src="https://picsum.photos/1200/245/?random=10">
             </div>
-            <div class="col-12 col-md-9">
+            <div class="col-12 col-md-9 col-lg-9">
                 <div class="row">
-                    <div class="col-12 col-md-6 store-logo">
+                    <div class="col-12 col-md-6 col-lg-6 store-logo">
                         <img src="./logo/hatsukoi_logo.png" alt="">
                     </div>
-                    <div class="col-12 col-md-6 store-info-list">
+                    <div class="col-12 col-md-6 col-lg-6 store-info-list">
                         <div class="store-info d-flex">
                             <p><i class="fa-solid fa-location-dot"></i>台灣</p>
                             <p><i class="fa-regular fa-calendar"></i>2015 開館</p>
@@ -403,8 +1544,8 @@
                     </div>
                 </div>
             </div>
-            <!-- 右側按鈕區 --------------------------------------------------------------------------------------------->
-            <div class="col-12 col-md-3 store-actions-list">
+            <!-- 右側按鈕區 --------------------------------------------------------products------------------------------------->
+            <div class="col-12 col-md-3 col-lg-3 store-actions-list">
                 <div class="row">
                     <div class="store-actions-item align-items-center">
                         <!-- JS 加到收藏店家的頁面 -->
@@ -490,7 +1631,8 @@
                             也繼續致力於皮包的設計與製作，在手提包、公事包、水桶包……等經典的包款中，發展出經典優雅的獨特風格。
                             <br>
                             <br>
-                            我們也提供有趣且精緻的客製化服務，讓刺繡、刻印與你的包包結合，打造專屬你的訂製包款。</p>
+                            我們也提供有趣且精緻的客製化服務，讓刺繡、刻印與你的包包結合，打造專屬你的訂製包款。
+                        </p>
                     </div>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------- -->
@@ -528,136 +1670,832 @@
                 </div>
             </div>
         </div>
-        <div class="row store-hot">
-            <div class="store-hot-title">
-                <div class="store-hot-line"></div>
+        <!-- 設計師主打商品 ---------------------------------------------------------------------------------------------->
+        <div class="pf-products-row row products-row">
+            <div class="designer-title">
+                <div class="title-line"></div>
                 <h2>設計師主打設計</h2>
             </div>
-            <div class="col-6 col-md-2 store-hot-item">
-                <div class="product-pic">
-                    <div class="product-badge">9 折</div>
-                    <img src="https://picsum.photos/seed/picsum/300/300">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">
-                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
+                <div class="pf-products-card products-card">
+                    <div class="pf-products-pic position-relative products-pic">
+                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- 優惠券 -->
+                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
                     </div>
-                    <div class="product-price d-flex">
-                        <p>NT$ 5,000</p>
+
+                    <div class="pf-products-text products-text">
+                        <h2><a href="#">黃銅戒指</a></h2>
+                    </div>
+                    <div class="pf-product-price product-price">
+                        <p>NT$5000</p>
                         <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
+
                 </div>
             </div>
-            <div class="col-6 col-md-2 store-hot-item">
-                <div class="product-pic">
-                    <div class="product-badge">9 折</div>
-                    <img src="https://picsum.photos/seed/picsum/300/300">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">
-                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
+                <div class="pf-products-card products-card">
+                    <div class="pf-products-pic position-relative products-pic">
+                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- 優惠券 -->
+                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
                     </div>
-                    <div class="product-price">
-                        <p>NT$ 5,380</p>
+
+                    <div class="pf-products-text products-text">
+                        <h2><a href="#">黃銅戒指</a></h2>
+                    </div>
+                    <div class="pf-product-price product-price">
+                        <p>NT$5000</p>
+                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
+
                 </div>
             </div>
-            <div class="col-6 col-md-2 store-hot-item">
-                <div class="product-pic">
-                    <div class="product-badge">9 折</div>
-                    <img src="https://picsum.photos/seed/picsum/300/300">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">
-                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
+                <div class="pf-products-card products-card">
+                    <div class="pf-products-pic position-relative products-pic">
+                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- 優惠券 -->
+                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
                     </div>
-                    <div class="product-price">
-                        <p>NT$ 5,380</p>
+
+                    <div class="pf-products-text products-text">
+                        <h2><a href="#">黃銅戒指</a></h2>
+                    </div>
+                    <div class="pf-product-price product-price">
+                        <p>NT$5000</p>
+                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
+
                 </div>
             </div>
-            <div class="col-6 col-md-2 store-hot-item">
-                <div class="product-pic">
-                    <div class="product-badge">9 折</div>
-                    <img src="https://picsum.photos/seed/picsum/300/300">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">
-                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
+                <div class="pf-products-card products-card">
+                    <div class="pf-products-pic position-relative products-pic">
+                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- 優惠券 -->
+                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
                     </div>
-                    <div class="product-price">
-                        <p>NT$ 5,380</p>
+
+                    <div class="pf-products-text products-text">
+                        <h2><a href="#">黃銅戒指</a></h2>
+                    </div>
+                    <div class="pf-product-price product-price">
+                        <p>NT$5000</p>
+                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
+
                 </div>
             </div>
-            <div class="col-6 col-md-2 store-hot-item">
-                <div class="product-pic">
-                    <div class="product-badge">9 折</div>
-                    <img src="https://picsum.photos/seed/picsum/300/300">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">
-                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
+                <div class="pf-products-card products-card">
+                    <div class="pf-products-pic position-relative products-pic">
+                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- 優惠券 -->
+                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
                     </div>
-                    <div class="product-price">
-                        <p>NT$ 5,380</p>
+
+                    <div class="pf-products-text products-text">
+                        <h2><a href="#">黃銅戒指</a></h2>
+                    </div>
+                    <div class="pf-product-price product-price">
+                        <p>NT$5000</p>
+                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
+
                 </div>
             </div>
-            <div class="col-6 col-md-2 store-hot-item">
-                <div class="product-pic">
-                    <div class="product-badge">9 折</div>
-                    <img src="https://picsum.photos/seed/picsum/300/300">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">
-                        <p>凱旋門真皮電腦公事包-摩卡(13-15吋)</p>
+            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
+                <div class="pf-products-card products-card">
+                    <div class="pf-products-pic position-relative products-pic">
+                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- 優惠券 -->
+                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
                     </div>
-                    <div class="product-price">
-                        <p>NT$ 5,380</p>
+
+                    <div class="pf-products-text products-text">
+                        <h2><a href="#">黃銅戒指</a></h2>
+                    </div>
+                    <div class="pf-product-price product-price">
+                        <p>NT$5000</p>
+                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
+                <div class="pf-products-card products-card">
+                    <div class="pf-products-pic position-relative products-pic">
+                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- 優惠券 -->
+                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                    </div>
+
+                    <div class="pf-products-text products-text">
+                        <h2><a href="#">黃銅戒指</a></h2>
+                    </div>
+                    <div class="pf-product-price product-price">
+                        <p>NT$5000</p>
+                        <p class="org-price">NT$ 5,555</p>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
+                <div class="pf-products-card products-card">
+                    <div class="pf-products-pic position-relative products-pic">
+                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- 優惠券 -->
+                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                    </div>
+
+                    <div class="pf-products-text products-text">
+                        <h2><a href="#">黃銅戒指</a></h2>
+                    </div>
+                    <div class="pf-product-price product-price">
+                        <p>NT$5000</p>
+                        <p class="org-price">NT$ 5,555</p>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------------------------------------------------------------- -->
+    <div class="pf-container container">
+        <!-- 麵包屑 -->
+        <div class="pf-breadcrumb container">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+                aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">配件飾品</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">飾品</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="pf-filter-block container">
+            <div class="pf-filter-block row">
+                <!-- 篩選商品處 -->
+                <button class="btn btn-outline-secondary btn-filter" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">篩選</button>
+                <!-- 手機版篩選列 -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h1 class="offcanvas-title" id="offcanvasRightLabel">篩選最適合您的商品</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="pf-category">
+                            <h1>商品分類</h1>
+                            <h2 class="pf-category-list-title">配件飾品</h2>
+                            <ul class="pf-category-list">
+                                <li><a href="#">飾品</a></li>
+                                <li><a href="#">頭飾</a></li>
+                                <li><a href="#">眼鏡 / 太陽眼鏡</a></li>
+                                <li><a href="#">手錶</a></li>
+                                <li><a href="#">卡套 / 吊飾</a></li>
+                                <li><a href="#">其他配件飾品</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="pf-filter">
+                            <h1>篩選</h1>
+                            <!-- 篩選金額 -->
+                            <div class="pf-filter-price">
+                                <h2>金額</h2>
+                                <div class="pf-filter-selections">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            NT$300 以下
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            NT$300 - 500
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault3">
+                                            NT$500 - 1,000
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault4">
+                                            NT$1,000 - 2,000
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault5">
+                                            NT$2,000 - 2,500
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault6">
+                                            NT$2,500 - 5,000
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault7">
+                                            NT$5,000 以上
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 篩選時間 -->
+                            <div class="pf-filter-datetime">
+                                <h2>上架時間</h2>
+                                <div class="pf-filter-selections">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            一週內
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            一個月內
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault3">
+                                            三個月內
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault4">
+                                            一年內
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- 篩選顏色 -->
+                            <div class="pf-filter-color">
+                                <h2>顏色</h2>
+                                <div class="pf-filter-selections">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            黑色系
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            白色系
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault3">
+                                            紅色系
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault4">
+                                            綠色系
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault5">
+                                            藍色系
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault6">
+                                            紫色系
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault7">
+                                            奶茶色系
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 電腦版篩選列 -->
+                <div class="pf-product-filter col-12 col-md-12 col-lg-3">
+                    <div class="pf-category">
+                        <h1>商品分類</h1>
+                        <h2 class="pf-category-list-title">配件飾品</h2>
+                        <ul class="pf-category-list">
+                            <li><a href="#">飾品</a></li>
+                            <li><a href="#">頭飾</a></li>
+                            <li><a href="#">眼鏡 / 太陽眼鏡</a></li>
+                            <li><a href="#">手錶</a></li>
+                            <li><a href="#">卡套 / 吊飾</a></li>
+                            <li><a href="#">其他配件飾品</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="pf-filter">
+                        <h1>篩選</h1>
+                        <!-- 篩選金額 -->
+                        <div class="pf-filter-price">
+                            <h2>金額</h2>
+                            <div class="pf-filter-selections">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        NT$300 以下
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        NT$300 - 500
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        NT$500 - 1,000
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault4">
+                                        NT$1,000 - 2,000
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault5">
+                                        NT$2,000 - 2,500
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault6">
+                                        NT$2,500 - 5,000
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault7">
+                                        NT$5,000 以上
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 篩選時間 -->
+                        <div class="pf-filter-datetime">
+                            <h2>上架時間</h2>
+                            <div class="pf-filter-selections">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        一週內
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        一個月內
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        三個月內
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault4">
+                                        一年內
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- 篩選顏色 -->
+                        <div class="pf-filter-color">
+                            <h2>顏色</h2>
+                            <div class="pf-filter-selections">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        黑色系
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        白色系
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        紅色系
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault4">
+                                        綠色系
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault5">
+                                        藍色系
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault6">
+                                        紫色系
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault7">
+                                        奶茶色系
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 商品們顯示處 -->
+                <div class="pf-display-products col-12 col-md-12 col-lg-9">
+                    <div class="pf-filter-text">
+                        <div class="pf-filter-info d-flex justify-content-between align-items-center">
+                            <div class="pf-products-qty">
+                                <p><span>303</span> 件 <span>飾品</span> 商品</p>
+                            </div>
+                            <div class="pf-product-sub-filter d-flex align-items-center">
+                                <span>排序</span>
+                                <select class="form-select form-select-sm " aria-label=".form-select-sm example">
+                                    <option selected>熱門程度優先</option>
+                                    <option value="1">最新上架優先</option>
+                                    <option value="2">價格由高至低</option>
+                                    <option value="3">價格由低至高</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="pf-filter-tags">
+                            <button class="tag-delete-btn"><span>NT$300 - 500</span> <i
+                                    class="fa-solid fa-xmark"></i></button>
+                            <button class="tag-delete-btn"><span>一個月內</span> <i class="fa-solid fa-xmark"></i></button>
+                            <button class="tag-delete-btn"><span>黑色</span> <i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                    <div class="pf-products container">
+                        <div class="pf-products-row row products-row">
+                            <div class="pf-products-col col-6 col-md-4 col-lg-4 products-col">
+                                <div class="pf-products-card products-card">
+                                    <div class="pf-products-pic position-relative products-pic">
+                                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop2">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <!-- 優惠券 -->
+                                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                                    </div>
+                                    <div class="pf-products-text products-text">
+                                        <h2><a href="#">黃銅戒指</a></h2>
+                                    </div>
+                                    <div class="pf-product-price product-price">
+                                        <p>NT$5000</p>
+                                        <p class="org-price">NT$ 5,555</p>
+                                    </div>
+                                    <div class="cart-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pf-products-col col-6 col-md-4 col-lg-4 products-col">
+                                <div class="pf-products-card products-card">
+                                    <div class="pf-products-pic position-relative products-pic">
+                                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop2">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <!-- 優惠券 -->
+                                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                                    </div>
+                                    <div class="pf-products-text products-text">
+                                        <h2><a href="#">黃銅戒指</a></h2>
+                                    </div>
+                                    <div class="pf-product-price product-price">
+                                        <p>NT$5000</p>
+                                        <p class="org-price">NT$ 5,555</p>
+                                    </div>
+                                    <div class="cart-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pf-products-col col-6 col-md-4 col-lg-4 products-col">
+                                <div class="pf-products-card products-card">
+                                    <div class="pf-products-pic position-relative products-pic">
+                                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop2">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <!-- 優惠券 -->
+                                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                                    </div>
+                                    <div class="pf-products-text products-text">
+                                        <h2><a href="#">黃銅戒指</a></h2>
+                                    </div>
+                                    <div class="pf-product-price product-price">
+                                        <p>NT$5000</p>
+                                        <p class="org-price">NT$ 5,555</p>
+                                    </div>
+                                    <div class="cart-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pf-products-col col-6 col-md-4 col-lg-4 products-col">
+                                <div class="pf-products-card products-card">
+                                    <div class="pf-products-pic position-relative products-pic">
+                                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop2">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <!-- 優惠券 -->
+                                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                                    </div>
+                                    <div class="pf-products-text products-text">
+                                        <h2><a href="#">黃銅戒指</a></h2>
+                                    </div>
+                                    <div class="pf-product-price product-price">
+                                        <p>NT$5000</p>
+                                        <p class="org-price">NT$ 5,555</p>
+                                    </div>
+                                    <div class="cart-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pf-products-col col-6 col-md-4 col-lg-4 products-col">
+                                <div class="pf-products-card products-card">
+                                    <div class="pf-products-pic position-relative products-pic">
+                                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop2">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <!-- 優惠券 -->
+                                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                                    </div>
+                                    <div class="pf-products-text products-text">
+                                        <h2><a href="#">黃銅戒指</a></h2>
+                                    </div>
+                                    <div class="pf-product-price product-price">
+                                        <p>NT$5000</p>
+                                        <p class="org-price">NT$ 5,555</p>
+                                    </div>
+                                    <div class="cart-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pf-products-col col-6 col-md-4 col-lg-4 products-col">
+                                <div class="pf-products-card products-card">
+                                    <div class="pf-products-pic position-relative products-pic">
+                                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop2">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <!-- 優惠券 -->
+                                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                                    </div>
+                                    <div class="pf-products-text products-text">
+                                        <h2><a href="#">黃銅戒指</a></h2>
+                                    </div>
+                                    <div class="pf-product-price product-price">
+                                        <p>NT$5000</p>
+                                        <p class="org-price">NT$ 5,555</p>
+                                    </div>
+                                    <div class="cart-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pf-products-col col-6 col-md-4 col-lg-4 products-col">
+                                <div class="pf-products-card products-card">
+                                    <div class="pf-products-pic position-relative products-pic">
+                                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop2">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <!-- 優惠券 -->
+                                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                                    </div>
+                                    <div class="pf-products-text products-text">
+                                        <h2><a href="#">黃銅戒指</a></h2>
+                                    </div>
+                                    <div class="pf-product-price product-price">
+                                        <p>NT$5000</p>
+                                        <p class="org-price">NT$ 5,555</p>
+                                    </div>
+                                    <div class="cart-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pf-products-col col-6 col-md-4 col-lg-4 products-col">
+                                <div class="pf-products-card products-card">
+                                    <div class="pf-products-pic position-relative products-pic">
+                                        <!-- Button trigger modal 加入喜歡清單鈕 -->
+                                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop2">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <!-- 優惠券 -->
+                                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
+                                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
+                                    </div>
+                                    <div class="pf-products-text products-text">
+                                        <h2><a href="#">黃銅戒指</a></h2>
+                                    </div>
+                                    <div class="pf-product-price product-price">
+                                        <p>NT$5000</p>
+                                        <p class="org-price">NT$ 5,555</p>
+                                    </div>
+                                    <div class="cart-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
+
     <script>
         // 按tab - 隱藏底下商品列
-        let firstTab = document.querySelector('.nav-item:nth-child(1)');
-        let secondTab = document.querySelector('.nav-item:nth-child(2)');
-        let thridTab = document.querySelector('.nav-item:nth-child(3)');
-        let storeHot = document.querySelector('.store-hot');
+        let tabs = document.querySelectorAll('.nav-item');
+        let designerProducts = document.querySelector('.pf-products-row');
+        let pfContainer = document.querySelector('.pf-container');
 
-        firstTab.addEventListener('click',() => {
-            storeHot.style.display="flex";
+        tabs[0].addEventListener('click', () => {
+            designerProducts.style.display = "flex";
+            pfContainer.style.display = "block";
         })
 
-        secondTab.addEventListener('click',() => {
-            storeHot.style.display="none";
+        tabs[1].addEventListener('click', () => {
+            designerProducts.style.display = "none";
+            pfContainer.style.display = "none";
         })
 
-        thridTab.addEventListener('click',() => {
-            storeHot.style.display="none";
+        tabs[2].addEventListener('click', () => {
+            designerProducts.style.display = "none";
+            pfContainer.style.display = "none";
         })
 
-    
+
 
 
     </script>
