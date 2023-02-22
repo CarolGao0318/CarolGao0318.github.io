@@ -1,0 +1,191 @@
+:root {
+    --main-pink: #A27F82;
+    --dark-gray: #56565E;
+    --light-gray: #D3C9C9;
+    --peach-pink: #E3A4A4;
+    --light-pink: #FEF4F6;
+}
+
+/*------------- footer --------------- */
+.homepage-footer-maininfo .homepage-footer-wrap{
+    padding-top: 12px;
+}
+
+.homepage-footer {
+    width: 100%;
+    background-color: var(--light-pink);
+}
+
+.homepage-footer-container {
+    margin: auto;
+    max-width: 1200px;
+    background-color: var(--light-pink);
+    padding: 40px 40px 20px 40px;
+}
+
+.homepage-footer-container a {
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+
+.homepage-footer-container li:hover a {
+    color: var(--peach-pink);
+}
+
+.homepage-footer-maininfo {
+    padding-bottom: 20px;
+}
+
+.homepage-footer-maininfo .row .homepage-footer-title {
+    color: var(--main-pink);
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.homepage-footer-maininfo li {
+    padding: 2px 0;
+    font-size: 14px;
+}
+
+.homepage-footer-maininfo .homepage-social-icon {
+    display: flex;
+    padding-top: 10px;
+}
+
+.homepage-footer-maininfo .homepage-social-icon .homepage-icon-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: .5px solid var(--dark-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.homepage-footer-maininfo  .homepage-icon-box:hover,
+.homepage-footer-maininfo .homepage-qrcode button:hover {
+    background-color: var(--peach-pink);
+    border: .5px solid var(--peach-pink);
+}
+
+.homepage-footer-maininfo  .homepage-icon-box:hover a {
+    color: #FFFFFF;
+}
+
+.homepage-footer-maininfo .homepage-social-icon li a {
+    padding: 5px;
+}
+
+.homepage-footer-maininfo .homepage-app {
+    padding-top: 20px;
+}
+
+.homepage-footer-maininfo .homepage-qrcode button {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.homepage-footer-maininfo .homepage-qrcode .homepage-brand-iconbox {
+    width: 25px;
+    height: 25px;
+}
+
+.homepage-footer-maininfo .homepage-qrcode .homepage-brand-iconbox img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.homepage-footer-maininfo .homepage-qrcode button p {
+    padding-left: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.homepage-footer-maininfo .homepage-qrcode .homepage-qrcode-box {
+    width: 40px;
+    height: 40px;
+}
+
+.homepage-footer-maininfo .homepage-qrcode .homepage-qrcode-box img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.homepage-footer-container .homepage-footer-line {
+    border-top: .5px solid var(--light-gray);
+}
+
+.homepage-footer-container .homepage-copyright {
+    margin: 20px 0 10px 0;
+    font-size: 12px;
+    color: var(--dark-gray);
+}
+
+.homepage-footer-container .homepage-copyright .row {
+    justify-content: space-between;
+}
+
+.homepage-footer-container .homepage-copyright-slogan {
+    display: flex;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.homepage-footer-container .homepage-copyright-logo {
+    width: 30%;
+}
+
+.homepage-footer-container .homepage-copyright-logo img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.homepage-footer-container .homepage-copyright-slogan p {
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.homepage-footer-container .homepage-copyright-text {
+    display: flex;
+    align-items: center;
+}
+
+.homepage-copyright-text .homepage-lang {
+    margin: 20px 0 20px 28px;
+}
+
+.homepage-copyright-text #lang-select {
+    color: var(--dark-gray);
+    background-color: var(--light-pink);
+    border: none;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1200px) {
+    /* footer */
+    .homepage-footer-container .homepage-copyright-text {
+        justify-content: right;
+    }
+
+}
+
+@media screen and (min-width:1200px) {
+    /* footer */
+    .homepage-footer-container .homepage-copyright-text {
+        justify-content: right;
+    }
+
+    .homepage-footer-maininfo .homepage-footer-wrap:last-child {
+        display: flex;
+        flex-direction: column;
+        align-items: last baseline;
+        padding-top: 0;
+    }
+    .homepage-footer-maininfo .homepage-footer-wrap{
+        padding-top: 0px;
+    }
+}
