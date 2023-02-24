@@ -35,7 +35,7 @@
             vertical-align: middle;
         }
 
-        .store-banner{
+        .store-banner {
             padding-bottom: 20px;
         }
 
@@ -71,7 +71,6 @@
         .store-info-list .review-star {
             align-items: center;
             padding-left: 30px;
-            margin-top: 10px;
         }
 
         .store-info-list .review-star .fa-star {
@@ -161,6 +160,7 @@
                 margin-bottom: 10px;
                 margin-top: 0;
             }
+
             .store-actions-item .store-contact .btn {
                 width: 80%;
                 color: var(--dark-gray);
@@ -282,7 +282,7 @@
             padding-bottom: 20px;
         }
 
-        /* 設計師推薦商品------------------------------------------ */
+        /* 熱門商品------------------------------------------ */
         h2 {
             font-size: 20px;
             line-height: 1.6;
@@ -307,16 +307,8 @@
 
         .product-price {
             font-size: 15px;
-            padding: 10px 0;
             color: var(--main-pink);
-            display: flex;
-            flex-wrap: nowrap;
-        }
-
-        .product-price .org-price {
-            color: var(--light-gray);
-            text-decoration: line-through;
-            padding-left: 10px;
+            margin-bottom: 0;
         }
 
         .cart-icon {
@@ -494,7 +486,7 @@
             color: var(--main-pink);
         }
 
-        
+
 
 
         /* 桌機以下 */
@@ -523,8 +515,6 @@
                 display: none;
             }
         }
-
-
     </style>
 </head>
 
@@ -1410,11 +1400,11 @@
                 </div>
             </div>
         </div>
-        <!-- 設計師主打商品 ---------------------------------------------------------->
+        <!-- 熱門商品 ---------------------------------------------------------->
         <div class="pf-products-row row products-row">
-            <div class="designer-title">
+            <div class="product-title">
                 <div class="title-line"></div>
-                <h2>設計師主打設計</h2>
+                <h2>熱門商品</h2>
             </div>
             <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
                 <div class="pf-products-card products-card">
@@ -1428,13 +1418,11 @@
                         <div class="product-badge position-absolute top-0 start-0">9 折</div>
                         <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
                     </div>
-
                     <div class="pf-products-text products-text">
                         <h2><a href="#">黃銅戒指</a></h2>
                     </div>
-                    <div class="pf-product-price product-price">
+                    <div class="pf-product-price product-price fw-bolder">
                         <p>NT$5000</p>
-                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -1458,9 +1446,8 @@
                     <div class="pf-products-text products-text">
                         <h2><a href="#">黃銅戒指</a></h2>
                     </div>
-                    <div class="pf-product-price product-price">
+                    <div class="pf-product-price product-price fw-bolder">
                         <p>NT$5000</p>
-                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -1484,9 +1471,8 @@
                     <div class="pf-products-text products-text">
                         <h2><a href="#">黃銅戒指</a></h2>
                     </div>
-                    <div class="pf-product-price product-price">
+                    <div class="pf-product-price product-price fw-bolder">
                         <p>NT$5000</p>
-                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -1510,121 +1496,14 @@
                     <div class="pf-products-text products-text">
                         <h2><a href="#">黃銅戒指</a></h2>
                     </div>
-                    <div class="pf-product-price product-price">
+                    <div class="pf-product-price product-price fw-bolder">
                         <p>NT$5000</p>
-                        <p class="org-price">NT$ 5,555</p>
                     </div>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
-
                 </div>
             </div>
-            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
-                <div class="pf-products-card products-card">
-                    <div class="pf-products-pic position-relative products-pic">
-                        <!-- Button trigger modal 加入喜歡清單鈕 -->
-                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop2">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-                        <!-- 優惠券 -->
-                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
-                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
-                    </div>
-
-                    <div class="pf-products-text products-text">
-                        <h2><a href="#">黃銅戒指</a></h2>
-                    </div>
-                    <div class="pf-product-price product-price">
-                        <p>NT$5000</p>
-                        <p class="org-price">NT$ 5,555</p>
-                    </div>
-                    <div class="cart-icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-
-                </div>
-            </div>
-            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
-                <div class="pf-products-card products-card">
-                    <div class="pf-products-pic position-relative products-pic">
-                        <!-- Button trigger modal 加入喜歡清單鈕 -->
-                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop2">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-                        <!-- 優惠券 -->
-                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
-                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
-                    </div>
-
-                    <div class="pf-products-text products-text">
-                        <h2><a href="#">黃銅戒指</a></h2>
-                    </div>
-                    <div class="pf-product-price product-price">
-                        <p>NT$5000</p>
-                        <p class="org-price">NT$ 5,555</p>
-                    </div>
-                    <div class="cart-icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-
-                </div>
-            </div>
-            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
-                <div class="pf-products-card products-card">
-                    <div class="pf-products-pic position-relative products-pic">
-                        <!-- Button trigger modal 加入喜歡清單鈕 -->
-                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop2">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-                        <!-- 優惠券 -->
-                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
-                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
-                    </div>
-
-                    <div class="pf-products-text products-text">
-                        <h2><a href="#">黃銅戒指</a></h2>
-                    </div>
-                    <div class="pf-product-price product-price">
-                        <p>NT$5000</p>
-                        <p class="org-price">NT$ 5,555</p>
-                    </div>
-                    <div class="cart-icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-
-                </div>
-            </div>
-            <div class="pf-products-col col-6 col-md-3 col-lg-3 products-col">
-                <div class="pf-products-card products-card">
-                    <div class="pf-products-pic position-relative products-pic">
-                        <!-- Button trigger modal 加入喜歡清單鈕 -->
-                        <button type="button" class="btn position-absolute bottom-0 end-0" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop2">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-                        <!-- 優惠券 -->
-                        <div class="product-badge position-absolute top-0 start-0">9 折</div>
-                        <a href="#"><img src="https://picsum.photos/600/600/?random=10"></a>
-                    </div>
-
-                    <div class="pf-products-text products-text">
-                        <h2><a href="#">黃銅戒指</a></h2>
-                    </div>
-                    <div class="pf-product-price product-price">
-                        <p>NT$5000</p>
-                        <p class="org-price">NT$ 5,555</p>
-                    </div>
-                    <div class="cart-icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- pf-container------------------------- -->
@@ -2023,9 +1902,8 @@
                                     <div class="pf-products-text products-text">
                                         <h2><a href="#">黃銅戒指</a></h2>
                                     </div>
-                                    <div class="pf-product-price product-price">
+                                    <div class="pf-product-price product-price  fw-bolder">
                                         <p>NT$5000</p>
-                                        <p class="org-price">NT$ 5,555</p>
                                     </div>
                                     <div class="cart-icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
@@ -2047,9 +1925,8 @@
                                     <div class="pf-products-text products-text">
                                         <h2><a href="#">黃銅戒指</a></h2>
                                     </div>
-                                    <div class="pf-product-price product-price">
+                                    <div class="pf-product-price product-price fw-bolder">
                                         <p>NT$5000</p>
-                                        <p class="org-price">NT$ 5,555</p>
                                     </div>
                                     <div class="cart-icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
@@ -2071,9 +1948,8 @@
                                     <div class="pf-products-text products-text">
                                         <h2><a href="#">黃銅戒指</a></h2>
                                     </div>
-                                    <div class="pf-product-price product-price">
+                                    <div class="pf-product-price product-price fw-bolder">
                                         <p>NT$5000</p>
-                                        <p class="org-price">NT$ 5,555</p>
                                     </div>
                                     <div class="cart-icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
@@ -2095,9 +1971,8 @@
                                     <div class="pf-products-text products-text">
                                         <h2><a href="#">黃銅戒指</a></h2>
                                     </div>
-                                    <div class="pf-product-price product-price">
+                                    <div class="pf-product-price product-price fw-bolder">
                                         <p>NT$5000</p>
-                                        <p class="org-price">NT$ 5,555</p>
                                     </div>
                                     <div class="cart-icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
@@ -2119,9 +1994,8 @@
                                     <div class="pf-products-text products-text">
                                         <h2><a href="#">黃銅戒指</a></h2>
                                     </div>
-                                    <div class="pf-product-price product-price">
+                                    <div class="pf-product-price product-price fw-bolder">
                                         <p>NT$5000</p>
-                                        <p class="org-price">NT$ 5,555</p>
                                     </div>
                                     <div class="cart-icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
@@ -2143,9 +2017,8 @@
                                     <div class="pf-products-text products-text">
                                         <h2><a href="#">黃銅戒指</a></h2>
                                     </div>
-                                    <div class="pf-product-price product-price">
+                                    <div class="pf-product-price product-price fw-bolder">
                                         <p>NT$5000</p>
-                                        <p class="org-price">NT$ 5,555</p>
                                     </div>
                                     <div class="cart-icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
@@ -2167,9 +2040,8 @@
                                     <div class="pf-products-text products-text">
                                         <h2><a href="#">黃銅戒指</a></h2>
                                     </div>
-                                    <div class="pf-product-price product-price">
+                                    <div class="pf-product-price product-price fw-bolder">
                                         <p>NT$5000</p>
-                                        <p class="org-price">NT$ 5,555</p>
                                     </div>
                                     <div class="cart-icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
@@ -2191,9 +2063,8 @@
                                     <div class="pf-products-text products-text">
                                         <h2><a href="#">黃銅戒指</a></h2>
                                     </div>
-                                    <div class="pf-product-price product-price">
+                                    <div class="pf-product-price product-price fw-bolder">
                                         <p>NT$5000</p>
-                                        <p class="org-price">NT$ 5,555</p>
                                     </div>
                                     <div class="cart-icon">
                                         <i class="fa-solid fa-cart-shopping"></i>
